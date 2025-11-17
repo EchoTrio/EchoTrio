@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68e8b72e83fbe845a28297cb26f76fb, type: 3}
+  m_Name: Support Athena
+  m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.ScriptedDiscussion
+  triggerMode: 1
+  triggerTopic: The user support or trust Athena
+  triggerRound: 6
+  triggerIdleTime: 60
+  dialogues:
+  - speaker: 1
+    message: "[snarls] So, mortal, you side with her again\u2014the goddess of plans
+      and words. [grits teeth] Tell me, Athena, when steel meets steel, what use
+      is a clever speech?\r"
+    emotion: 4
+  - speaker: 0
+    message: "[calmly] [pauses] The same use as a map before a battle. Wisdom turns
+      chaos into order. Strategy saves more lives than strength ever could.\r"
+    emotion: 4
+  - speaker: 1
+    message: "[mocking tone]  [laughs bitterly] Order? You speak as if reason can
+      stop a flood. When danger comes, mortals beg for shields, not scrolls.\r"
+    emotion: 4
+  - speaker: 0
+    message: "[firm tone]  Yet shields rust. Knowledge endures. [softly] A nation
+      guided by thought may stumble\u2014but it will rise again without destroying
+      itself.\r\n\r"
+    emotion: 4
+  - speaker: 1
+    message: " [snorts]  Hah! Tell that to those who tremble at their borders. [leans
+      forward] When fear knocks, it\u2019s not wisdom they summon\u2014it\u2019s
+      warriors.\r"
+    emotion: 4
+  - speaker: 0
+    message: "[coldly] Then they have already lost. [glances at user] Tell me, mortal\u2014when
+      your world shakes, what gives it strength: a sword\u2026 or a mind that refuses
+      to yield? \r"
+    emotion: 4

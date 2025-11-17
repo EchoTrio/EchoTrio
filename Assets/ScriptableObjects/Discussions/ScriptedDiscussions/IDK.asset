@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68e8b72e83fbe845a28297cb26f76fb, type: 3}
+  m_Name: IDK
+  m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.ScriptedDiscussion
+  triggerMode: 1
+  triggerTopic: the user doesn't know whether trust or choose Athena or Poseidon.
+    or the user trusts both gods.
+  triggerRound: 5
+  triggerIdleTime: 60
+  dialogues:
+  - speaker: 0
+    message: "[scoffs softly] Uncertain? Even now?\n[icy tone] Mortals fear choosing\u2014how
+      predictable.\r"
+    emotion: 4
+  - speaker: 1
+    message: "[chuckles] Hah! See?\n[leans in] Indecision is just weakness wearing
+      a mask.\r"
+    emotion: 4
+  - speaker: 0
+    message: "[glares at him] Or the result of being pressured by a brute.\r"
+    emotion: 4
+  - speaker: 1
+    message: "[snorts] Better a brute than a coward.\r\r"
+    emotion: 4
+  - speaker: 0
+    message: "[sharp] Think again, traveler.\r\r\r"
+    emotion: 4
+  - speaker: 1
+    message: "[grins] Choose. Next time\u2014faster.\r\r\r\r"
+    emotion: 4

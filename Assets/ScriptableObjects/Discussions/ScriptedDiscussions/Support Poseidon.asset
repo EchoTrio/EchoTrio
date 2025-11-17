@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68e8b72e83fbe845a28297cb26f76fb, type: 3}
+  m_Name: Support Poseidon
+  m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.ScriptedDiscussion
+  triggerMode: 1
+  triggerTopic: The user support or trust Poseidon
+  triggerRound: 5
+  triggerIdleTime: 60
+  dialogues:
+  - speaker: 0
+    message: "[hisses]  So, you trust brute force over reason. [scoffs] You think
+      might can hold a nation together?\r"
+    emotion: 4
+  - speaker: 1
+    message: "[grins widely] [laughs] It always has. Power commands respect. When
+      waves crash loud enough, no one dares to invade.\r"
+    emotion: 4
+  - speaker: 0
+    message: "[restrained anger]  Respect born of fear is fragile. [cold tone] The
+      moment the tide turns, that power becomes terror.\r"
+    emotion: 4
+  - speaker: 1
+    message: " [taunting] [amused] Better to be feared than forgotten, sister. A
+      weak nation invites ruin. Strength\u2014real, visible strength\u2014keeps peace
+      alive.\r\r"
+    emotion: 4
+  - speaker: 0
+    message: " [sharp] And when that strength falters, what remains? [leans forward]
+      Fire and ruin. True peace grows from understanding, not domination.\r\r\r"
+    emotion: 4
+  - speaker: 1
+    message: "[low, intense] [growls] Understanding doesn\u2019t stop arrows. [turns
+      to user] Mortal, you live in a world of storms\u2014will you seek calm seas
+      through wisdom, or survive them with force?\r\r\r\r"
+    emotion: 4

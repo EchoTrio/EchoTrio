@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "name": "Buttons",
+    "maps": [
+        {
+            "name": "MicButton",
+            "id": "edf50886-fdae-4d36-9705-ac045d66a5f1",
+            "actions": [
+                {
+                    "name": "MicButton",
+                    "type": "Button",
+                    "id": "6be99dca-a542-4e7c-975c-8e08ee0c3bf4",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "6f288a70-2362-4862-8ec6-45cca92cb500",
+                    "path": "<XInputController>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MicButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cd4e1239-c2f5-4dbc-b8a0-18412686c95f",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MicButton",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

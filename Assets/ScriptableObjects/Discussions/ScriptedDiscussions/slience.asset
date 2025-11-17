@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68e8b72e83fbe845a28297cb26f76fb, type: 3}
+  m_Name: slience
+  m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.ScriptedDiscussion
+  triggerMode: 2
+  triggerTopic: 
+  triggerRound: 1
+  dialogues:
+  - speaker: 1
+    message: Hmph! Silence, eh? You mortals sometimes take too long to admire greatness.
+      Fear not, I shall fill the quiet!
+  - speaker: 0
+    message: "Poseidon, your storms may roar, yet even the loudest display cannot
+      match the quiet wonders of contemplation. Speaking of wonders\u2026 mortals
+      often journey to see sights that inspire awe. In my beloved Greece, from the
+      sunlit Acropolis to the gentle shores of the Aegean, every path tells a story.
+      Tell me, traveler \u2014 what places do you most enjoy visiting?"
+  - speaker: 1
+    message: "Hah! Greece is fine, but the islands \u2014 those are my pride. I prefer
+      places kissed by the sea. Tell me, traveler, do you love the ocean too?"

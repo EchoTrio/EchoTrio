@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68e8b72e83fbe845a28297cb26f76fb, type: 3}
+  m_Name: Ending
+  m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.ScriptedDiscussion
+  triggerMode: 2
+  triggerTopic: the user doesn't know whether trust Athena or Poseidon
+  triggerRound: 11
+  triggerIdleTime: 60
+  dialogues:
+  - speaker: 0
+    message: "[exhales sharply] Enough. [glares at Poseidon]\L Your storms drown
+      reason itself, Poseidon. [coldly] There\u2019s nothing left to discuss.\n [turns
+      slightly away, her eyes still burning] Olympus will hear of this.\r"
+    emotion: 4
+  - speaker: 1
+    message: "[snorts, scoffing laugh] Hah! [waves hand dismissively]\L Let Olympus
+      hear, then. [grins, eyes glinting] I\u2019ve never feared judgment from gods\u2014only
+      the stupidity of mortals.\L [leans closer to the user] You\u2019ve seen enough,
+      haven\u2019t you? Stay out of the affairs of the divine.\r"
+    emotion: 4
+  - speaker: 0
+    message: "[straightens, calm but seething]\L Wisdom does not waste itself on
+      arrogance. [pauses, then lowers voice, disdainful]\L Mortal\u2014remember this:
+      peace without thought is only silence before the storm.\r"
+    emotion: 4
+  - speaker: 1
+    message: "[snarls softly] Hmph. [steps back, sea mist rising around him]\L And
+      storms always return.\r\r"
+    emotion: 4
+  - speaker: 0
+    message: "[fading voice] The council will decide who truly protects this world.\r\r\r"
+    emotion: 4
+  - speaker: 1
+    message: "[laughs darkly as he vanishes] We\u2019ll see whose power speaks louder,
+      little sister.\r\r\r"
+    emotion: 4

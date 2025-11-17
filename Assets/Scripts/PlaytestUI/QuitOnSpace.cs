@@ -1,0 +1,15 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class RestartOnR : MonoBehaviour
+{
+    void Update()
+    {
+        //restart scene when R is pressed
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            //reload current scene
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+}
