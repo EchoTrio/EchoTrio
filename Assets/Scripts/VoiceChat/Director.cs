@@ -16,6 +16,9 @@ using Utilities.Audio;
 using Utilities.Encoding.Wav;
 
 namespace EchoTrio {
+    /// <summary>
+    /// AI Model that decides the order which the two actors reply, or to trigger a discussion based on the topic raised by the human user.
+    /// </summary>
     public class Director {
         public class Response {
             public string userTranscript = null;
