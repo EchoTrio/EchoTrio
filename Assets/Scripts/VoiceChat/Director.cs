@@ -80,6 +80,13 @@ namespace EchoTrio {
             _ = run(cancellationToken);
         }
 
+        /// <summary>
+        /// Listens for the next user input. This needs to be invoked at the start of every round, in order to let the director prepare for user input.
+        /// </summary>
+        /// <param name="config">The director configuration.</param>
+        /// <param name="speakers">The list of actors that are possibly speaking. The speaker order will be determined by choosing actors from this list.</param>
+        /// <param name="topics">Possible discussion topics to be triggered by the user input.</param>
+        /// <param name="cancellationToken">Cancellation token used to cancel any async actions when the program shuts down.</param>
         public async void ListenForNextUserInput(DirectorConfig config, List<string> speakers, List<string> topics, CancellationToken cancellationToken) {
             // Update director session configuration.
             this.config = config;
