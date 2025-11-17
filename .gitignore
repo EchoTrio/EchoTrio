@@ -105,3 +105,6 @@ InitTestScene*.unity*
 # Playtest Logs
 /[Aa]ssets/PlaytestLogs
 /[Aa]ssets/PlaytestLogs.meta
+
+# Authentication File
+/[Aa]ssets/StreamingAssets/Configs/Authentication.ini
