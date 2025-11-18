@@ -1,7 +1,7 @@
-using ElevenLabs;
 using IniParser;
 using IniParser.Model;
 using OpenAI;
+using ElevenLabs;
 using UnityEngine;
 
 namespace EchoTrio {
@@ -11,16 +11,16 @@ namespace EchoTrio {
         public static OpenAIAuthentication GetOpenAIAuthentication() {
             var parser = new FileIniDataParser();
             IniData data = parser.ReadFile($"{Application.streamingAssetsPath}/Configs/{FileName}");
-            string apiKey = data["OpenAI Authentication"]["api_key"];
-            string orgKey = data["OpenAI Authentication"]["org_key"];
-            string projKey = data["OpenAI Authentication"]["proj_key"];
+            string apiKey = data["OpenAI"]["api_key"];
+            string orgKey = data["OpenAI"]["org_key"];
+            string projKey = data["OpenAI"]["proj_key"];
             return new OpenAIAuthentication(apiKey, orgKey, projKey);
         }
 
         public static ElevenLabsAuthentication GetElevenLabsAuthentication() {
-            var parser = new FileIniDataParser();
+            FileIniDataParser parser = new FileIniDataParser();
             IniData data = parser.ReadFile($"{Application.streamingAssetsPath}/Configs/{FileName}");
-            string apiKey = data["ElevenLabs Authentication"]["api_key"];
+            string apiKey = data["ElevenLabs"]["api_key"];
             return new ElevenLabsAuthentication(apiKey);
         }
     }

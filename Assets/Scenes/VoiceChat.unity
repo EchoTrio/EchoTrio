@@ -270,9 +270,6 @@ MonoBehaviour:
     audioSource: {fileID: 1598031280}
   discussions:
   - {fileID: 11400000, guid: efdaa45205794c84394ff715d57aca29, type: 2}
-  - {fileID: 11400000, guid: 52792e68e2d0f624eb1f8844995ad91b, type: 2}
-  - {fileID: 11400000, guid: 9e5b41fd97f6b1e45a0d9d16c1552adf, type: 2}
-  - {fileID: 11400000, guid: dc1b85a2564886743b08990433d134ba, type: 2}
   enableDebug: 1
   showReasoning: 1
 --- !u!1 &308598389
@@ -1647,6 +1644,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2111290351932239782, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111290351932239782, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4192099825202739650, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}

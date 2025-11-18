@@ -27,17 +27,19 @@ namespace EchoTrio {
             public List<OpenAI.Tool> tools = new List<Tool>();
 
             public OpenAISettings(ActorConfig config) {
-                reasoningEffort = config.AreFeaturesEnabled(ActorConfig.Feature.WebSearch | ActorConfig.Feature.FileSearch | ActorConfig.Feature.Reasoning) ? ReasoningEffort.Low : ReasoningEffort.Minimal;
-                if (config.AreFeaturesEnabled(ActorConfig.Feature.WebSearch)) {
+                reasoningEffort = config.IsAnyFeatureEnabled(ActorConfig.Feature.WebSearch | ActorConfig.Feature.FileSearch | ActorConfig.Feature.Reasoning) ? ReasoningEffort.Low : ReasoningEffort.Minimal;
+
+                if (config.AreAllFeaturesEnabled(ActorConfig.Feature.WebSearch)) {
                     tools.Add(new WebSearchPreviewTool(SearchContextSize.Low)); // User Location: Optional Free Text City, ISO 3166-1 Country Code, Free Text State/Region, IANA Time Zone
                     include.Add("web_search_call.action.sources");
                 }
-                if (config.AreFeaturesEnabled(ActorConfig.Feature.FileSearch)) {
-                    if (config.openAIFileSearchVectorStoreId != string.Empty) {
-                        tools.Add(new FileSearchTool(config.openAIFileSearchVectorStoreId, maxNumberOfResults: 2));
+                
+                if (config.AreAllFeaturesEnabled(ActorConfig.Feature.FileSearch)) {
+                    if (config.GetOpenAIVectorStoreID() != string.Empty) {
+                        tools.Add(new FileSearchTool(config.GetOpenAIVectorStoreID(), maxNumberOfResults: 2));
                         include.Add("file_search_call.results");
                     } else {
-                        Debug.LogWarning($"Actor {config.persona} has file search enabled but an empty file search vector store ID was provided!");
+                        Debug.LogWarning($"Actor {config.GetPersona()} has file search enabled but an empty file search vector store ID was provided!");
                     }
                 }
             }
@@ -49,8 +51,8 @@ namespace EchoTrio {
             public string voiceId = string.Empty;
 
             public ElevenLabsSettings(ActorConfig config) {
-                model = config.AreFeaturesEnabled(ActorConfig.Feature.AudioTags) ? new("eleven_v3") : ElevenLabs.Models.Model.FlashV2_5;
-                voiceId = config.elevenLabsVoiceId;
+                model = config.AreAllFeaturesEnabled(ActorConfig.Feature.AudioTags) ? new("eleven_v3") : ElevenLabs.Models.Model.FlashV2_5;
+                voiceId = config.GetElevenLabsVoiceID();
             }
         }
 
@@ -70,7 +72,9 @@ namespace EchoTrio {
         public bool EnableDebug { get; set; } = false;
 
         public Actor(ActorConfig config) {
-            this.Persona = config.persona.ToString();
+            // Check for config overrides.
+            config = config.Override();
+            Persona = config.GetPersona().ToString();
 
             // Initialise OpenAI
             openAISettings = new OpenAISettings(config);
