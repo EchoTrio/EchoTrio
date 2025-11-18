@@ -15,9 +15,10 @@ MonoBehaviour:
   triggerMode: 2
   triggerTopic: 
   triggerRound: 3
-  triggerIdleTime: 60
+  triggerIdleTime: 1
   minRounds: 1
   maxRounds: 2
   speakers: 0000000001000000
   discussionPrompt: Athena and Poseidon start to disagree with each other based on
-    dialogues.
+    dialogues. If the user doesn't input anything, make the dialogue as short as
+    possible.

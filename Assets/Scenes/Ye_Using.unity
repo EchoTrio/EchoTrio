@@ -269,7 +269,7 @@ MonoBehaviour:
   - actorConfig: {fileID: 11400000, guid: f91cde7d04721784f952de6d05dcfe6b, type: 2}
     audioSource: {fileID: 1598031280}
   discussions:
-  - {fileID: 11400000, guid: efdaa45205794c84394ff715d57aca29, type: 2}
+  - {fileID: 11400000, guid: 506f2b349799d984c879fe10cc6d91c3, type: 2}
   - {fileID: 11400000, guid: 23e8703a9a51a464089408d1d2c18f60, type: 2}
   - {fileID: 11400000, guid: 04c9a84dfe4f5974387d5fb2ac916aa7, type: 2}
   - {fileID: 11400000, guid: 17a1d4fd4fb9d59419b3541c73847fb4, type: 2}
@@ -278,6 +278,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 318193a7b5dceaa4cb1a9dd4838c71df, type: 2}
   - {fileID: 11400000, guid: c1676d7d429016e44825db0edc7a499d, type: 2}
   - {fileID: 11400000, guid: 474e181ffaf01bc48a1df99e326487b1, type: 2}
+  - {fileID: 11400000, guid: ee91434d0090d6146aabe3f751eb6e9b, type: 2}
   enableDebug: 1
   showReasoning: 1
 --- !u!1 &308598389

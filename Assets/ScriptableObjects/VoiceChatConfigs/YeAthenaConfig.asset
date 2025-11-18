@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: YeAthenaConfig
   m_EditorClassIdentifier: Assembly-CSharp::Persona
   persona: 0
-  elevenLabsVoiceId: EXAVITQu4vr4xnSDxMaL
   enabledFeatures: 0
-  openAIFileSearchVectorStoreId: vs_68d448a067bc8191b21246e5b8be0957
+  elevenLabsVoiceId: 9PR1QFaCRgWAL2h6aCPY
+  openAIVectorStoreId: 
   generalInstructions: "You are role playing the greek goddess Athena, in a 3-way
     conversation with a human user and another AI playing the greek god Poseidon.\n\nAny
     message you receive with the prefix @User is from the human user. Any message

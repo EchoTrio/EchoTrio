@@ -18,30 +18,19 @@ MonoBehaviour:
   triggerIdleTime: 60
   dialogues:
   - speaker: 1
-    message: "[snarls] So, mortal, you side with her again\u2014the goddess of plans
-      and words. [grits teeth] Tell me, Athena, when steel meets steel, what use
-      is a clever speech?\r"
+    message: " [snarls]: So, mortal, siding with her again?\L Tell me, Athena\u2014when
+      blades clash, what use are your clever speeches?\r"
     emotion: 4
   - speaker: 0
-    message: "[calmly] [pauses] The same use as a map before a battle. Wisdom turns
-      chaos into order. Strategy saves more lives than strength ever could.\r"
+    message: " [coldly]: The same as a map before war.\L Wisdom shapes victory long
+      before strength arrives."
     emotion: 4
   - speaker: 1
-    message: "[mocking tone]  [laughs bitterly] Order? You speak as if reason can
-      stop a flood. When danger comes, mortals beg for shields, not scrolls.\r"
-    emotion: 4
-  - speaker: 0
-    message: "[firm tone]  Yet shields rust. Knowledge endures. [softly] A nation
-      guided by thought may stumble\u2014but it will rise again without destroying
-      itself.\r\n\r"
+    message: " [mocking laugh]: Hah! Reason can't stop a flood.\L When fear rises,
+      mortals beg for warriors\u2014not thinkers."
     emotion: 4
   - speaker: 1
     message: " [snorts]  Hah! Tell that to those who tremble at their borders. [leans
       forward] When fear knocks, it\u2019s not wisdom they summon\u2014it\u2019s
       warriors.\r"
-    emotion: 4
-  - speaker: 0
-    message: "[coldly] Then they have already lost. [glances at user] Tell me, mortal\u2014when
-      your world shakes, what gives it strength: a sword\u2026 or a mind that refuses
-      to yield? \r"
     emotion: 4

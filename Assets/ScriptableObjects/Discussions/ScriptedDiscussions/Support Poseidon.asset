@@ -18,28 +18,19 @@ MonoBehaviour:
   triggerIdleTime: 60
   dialogues:
   - speaker: 0
-    message: "[hisses]  So, you trust brute force over reason. [scoffs] You think
-      might can hold a nation together?\r"
+    message: "[hisses]: So, you trust brute force over reason?\L [cold scoff] You
+      truly think might alone can hold a nation together?\r"
     emotion: 4
   - speaker: 1
-    message: "[grins widely] [laughs] It always has. Power commands respect. When
-      waves crash loud enough, no one dares to invade.\r"
+    message: " [grins]: [laughs] It always has.\L Power commands respect\u2014when
+      waves roar loud enough, no one dares invade.\r"
     emotion: 4
   - speaker: 0
-    message: "[restrained anger]  Respect born of fear is fragile. [cold tone] The
-      moment the tide turns, that power becomes terror.\r"
+    message: "[icy, restrained anger]: Respect born of fear shatters fast.\L When
+      that tide turns, strength becomes terror, not safety.\r"
     emotion: 4
   - speaker: 1
-    message: " [taunting] [amused] Better to be feared than forgotten, sister. A
-      weak nation invites ruin. Strength\u2014real, visible strength\u2014keeps peace
-      alive.\r\r"
-    emotion: 4
-  - speaker: 0
-    message: " [sharp] And when that strength falters, what remains? [leans forward]
-      Fire and ruin. True peace grows from understanding, not domination.\r\r\r"
-    emotion: 4
-  - speaker: 1
-    message: "[low, intense] [growls] Understanding doesn\u2019t stop arrows. [turns
-      to user] Mortal, you live in a world of storms\u2014will you seek calm seas
-      through wisdom, or survive them with force?\r\r\r\r"
+    message: "[low, intense]: [growls] Terror still stops arrows.\L [turns to user]
+      Mortal\u2014when storms rise, do you seek peace through wisdom\u2026 or survive
+      through force?.\r\r"
     emotion: 4
