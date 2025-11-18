@@ -1,7 +1,7 @@
-using IniParser;
-using IniParser.Model;
-using ElevenLabs;
+using System;
+using Microsoft.Extensions.Configuration;
 using UnityEngine;
+using static UnityEngine.Rendering.DebugUI;
 
 namespace EchoTrio {
     [CreateAssetMenu(fileName = "ActorConfig", menuName = "EchoTrio/ActorConfig")]
@@ -27,7 +27,7 @@ namespace EchoTrio {
         [SerializeField] private Feature enabledFeatures = Feature.WebSearch | Feature.FileSearch | Feature.Reasoning | Feature.AudioTags;
         [SerializeField] private string elevenLabsVoiceId = string.Empty;
         [SerializeField] private string openAIVectorStoreId = string.Empty;
-        
+
         [Header("Instructions")]
         [SerializeField, TextArea(minLines: 16, maxLines: 32)] private string generalInstructions = string.Empty;
         [SerializeField] private InstructionSnippet[] contextInfos = new InstructionSnippet[0];
@@ -61,34 +61,58 @@ namespace EchoTrio {
         /// </summary>
         /// <returns>Returns a copy of this ActorConfig with values overridden.</returns>
         public ActorConfig Override() {
-            FileIniDataParser parser = new FileIniDataParser();
-            IniData data = parser.ReadFile($"{Application.streamingAssetsPath}/Configs/{OverrideFileName}");
-
             ActorConfig overriddenConfig = Instantiate(this);
-            string section = persona.ToString();
+
+            string filePath = $"{Application.streamingAssetsPath}/Configs/{OverrideFileName}";
+            IConfiguration config = new ConfigurationBuilder().AddIniFile(filePath).Build();
+            IConfigurationSection section = config.GetSection(persona.ToString());
+
+            // We cannot proceed if the section does not exist.
+            if (section == null) {
+                Debug.LogWarning($"Section {persona.ToString()} not found in {filePath}!");
+                return overriddenConfig;
+            }
+
+            // Define a helper function.
+            Func<string, string> GetValue = (string key) => { return section[key] == null ? string.Empty : section[key].Trim(); };
             string value = string.Empty;
 
             // Override OpenAI Vector Store ID
-            if (data.TryGetKey($"{section}.openai_vector_store_id", out value) && !string.IsNullOrEmpty(value.Trim())) {
-                overriddenConfig.openAIVectorStoreId = value.Trim();
+            value = GetValue("openai_vector_store_id");
+            if (!string.IsNullOrEmpty(value)) {
+                Debug.Log($"Overrode {persona.ToString()}'s OpenAI Vector Store ID.");
+                overriddenConfig.openAIVectorStoreId = value;
             }
 
             // Override ElevenLabs Voice ID
-            if (data.TryGetKey($"{section}.elevenlabs_voice_id", out value) && !string.IsNullOrEmpty(value.Trim())) {
+            value = GetValue("elevenlabs_voice_id");
+            if (!string.IsNullOrEmpty(value)) {
+                Debug.Log($"Overrode {persona.ToString()}'s ElevenLabs Voice ID.");
                 overriddenConfig.elevenLabsVoiceId = value.Trim();
             }
 
             // Override Features
-            if (data.TryGetKey($"{section}.feature_web_search", out value) && !string.IsNullOrEmpty(value.Trim()) && value.Trim().ToUpper() == "TRUE") {
+            value = GetValue("feature_web_search");
+            if (!string.IsNullOrEmpty(value) && value.ToUpper() == "TRUE") {
+                Debug.Log($"Overrode {persona.ToString()}'s Web Search Feature Setting.");
                 overriddenConfig.enabledFeatures |= Feature.WebSearch;
             }
-            if (data.TryGetKey($"{section}.feature_file_search", out value) && !string.IsNullOrEmpty(value.Trim()) && value.Trim().ToUpper() == "TRUE") {
+
+            value = GetValue("feature_file_search");
+            if (!string.IsNullOrEmpty(value) && value.ToUpper() == "TRUE") {
+                Debug.Log($"Overrode {persona.ToString()}'s File Search Feature Setting.");
                 overriddenConfig.enabledFeatures |= Feature.FileSearch;
             }
-            if (data.TryGetKey($"{section}.feature_reasoning", out value) && !string.IsNullOrEmpty(value.Trim()) && value.Trim().ToUpper() == "TRUE") {
+
+            value = GetValue("feature_reasoning");
+            if (!string.IsNullOrEmpty(value) && value.ToUpper() == "TRUE") {
+                Debug.Log($"Overrode {persona.ToString()}'s Reasoning Feature Setting.");
                 overriddenConfig.enabledFeatures |= Feature.Reasoning;
             }
-            if (data.TryGetKey($"{section}.feature_audio_tags", out value) && !string.IsNullOrEmpty(value.Trim()) && value.Trim().ToUpper() == "TRUE") {
+
+            value = GetValue("feature_audio_tags");
+            if (!string.IsNullOrEmpty(value) && value.ToUpper() == "TRUE") {
+                Debug.Log($"Overrode {persona.ToString()}'s Audio Tags Feature Setting.");
                 overriddenConfig.enabledFeatures |= Feature.AudioTags;
             }
 

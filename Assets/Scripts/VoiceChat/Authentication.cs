@@ -1,26 +1,25 @@
-using IniParser;
-using IniParser.Model;
 using OpenAI;
 using ElevenLabs;
 using UnityEngine;
+using Microsoft.Extensions.Configuration;
 
 namespace EchoTrio {
     public class Authentication {
         private const string FileName = "Authentication.ini";
 
         public static OpenAIAuthentication GetOpenAIAuthentication() {
-            var parser = new FileIniDataParser();
-            IniData data = parser.ReadFile($"{Application.streamingAssetsPath}/Configs/{FileName}");
-            string apiKey = data["OpenAI"]["api_key"];
-            string orgKey = data["OpenAI"]["org_key"];
-            string projKey = data["OpenAI"]["proj_key"];
+            IConfiguration config = new ConfigurationBuilder().AddIniFile($"{Application.streamingAssetsPath}/Configs/{FileName}").Build();
+            IConfigurationSection section = config.GetSection("OpenAI");
+            string apiKey = section["api_key"];
+            string orgKey = section["org_key"];
+            string projKey = section["proj_key"];
             return new OpenAIAuthentication(apiKey, orgKey, projKey);
         }
 
         public static ElevenLabsAuthentication GetElevenLabsAuthentication() {
-            FileIniDataParser parser = new FileIniDataParser();
-            IniData data = parser.ReadFile($"{Application.streamingAssetsPath}/Configs/{FileName}");
-            string apiKey = data["ElevenLabs"]["api_key"];
+            IConfiguration config = new ConfigurationBuilder().AddIniFile($"{Application.streamingAssetsPath}/Configs/{FileName}").Build();
+            IConfigurationSection section = config.GetSection("ElevenLabs");
+            string apiKey = section["api_key"];
             return new ElevenLabsAuthentication(apiKey);
         }
     }
