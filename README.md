@@ -2,7 +2,8 @@
 
 API Documentation: https://echotrio.github.io/EchoTrio/
 
-# Authentication.ini Template
+# Authentication.ini Template 
+Create a file named `Authentication.ini` in `Assets/StreamingAssets/Configs` and paste in this template.
 ```
 [OpenAI]
 api_key = Your_API_Key
