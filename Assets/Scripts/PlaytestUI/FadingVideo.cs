@@ -3,17 +3,35 @@ using UnityEngine;
 public class FadingVideo : MonoBehaviour
 {
     public float duration = 5f; // how long the fade lasts
+    public GameObject objectToEnable; // assign in Inspector
 
     private Material mat;
     private Color originalColor;
+    private bool hasStartedFade = false;
 
     void Start()
     {
-        // get a unique material instance
         mat = GetComponent<Renderer>().material;
         originalColor = mat.color;
 
-        StartCoroutine(FadeOut());
+        //optional: start with object disabled
+        if (objectToEnable != null)
+            objectToEnable.SetActive(false);
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P) && !hasStartedFade)
+        {
+            hasStartedFade = true;
+
+            //enable the object
+            if (objectToEnable != null)
+                objectToEnable.SetActive(true);
+
+            //start fading
+            StartCoroutine(FadeOut());
+        }
     }
 
     private System.Collections.IEnumerator FadeOut()
@@ -33,7 +51,7 @@ public class FadingVideo : MonoBehaviour
             yield return null;
         }
 
-        // ensure alpha is exactly zero at the end
+        // ensure exactly zero alpha at end
         Color final = mat.color;
         final.a = 0f;
         mat.color = final;

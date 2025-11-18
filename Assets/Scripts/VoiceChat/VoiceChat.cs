@@ -36,6 +36,7 @@ namespace EchoTrio {
         [SerializeField] private Chatbox chatbox = null;
         [SerializeField] private SpriteSwitcher micMuteButton = null;
         [SerializeField] private SpriteSwitcher listeningIcon = null;
+        [SerializeField] private SpriteSwitcher listeningIcon2 = null;
         [SerializeField] private TMPro.TextMeshProUGUI roundCounterText = null;
         [SerializeField] private TMPro.TextMeshProUGUI idleTimerText = null;
 
@@ -154,6 +155,7 @@ namespace EchoTrio {
 
             // Update GUI.
             if (listeningIcon != null) { listeningIcon.SetSprite(director.IsListening ? 1 : 0); }
+            if (listeningIcon2 != null) { listeningIcon2.SetSprite(director.IsListening ? 1 : 0); }
             if (micMuteButton != null) { micMuteButton.SetSprite(director.IsMicMuted ? 1 : 0); }
 
             // Cleanup finished audio clips.
