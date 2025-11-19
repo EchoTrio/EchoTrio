@@ -256,6 +256,11 @@ namespace EchoTrio {
             Debug.Log("Shutting down audio thread...");
         }
 
+        /// <summary>
+        /// Send the message received from one actor, to all the other actors.
+        /// </summary>
+        /// <param name="speaker">The actor that the message was received from.</param>
+        /// <param name="message">The message text.</param>
         private void PropogateActorMessage(Actor speaker, string message) {
             foreach (var item in actors) {
                 Actor actor = item.Value.Item1;
