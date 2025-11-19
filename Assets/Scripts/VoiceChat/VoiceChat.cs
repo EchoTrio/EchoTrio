@@ -100,6 +100,8 @@ namespace EchoTrio {
             return false;
         }
 
+        public int GetRoundCounter() { return roundCounter; }
+
         // Internal Functions
         private void Awake() {
             // Initialise Input
