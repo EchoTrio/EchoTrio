@@ -5,6 +5,9 @@ using TMPro;
 using UnityEngine;
 
 namespace EchoTrio {
+    /// <summary>
+    /// A MonoBehaviour class that acts as the intermediary between the human user and AI models.
+    /// </summary>
     public class VoiceChat : MonoBehaviour {
         private enum State { Invalid = -1, Prepare, Wait, Listen, Speak, Discuss, Num }
 
@@ -73,23 +76,28 @@ namespace EchoTrio {
         private Queue<string> speakerQueue = new Queue<string>();
 
         // Public Interfaces
+        /// Toggle the director's microphone on or off.
         public void ToggleMicMute() {
             director.IsMicMuted = !director.IsMicMuted;
             if (director.IsMicMuted) { idleTimer = 0.0f; }
         }
 
+        /// Toggle the chatbox to be active or inactive.
         public void ToggleChatbox() {
             chatbox.gameObject.SetActive(!chatbox.gameObject.activeSelf);
             chatbox.ScrollToBottom();
         }
 
+        /// Reset the idle timer, usually invoked whenever there's any input by the user, such as typing something into the chatbox, or unmuting the microphone.
         public void ResetIdleTimer() { idleTimer = 0.0f; }
 
         public bool SubmitUserTextInput(string message) {
-            if (fsm.GetCurrentState() != (int)State.Listen) return false;
+            if (fsm.GetCurrentState() == (int)State.Listen) {
+                director.SubmitUserTextInput(message, destroyCancellationToken);
+                return true;
+            }
 
-            director.SubmitUserTextInput(message, destroyCancellationToken);
-            return true;
+            return false;
         }
 
         // Internal Functions
@@ -131,6 +139,7 @@ namespace EchoTrio {
         }
 
         private void OnEnable() {
+            // Enable input actions.
             gameInputActions.Enable();
             gameInputActions.VoiceChat.PushToTalk.started += OnPushToTalkStarted;
             gameInputActions.VoiceChat.PushToTalk.canceled += OnPushToTalkCancelled;
@@ -138,6 +147,7 @@ namespace EchoTrio {
         }
 
         private void OnDisable() {
+            // Disable input actions.
             gameInputActions.Disable();
             gameInputActions.VoiceChat.PushToTalk.started -= OnPushToTalkStarted;
             gameInputActions.VoiceChat.PushToTalk.canceled -= OnPushToTalkCancelled;
