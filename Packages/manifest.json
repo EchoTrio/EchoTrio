@@ -59,13 +59,6 @@
       "scopes": [
         "com.rest.elevenlabs"
       ]
-    },
-    {
-      "name": "CMU ETC",
-      "url": "https://upm.etc.cmu.edu",
-      "scopes": [
-        "com.spelunx"
-      ]
     }
   ]
 }

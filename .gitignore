@@ -129,3 +129,5 @@ InitTestScene*.unity*
 
 # Ignore ORBBEC Lib Package Temporarily
 /Packages/com.spelunx.cavern.orbbec.libs
+# ORBBEC logs
+Log/OrbbecSDK.log.txt
