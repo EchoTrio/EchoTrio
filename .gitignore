@@ -107,6 +107,9 @@ InitTestScene*.unity*
 # Visual Studio
 /.vsconfig
 
+# No idea what the fuck this is, but I don't want this shit in my repo.
+*.slnx
+
 # ******************************* EchoTrio *******************************
 # Playtest Logs
 /[Aa]ssets/PlaytestLogs
@@ -115,3 +118,14 @@ InitTestScene*.unity*
 # Authentication File
 /[Aa]ssets/StreamingAssets/Configs/Authentication.ini
 /[Aa]ssets/StreamingAssets/Configs/Authentication.ini.meta
+
+# ORBBEC Library Binaries
+/directml.dll
+/dnn_model_2_0_op11.onnx
+/onnxruntime.dll
+/onnxruntime_providers_cuda.dll
+/onnxruntime_providers_shared.dll
+/onnxruntime_providers_tensorrt.dll
+
+# Ignore ORBBEC Lib Package Temporarily
+/Packages/com.spelunx.cavern.orbbec.libs
