@@ -199,7 +199,12 @@ namespace EchoTrio {
             }
         }
 
+        /// <summary>
+        /// Launch an audio thread via Coroutine to play any queued audio from the actors.
+        /// </summary>
+        /// <returns>An IEnumerator for Coroutine.</returns>
         private IEnumerator AudioThread() {
+            // We do not put this in the main thread because it is an infinite loop and we don't want to hang the main thread.
             Debug.Log("Starting audio thread...");
 
             AudioSource playingAudioSource = null;
