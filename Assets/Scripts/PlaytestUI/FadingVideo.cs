@@ -4,6 +4,9 @@ public class FadingVideo : MonoBehaviour
 {
     public float duration = 5f; // how long the fade lasts
     public GameObject objectToEnable; // assign in Inspector
+    // commit#1
+    // commit#2
+    // commit#3
 
     private Material mat;
     private Color originalColor;
