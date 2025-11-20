@@ -2,6 +2,7 @@
 using System;
 
 namespace EchoTrio {
+    /// Personas the actors will role-play.
     public enum Persona {
         Athena,
         Poseidon,
