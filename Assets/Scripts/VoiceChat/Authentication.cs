@@ -5,6 +5,7 @@ using UnityEngine;
 using Microsoft.Extensions.Configuration;
 
 namespace EchoTrio {
+    /// Helper class to load the authentication file and retrieve API keys.
     public class Authentication {
         private const string FileName = "Authentication.ini";
 

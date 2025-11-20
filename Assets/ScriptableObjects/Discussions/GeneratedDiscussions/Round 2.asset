@@ -16,8 +16,8 @@ MonoBehaviour:
   triggerTopic: 
   triggerRound: 5
   triggerIdleTime: 60
-  minRounds: 1
-  maxRounds: 2
+  minTurns: 1
+  maxTurns: 2
   speakers: 0000000001000000
   discussionPrompt: Athena and Poseidon start to fight. Their relationship starts
     to be extremely terrible. They will shout with each other.

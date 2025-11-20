@@ -348,7 +348,7 @@ namespace EchoTrio {
             // If there is a discussion to be triggered, trigger it instead of asking the director to listen.
             for (int i = 0; i < untriggeredDiscussions.Count; ++i) {
                 Discussion discussion = untriggeredDiscussions[i];
-                if (discussion.HasTriggerModes(Discussion.TriggerMode.Round) &&
+                if (discussion.HasAllTriggerModes(Discussion.TriggerMode.Round) &&
                     discussion.GetTriggerRound() <= roundCounter) {
                     discussionQueue.Enqueue(discussion);
                     untriggeredDiscussions.RemoveAt(i);
@@ -384,7 +384,7 @@ namespace EchoTrio {
 
             // Let the director know which discussions it can trigger based on topic.
             List<string> topics = untriggeredDiscussions.
-                Where(d => d.HasTriggerModes(Discussion.TriggerMode.Topic)).
+                Where(d => d.HasAllTriggerModes(Discussion.TriggerMode.Topic)).
                 Select(d => d.GetTriggerTopic()).ToList();
 
             // Get the direction to listen for user input.
@@ -405,7 +405,7 @@ namespace EchoTrio {
             // Check if we should trigger any idle discussions if the user has not given any input after a while. This ends the round.
             for (int i = 0; i < untriggeredDiscussions.Count; ++i) {
                 Discussion discussion = untriggeredDiscussions[i];
-                if (discussion.HasTriggerModes(Discussion.TriggerMode.IdleTime) &&
+                if (discussion.HasAllTriggerModes(Discussion.TriggerMode.IdleTime) &&
                     discussion.GetTriggerIdleTime() + idleTimerBuffer <= idleTimer) {
                     // We need an additional idleTimerBuffer to ensure that the idle timer is at least 10 seconds.
                     // This is because even if the user says something and stop speaking, it takes 2 seconds of silence for the Director to sense that the user is done.
