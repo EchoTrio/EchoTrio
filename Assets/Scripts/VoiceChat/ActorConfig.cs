@@ -1,4 +1,4 @@
-// By Terri Lim, CMU ETC Class of 2026. Last updated by me in November 2025. Feel free to judge any code up till then.
+// By Terri Lim, CMU ETC Class of 2026. Last updated by me in December 2025. Feel free to judge any code up till then.
 using System;
 using Microsoft.Extensions.Configuration;
 using UnityEngine;

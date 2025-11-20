@@ -1,4 +1,4 @@
-// By Terri Lim, CMU ETC Class of 2026. Last updated by me in November 2025. Feel free to judge any code up till then.
+// By Terri Lim, CMU ETC Class of 2026. Last updated by me in December 2025. Feel free to judge any code up till then.
 using System;
 using System.Buffers;
 using System.Collections.Generic;
@@ -17,9 +17,9 @@ using Utilities.Audio;
 using Utilities.Encoding.Wav;
 
 namespace EchoTrio {
-    /// <summary>
-    /// AI Model that decides the order which the two actors reply, or to trigger a discussion based on the topic raised by the human user.
-    /// </summary>
+    /// The director is the OpenAI Realtime model whose main function is to listen to the user's speech and decides the order in which the actors reply.
+    /// For example, Athena can speak first, or Poseidon can speak first, or only one of them replies.
+    /// The director has a secondary function of triggering a Discussion if the user mentions certain topics.
     public class Director {
         public class Response {
             public string userTranscript = null;
@@ -51,6 +51,9 @@ namespace EchoTrio {
             api = new OpenAIClient(Authentication.GetOpenAIAuthentication()) { EnableDebug = this.EnableDebug };
         }
 
+        /// Initialise the director and connect to OpenAI's server.
+        /// <param name="onDirectorResponse">The callback to invoke when the director has a response ready.</param>
+        /// <param name="cancellationToken">Cancellation token used to cancel any async actions when the program shuts down.</param>
         public void Initialise(UnityAction<Director.Response> onDirectorResponse, CancellationToken cancellationToken) {
             // Set the callback to inform the VoiceChat system whenever a director response is ready.
             this.onDirectorResponse = onDirectorResponse;
@@ -81,9 +84,7 @@ namespace EchoTrio {
             _ = run(cancellationToken);
         }
 
-        /// <summary>
         /// Listens for the next user input. This needs to be invoked at the start of every round, in order to let the director prepare for user input.
-        /// </summary>
         /// <param name="config">The director configuration.</param>
         /// <param name="speakers">The list of actors that are possibly speaking. The speaker order will be determined by choosing actors from this list.</param>
         /// <param name="topics">Possible discussion topics to be triggered by the user input.</param>
@@ -105,8 +106,12 @@ namespace EchoTrio {
             inputMode = InputMode.VoiceInput;
         }
 
+        /// Stop listening for user input.
         public void StopListening() { IsListening = false; }
 
+        /// Submit the user text input. Used as an alternative to speaking into the microphone, usually for development & debugging purposes.
+        /// <param name="message">The user text input.</param>
+        /// <param name="cancellationToken">Cancellation token used to cancel any async actions when the program shuts down.</param>
         public async void SubmitUserTextInput(string message, CancellationToken cancellationToken) {
             if (!IsListening) return;
 
@@ -204,6 +209,7 @@ namespace EchoTrio {
             }
         }
 
+        /// If the director's response is ready, invoke the response callback.
         private void InvokeOnDirectorResponse() {
             if (response != null && response.Done) {
                 onDirectorResponse?.Invoke(response);
@@ -211,6 +217,8 @@ namespace EchoTrio {
             }
         }
 
+        /// Callback function to receive events from OpenAI.
+        /// <param name="event">The event received from OpenAI.</param>
         private void OnServerEvent(IServerEvent @event) {
             switch (@event) {
                 case RealtimeEventError error: throw error;
@@ -266,6 +274,10 @@ namespace EchoTrio {
         }
 
         // Director Tools
+        /// Create a function following OpenAI's JSON Schema for the director to decide upon the speaker order.
+        /// See also: <see href="https://platform.openai.com/docs/guides/function-calling">OpenAI API on function calling</see>.
+        /// <param name="speakers">The names of the speakers.</param>
+        /// <returns>The function's JSON Object.</returns>
         private OpenAI.Function BuildTriggerResponseTool(List<string> speakers) {
             var args = new {
                 type = "object",
@@ -288,6 +300,9 @@ namespace EchoTrio {
             return new OpenAI.Function("trigger_response", "Triggers the AI models to respond to the user. No output is given.", JToken.Parse(parameters));
         }
 
+        /// Create a function following OpenAI's JSON Schema for the director to trigger a discussion based on a topic.
+        /// <param name="topics">The possible topics to trigger a discussion for.</param>
+        /// <returns>The function's JSON Object.</returns>
         private OpenAI.Function BuildTriggerDiscussionTool(List<string> topics) {
             var args = new {
                 type = "object",

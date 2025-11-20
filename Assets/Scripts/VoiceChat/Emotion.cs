@@ -1,5 +1,7 @@
-// By Terri Lim, CMU ETC Class of 2026. Last updated by me in November 2025. Feel free to judge any code up till then.
+// By Terri Lim, CMU ETC Class of 2026. Last updated by me in December 2025. Feel free to judge any code up till then.
 namespace EchoTrio {
+    /// Enum of all the possible emotions the actor can have. This is then used to trigger the facial expressions of the 3D models.
+    /// NOTE: This system is currently not in used, and the facial expressions of the 3D models are being determined via the animation system itself.
     public enum Emotion {
         Neutral = 0,
         Frustrated,

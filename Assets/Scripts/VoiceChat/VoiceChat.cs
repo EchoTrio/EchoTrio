@@ -1,4 +1,4 @@
-// By Terri Lim, CMU ETC Class of 2026. Last updated by me in November 2025. Feel free to judge any code up till then.
+// By Terri Lim, CMU ETC Class of 2026. Last updated by me in December 2025. Feel free to judge any code up till then.
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -407,6 +407,10 @@ namespace EchoTrio {
                 Discussion discussion = untriggeredDiscussions[i];
                 if (discussion.HasTriggerModes(Discussion.TriggerMode.IdleTime) &&
                     discussion.GetTriggerIdleTime() + idleTimerBuffer <= idleTimer) {
+                    // We need an additional idleTimerBuffer to ensure that the idle timer is at least 10 seconds.
+                    // This is because even if the user says something and stop speaking, it takes 2 seconds of silence for the Director to sense that the user is done.
+                    // It then takes another 2 to 3 seconds for it to start replying. Therefore, 10 seconds is a good buffer to allow all these to happen, in order
+                    // to prevent a race condition where the idle discussion is triggered, and then a couple seconds later the director replies and trigger the actors to speak.
                     director.StopListening();
                     discussionQueue.Enqueue(discussion);
                     untriggeredDiscussions.RemoveAt(i);
