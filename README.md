@@ -36,7 +36,12 @@ api_key = Your_API_Key
 You will also need to replace the Actor's ElevenLabs Voice IDs with your own, as they are configured by default to use the voices created in EchoTrio's account, which is not accessible to the public. Open the file `Assets/StreamingAssets/Configs/ActorOverrides.ini` and set the voice IDs of your choosing in the `elevenlabs_voice_id` variable for both Athena and Poseidon.
 
 ## Dependencies
+The following dependencies have already been configured in Unity's Package Manager:
 - Unofficial OpenAI Package for Unity: https://github.com/RageAgainstThePixel/com.openai.unity
 - Unofficial ElevenLabs Package for Unity: https://github.com/RageAgainstThePixel/com.rest.elevenlabs
+
+The following dependencies have been directly placed in the `Packages` folder:
 - Spelunx ORBBEC SDK (Only accessible via CMU's WLAN): https://upm.etc.cmu.edu/-/web/detail/com.spelunx.cavern.orbbec.sdk
+
+The following dependencies need to be manually downloaded and placed in the `Packages` folder until ETC's UPM is back up and running and we can use the Unity Package Manager again:
 - Spelunx ORBBEC Library (Only accessible via CMU's WLAN): https://upm.etc.cmu.edu/-/web/detail/com.spelunx.cavern.orbbec.libs
