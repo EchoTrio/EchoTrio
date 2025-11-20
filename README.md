@@ -11,7 +11,7 @@
 
 ## Authentication & API Keys
 In order to run the game, you will need your OpenAI and ElevenLabs API Keys.  
-**Note that because we are using GPT5, your OpenAI organisation will need to be verified.**
+**Note that because we are using GPT5, your OpenAI organisation will need to be [verified](https://help.openai.com/en/articles/10910291-api-organization-verification).**
 
 1. Create a file named `Authentication.ini` in `Assets/StreamingAssets/Configs` and paste in the following template:
 ```
