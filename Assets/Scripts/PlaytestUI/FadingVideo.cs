@@ -7,7 +7,9 @@ public class FadingVideo : MonoBehaviour
     // commit#1
     // commit#2
     // commit#3
+    public Spelunx.Orbbec.BodyTrackerManager orbbecScript;
 
+    public EchoTrio.VoiceChat voicechatScript;
     private Material mat;
     private Color originalColor;
     private bool hasStartedFade = false;
@@ -24,7 +26,8 @@ public class FadingVideo : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) && !hasStartedFade)
+        if (Input.GetKeyDown(KeyCode.P) && !hasStartedFade
+            || (orbbecScript != null && orbbecScript.personInFrame && !hasStartedFade))
         {
             hasStartedFade = true;
 
@@ -34,6 +37,13 @@ public class FadingVideo : MonoBehaviour
 
             //start fading
             StartCoroutine(FadeOut());
+        }
+
+        int roundCounter = voicechatScript.GetRoundCounter();
+        //print("Round Counter: " + roundCounter);
+        if (roundCounter >= 10)
+        {
+            StartCoroutine(FadeIn());
         }
     }
 
@@ -59,4 +69,28 @@ public class FadingVideo : MonoBehaviour
         final.a = 0f;
         mat.color = final;
     }
+
+    private System.Collections.IEnumerator FadeIn()
+{
+    float elapsed = 0f;
+
+    while (elapsed < duration)
+    {
+        elapsed += Time.deltaTime;
+
+        float alpha = Mathf.Lerp(0f, originalColor.a, elapsed / duration);
+
+        Color c = mat.color;
+        c.a = alpha;
+        mat.color = c;
+
+        yield return null;
+    }
+
+    // ensure full alpha at end
+    Color final = mat.color;
+    final.a = originalColor.a;
+    mat.color = final;
+}
+
 }
