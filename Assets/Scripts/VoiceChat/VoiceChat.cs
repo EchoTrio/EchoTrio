@@ -411,6 +411,7 @@ namespace EchoTrio {
                     // This is because even if the user says something and stop speaking, it takes 2 seconds of silence for the Director to sense that the user is done.
                     // It then takes another 2 to 3 seconds for it to start replying. Therefore, 10 seconds is a good buffer to allow all these to happen, in order
                     // to prevent a race condition where the idle discussion is triggered, and then a couple seconds later the director replies and trigger the actors to speak.
+                    // Is this the proper way to handle async operations like this? Fuck no! Does it work 99.99% of the time and am I too exhausted and out of time to implement a proper solution? Yes.
                     director.StopListening();
                     discussionQueue.Enqueue(discussion);
                     untriggeredDiscussions.RemoveAt(i);

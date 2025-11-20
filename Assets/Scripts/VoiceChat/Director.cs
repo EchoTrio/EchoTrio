@@ -275,7 +275,7 @@ namespace EchoTrio {
 
         // Director Tools
         /// Create a function following OpenAI's JSON Schema for the director to decide upon the speaker order.
-        /// See also: <see href="https://platform.openai.com/docs/guides/function-calling">OpenAI API on function calling</see>.
+        /// OpenAI API on function calling: https://platform.openai.com/docs/guides/function-calling
         /// <param name="speakers">The names of the speakers.</param>
         /// <returns>The function's JSON Object.</returns>
         private OpenAI.Function BuildTriggerResponseTool(List<string> speakers) {
@@ -301,6 +301,7 @@ namespace EchoTrio {
         }
 
         /// Create a function following OpenAI's JSON Schema for the director to trigger a discussion based on a topic.
+        /// OpenAI API on function calling: https://platform.openai.com/docs/guides/function-calling
         /// <param name="topics">The possible topics to trigger a discussion for.</param>
         /// <returns>The function's JSON Object.</returns>
         private OpenAI.Function BuildTriggerDiscussionTool(List<string> topics) {
