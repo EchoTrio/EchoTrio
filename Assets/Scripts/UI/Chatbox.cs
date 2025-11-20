@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace EchoTrio {
+namespace EchoTrio.UI {
     public class Chatbox : MonoBehaviour {
         [SerializeField] private UnityEngine.UI.ScrollRect scrollView = null;
         [SerializeField] private TMPro.TMP_Text textArea = null;

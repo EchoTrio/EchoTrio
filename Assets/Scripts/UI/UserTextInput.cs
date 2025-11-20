@@ -1,7 +1,7 @@
 // By Terri Lim, CMU ETC Class of 2026. Last updated by me in December 2025. Feel free to judge any code up till then.
 using UnityEngine;
 
-namespace EchoTrio {
+namespace EchoTrio.UI {
     [RequireComponent(typeof(TMPro.TMP_InputField))]
     public class UserTextInput : MonoBehaviour {
         [SerializeField] VoiceChat voiceChat = null;

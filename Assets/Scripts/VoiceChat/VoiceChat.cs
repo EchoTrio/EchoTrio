@@ -57,10 +57,10 @@ namespace EchoTrio {
         }
 
         [Header("GUI References")]
-        [SerializeField] private Chatbox chatbox = null;
-        [SerializeField] private SpriteSwitcher micMuteButton = null;
-        [SerializeField] private SpriteSwitcher listeningIcon = null;
-        [SerializeField] private SpriteSwitcher listeningIcon2 = null;
+        [SerializeField] private EchoTrio.UI.Chatbox chatbox = null;
+        [SerializeField] private EchoTrio.UI.SpriteSwitcher micMuteButton = null;
+        [SerializeField] private EchoTrio.UI.SpriteSwitcher listeningIcon = null;
+        [SerializeField] private EchoTrio.UI.SpriteSwitcher listeningIcon2 = null;
         [SerializeField] private TMPro.TextMeshProUGUI roundCounterText = null;
         [SerializeField] private TMPro.TextMeshProUGUI idleTimerText = null;
 
