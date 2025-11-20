@@ -116,7 +116,7 @@ namespace EchoTrio {
         /// <summary>
         /// Submit the user text input. Used as an alternative to speaking into the microphone, usually for development & debugging purposes.
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">The user text input.</param>
         /// <returns>Returns true if the voice chat system is currently accepting user input. Else, returns false.</returns>
         public bool SubmitUserTextInput(string message) {
             if (fsm.GetCurrentState() == (int)State.Listen) {
@@ -214,7 +214,7 @@ namespace EchoTrio {
         /// <summary>
         /// Queue up an actor's output to be played by the audio thread.
         /// </summary>
-        /// <param name="actorOutput"></param>
+        /// <param name="actorOutput">The actor output to queue.</param>
         private void QueueActorOutput(ActorOutput actorOutput) {
             // Flag that audio has started playing.
             // Even though it doesn't actually play until the audio thread plays it, this flag has to be set here and not in the audio thread to ensure that the main thread doesn't start listening to user input again.
@@ -303,7 +303,7 @@ namespace EchoTrio {
         /// Send the message received from one actor, to all the other actors.
         /// </summary>
         /// <param name="speaker">The actor that the message was received from.</param>
-        /// <param name="message">The message text.</param>
+        /// <param name="message">The actor's message.</param>
         private void PropogateActorMessage(Actor speaker, string message) {
             foreach (var item in actors) {
                 Actor actor = item.Value.Item1;
@@ -315,7 +315,7 @@ namespace EchoTrio {
         /// <summary>
         /// Send the message received from the user to all the actors.
         /// </summary>
-        /// <param name="message"></param>
+        /// <param name="message">The user's message.</param>
         private void PropogateUserMessage(string message) {
             foreach (var item in actors) {
                 Actor actor = item.Value.Item1;
@@ -509,7 +509,7 @@ namespace EchoTrio {
         private void OnToggleChatbox(UnityEngine.InputSystem.InputAction.CallbackContext context) { ToggleChatbox(); }
 
         /// Callback invoked by the director when it has a response ready.
-        /// <param name="response"></param>
+        /// <param name="response">The director's response.</param>
         private void OnDirectorResponse(Director.Response response) {
             // Add the user transcript to the chatbox.
             chatbox.AddMessage("User", response.userTranscript);
