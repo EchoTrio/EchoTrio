@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.openai.unity": {
-      "version": "8.8.6",
+      "version": "8.8.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {

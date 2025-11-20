@@ -1,3 +1,4 @@
+// By Terri Lim, CMU ETC Class of 2026. Last updated by me in November 2025. Feel free to judge any code up till then.
 using OpenAI;
 using ElevenLabs;
 using UnityEngine;

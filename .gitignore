@@ -101,19 +101,18 @@ InitTestScene*.unity*
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
-# Visual Studio Code
+# Visual Studio & Visual Studio Code
 /.vscode
-
-# Visual Studio
 /.vsconfig
-
-# No idea what the fuck this is, but I don't want this shit in my repo.
 *.slnx
 
 # ******************************* EchoTrio *******************************
 # Playtest Logs
 /[Aa]ssets/PlaytestLogs
 /[Aa]ssets/PlaytestLogs.meta
+
+# Other Logs
+/[Ll]og/*
 
 # Authentication File
 /[Aa]ssets/StreamingAssets/Configs/Authentication.ini
@@ -129,5 +128,3 @@ InitTestScene*.unity*
 
 # Ignore ORBBEC Lib Package Temporarily
 /Packages/com.spelunx.cavern.orbbec.libs
-# ORBBEC logs
-Log/OrbbecSDK.log.txt

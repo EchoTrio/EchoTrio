@@ -1,22 +1,43 @@
+// By Terri Lim, CMU ETC Class of 2026. Last updated by me in November 2025. Feel free to judge any code up till then.
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
 
 namespace EchoTrio {
-    /// <summary>
-    /// A MonoBehaviour class that acts as the intermediary between the human user and AI models.
-    /// </summary>
+    /// Voice chat system that acts as an intermediary between the human user and the AI models.
+    /// The system works using the concept of rounds. During every round, a few things may happen.
+    ///     - A scripted discussion is triggered at the start of the round specified by the designer where the actors speak scripted lines. No user input is allowed in this round. OR
+    ///     - A generated discussion is triggered at the start of the round specified by the designer where the actors speak AI generated lines. No user input is allowed in this round. OR
+    ///     - User input is accepted and the actors generates a reply. OR
+    ///     - User input is accepted and it triggers a scripted or generated discussion as the reply from the actors if the user mentions certain topics. OR
+    ///     - User input is allowed by the user does not provide any input. A scripted or generated dicussion is triggered after some time as specified by the designer.
     public class VoiceChat : MonoBehaviour {
-        private enum State { Invalid = -1, Prepare, Wait, Listen, Speak, Discuss, Num }
+        /// All the possible states of the system.
+        private enum State {
+            Invalid = -1,
+            /// Before we start each round, we enter the Prepare stage, and make a decision of which state to enter for the round.
+            Prepare,
+            /// If user input is allowed this round, enter the Wait stage to wait for the actors to finish speaking, and ensure that the director has connected to OpenAI's server.
+            Wait,
+            /// Listen for user input.
+            Listen,
+            /// Actors speaking.
+            Speak,
+            /// Actors playing a scripted discussion, or generating a discussion on a topic.
+            Discuss,
+            Num
+        }
 
-        [System.Serializable]
-        public class ActorReferences {
+        /// Reference to an actor configuration, and the AudioSource it should play it's output audio from.
+        [System.Serializable] public class ActorReferences {
+            /// The configuration of the actor.
             public ActorConfig actorConfig;
+            /// The audio source to output the speech of the actor.
             public AudioSource audioSource;
         }
 
+        /// Output of actors to be queued and played by the audio thread.
         private class ActorOutput {
             public string persona;
             public string message;
@@ -35,7 +56,7 @@ namespace EchoTrio {
             }
         }
 
-        [Header("GUI References (Do not change unless you know what you're doing!)")]
+        [Header("GUI References")]
         [SerializeField] private Chatbox chatbox = null;
         [SerializeField] private SpriteSwitcher micMuteButton = null;
         [SerializeField] private SpriteSwitcher listeningIcon = null;
@@ -45,7 +66,7 @@ namespace EchoTrio {
 
         [Header("Configurations")]
         [SerializeField] private DirectorConfig directorConfig = null;
-        [SerializeField] private ActorReferences[] actorReferences = new ActorReferences[0];
+        [SerializeField] private ActorReferences[] actorReferences = new ActorReferences[0]; // Designed as an array to be somewhat scalable so that in theory we could easily support 1 human user, multiple AI actors. But that's beyond the scope of this project.
 
         [Header("Discussions")]
         [SerializeField] private Discussion[] discussions = new Discussion[0];
@@ -65,6 +86,7 @@ namespace EchoTrio {
 
         // Audio
         private bool isAudioPlaying = false;
+        private bool isQueueingAudio = false;
         private Queue<ActorOutput> actorOutputQueue = new Queue<ActorOutput>();
         private Dictionary<AudioClip, bool> audioClipGarbageCollector = new Dictionary<AudioClip, bool>();
 
@@ -91,12 +113,16 @@ namespace EchoTrio {
         /// Reset the idle timer, usually invoked whenever there's any input by the user, such as typing something into the chatbox, or unmuting the microphone.
         public void ResetIdleTimer() { idleTimer = 0.0f; }
 
+        /// <summary>
+        /// Submit the user text input. Used as an alternative to speaking into the microphone, usually for development & debugging purposes.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns>Returns true if the voice chat system is currently accepting user input. Else, returns false.</returns>
         public bool SubmitUserTextInput(string message) {
             if (fsm.GetCurrentState() == (int)State.Listen) {
                 director.SubmitUserTextInput(message, destroyCancellationToken);
                 return true;
             }
-
             return false;
         }
 
@@ -157,12 +183,13 @@ namespace EchoTrio {
         }
 
         private void Start() {
-            StartCoroutine(AudioThread()); // Launch a thread to play audio.
-            director.Initialise(OnDirectorResponse, destroyCancellationToken);
-            fsm.ChangeState((int)State.Prepare);
+            StartCoroutine(AudioThread()); // Launch a thread to play queued audio.
+            director.Initialise(OnDirectorResponse, destroyCancellationToken); // Tell the director to connect to OpenAI's server.
+            fsm.ChangeState((int)State.Prepare); // Start off the voice chat system in the "Prepare" state.
         }
 
         private void Update() {
+            // Update the finite state machine.
             fsm.Update();
 
             // Update GUI.
@@ -180,20 +207,30 @@ namespace EchoTrio {
         }
 
         private void LateUpdate() {
+            // Late update the finite state machine.
             fsm.LateUpdate();
         }
 
+        /// <summary>
+        /// Queue up an actor's output to be played by the audio thread.
+        /// </summary>
+        /// <param name="actorOutput"></param>
         private void QueueActorOutput(ActorOutput actorOutput) {
             // Flag that audio has started playing.
+            // Even though it doesn't actually play until the audio thread plays it, this flag has to be set here and not in the audio thread to ensure that the main thread doesn't start listening to user input again.
+            // Because in theory it can be a few frames before the audio thread gets to it and we don't want to accidentally trigger listening for user input in the mean time.
             isAudioPlaying = true;
 
-            // Ensure that the audio clip is added to the garbage collector first.
-            // This is so that it is impossible for the audio thread to mark a clip as finished before it is placed into the garbage collector.
+            // Ensure that the audio clip is added to the garbage collector before being queued.
+            // This is so that it is impossible for the audio thread to mark a clip as finished and putting it into the garbage collector before we do it here, causing a double insert.
+            // Because the audio thread and the main thread runs concurrently.
             if (actorOutput.audioClip != null) {
                 lock (audioClipGarbageCollector) {
                     audioClipGarbageCollector.Add(actorOutput.audioClip, false);
                 }
             }
+
+            // Actually queue the actor output to be played.
             lock (actorOutputQueue) {
                 actorOutputQueue.Enqueue(actorOutput);
             }
@@ -204,10 +241,11 @@ namespace EchoTrio {
         /// </summary>
         /// <returns>An IEnumerator for Coroutine.</returns>
         private IEnumerator AudioThread() {
-            // We do not put this in the main thread because it is an infinite loop and we don't want to hang the main thread.
+            // We do not play the audio in the main thread because it is an infinite loop and we don't want to hang the main thread.
             Debug.Log("Starting audio thread...");
 
-            AudioSource playingAudioSource = null;
+            // Run this loop until the MonoBehaviour is destroyed.
+            AudioSource playingAudioSource = null; 
             while (!destroyCancellationToken.IsCancellationRequested) {
                 // If there is already an audio clip playing, wait for it to be done.
                 if (playingAudioSource != null && playingAudioSource.isPlaying) {
@@ -231,6 +269,7 @@ namespace EchoTrio {
                     hasOutput = actorOutputQueue.TryDequeue(out actorOutput);
                 }
 
+                // If there is an audio clip, play it.
                 if (hasOutput) {
                     playingAudioSource = actorOutput.audioSource;
                     playingAudioSource.clip = actorOutput.audioClip;
@@ -245,11 +284,15 @@ namespace EchoTrio {
                             chatbox.AddMessage(actorOutput.persona + $"'s Reasoning {i + 1}", actorOutput.reasonings[i]);
                         }
                     }
-                } else {
+                }
+                // Otherwise, if there's no more audio clips in the queue, and the main thread isn't queuing any more audio clips, reset the isAudioPlaying flag.
+                else if (!isQueueingAudio) {
                     isAudioPlaying = false;
                 }
 
-                // Wait for next frame.
+                // Wait for next frame to save some CPU cycles.
+                // It's unlikely for an audio clip to finish playing in 1 frame so there's no point checking the if the audio source is done playing.
+                // No point running this loop a bajillion times per frame.
                 yield return null;
             }
 
@@ -269,11 +312,29 @@ namespace EchoTrio {
             }
         }
 
+        /// <summary>
+        /// Send the message received from the user to all the actors.
+        /// </summary>
+        /// <param name="message"></param>
         private void PropogateUserMessage(string message) {
             foreach (var item in actors) {
                 Actor actor = item.Value.Item1;
                 actor.AddUserMessage("@User " + message);
             }
+        }
+
+        /// Flag that audio is being queued.
+        private void BeginQueuingAudio() {
+            // We can use a boolean because audio is only being queued by the main thread.
+            // If there ever comes a time where it is possible for multiple threads to queue the audio concurrently, change this to a mutex protected integer increment everything a thread begins queuing audio.
+            isQueueingAudio = true;
+        }
+
+        /// Flag that audio is not queued.
+        private void EndQueuingAudio() {
+            // We can use a boolean because audio is only being queued by the main thread.
+            // If there ever comes a time where it is possible for multiple threads to queue the audio concurrently, change this to a mutex protected integer decrement everything a thread begins queuing audio.
+            isQueueingAudio = false;
         }
 
         // Prepare State
@@ -296,6 +357,7 @@ namespace EchoTrio {
                 }
             }
 
+            // Otherwise, wait for the director to be ready to listen for user input.
             fsm.ChangeState((int)State.Wait);
         }
 
@@ -303,6 +365,7 @@ namespace EchoTrio {
         private void OnEnterWait() { Debug.Log("On Enter Wait"); }
 
         private void OnUpdateWait() {
+            // If the director is connected to OpenAI's server and no audio is playing, listen for user input.
             if (director.IsConnected && !isAudioPlaying) {
                 fsm.ChangeState((int)State.Listen);
             }
@@ -316,11 +379,15 @@ namespace EchoTrio {
             discussionQueue.Clear();
             speakerQueue.Clear();
 
-            // Get the direction to listen for user input.
+            // Let the director know the name of the actors so that it can determine the speaking order when replying to the user.
             List<string> speakers = actors.Keys.ToList();
+
+            // Let the director know which discussions it can trigger based on topic.
             List<string> topics = untriggeredDiscussions.
                 Where(d => d.HasTriggerModes(Discussion.TriggerMode.Topic)).
                 Select(d => d.GetTriggerTopic()).ToList();
+
+            // Get the direction to listen for user input.
             director.ListenForNextUserInput(directorConfig, speakers, topics, destroyCancellationToken);
         }
 
@@ -335,7 +402,7 @@ namespace EchoTrio {
                 }
             }
 
-            // Check if we should trigger any idle discussions.
+            // Check if we should trigger any idle discussions if the user has not given any input after a while. This ends the round.
             for (int i = 0; i < untriggeredDiscussions.Count; ++i) {
                 Discussion discussion = untriggeredDiscussions[i];
                 if (discussion.HasTriggerModes(Discussion.TriggerMode.IdleTime) &&
@@ -351,6 +418,8 @@ namespace EchoTrio {
 
         // Speak State
         private async void RunSpeak() {
+            BeginQueuingAudio();
+
             // Get a response from every actor.
             while (0 < speakerQueue.Count) {
                 var (actor, audioSource) = actors.GetValueOrDefault(speakerQueue.Dequeue(), (null, null));
@@ -364,16 +433,19 @@ namespace EchoTrio {
                 PropogateActorMessage(actor, actorResponse.message);
             }
 
+            EndQueuingAudio();
             fsm.ChangeState((int)State.Prepare);
         }
 
         private void OnEnterSpeak() {
             Debug.Log("On Enter Speak");
-            RunSpeak();
+            RunSpeak(); // Run the logic asynchronously so that it does not hang the main thread.
         }
 
         // Discussion State
         private async void RunScriptedDiscussion(ScriptedDiscussion discussion) {
+            BeginQueuingAudio();
+            
             foreach (ScriptedDiscussion.Dialogue dialogue in discussion.GetDialogues()) {
                 var (actor, audioSource) = actors.GetValueOrDefault(dialogue.speaker.ToString(), (null, null));
                 if (actor == null || audioSource == null) {
@@ -386,10 +458,13 @@ namespace EchoTrio {
                 PropogateActorMessage(actor, actorResponse.message);
             }
 
+            EndQueuingAudio();
             fsm.ChangeState((int)State.Prepare);
         }
 
         private async void RunGeneratedDiscussion(GeneratedDiscussion discussion) {
+            BeginQueuingAudio();
+
             List<Persona> speakers = discussion.GenerateRandomSpeakerOrder();
             foreach (Persona speaker in speakers) {
                 var (actor, audioSource) = actors.GetValueOrDefault(speaker.ToString(), (null, null));
@@ -404,11 +479,14 @@ namespace EchoTrio {
                 PropogateActorMessage(actor, actorResponse.message);
             }
 
+            EndQueuingAudio();
             fsm.ChangeState((int)State.Prepare);
         }
 
         private void OnEnterDiscuss() {
             Discussion discussion = discussionQueue.Dequeue();
+
+            // Run the logic asynchronously so that it does not hang the main thread.
             switch (discussion) {
                 case ScriptedDiscussion:
                     Debug.Log("On Enter Scripted Discussion");
@@ -430,8 +508,10 @@ namespace EchoTrio {
 
         private void OnToggleChatbox(UnityEngine.InputSystem.InputAction.CallbackContext context) { ToggleChatbox(); }
 
+        /// Callback invoked by the director when it has a response ready.
+        /// <param name="response"></param>
         private void OnDirectorResponse(Director.Response response) {
-            // Add the message to the chatbox.
+            // Add the user transcript to the chatbox.
             chatbox.AddMessage("User", response.userTranscript);
             // Inform each actor of what the user said.
             PropogateUserMessage(response.userTranscript);
@@ -446,7 +526,7 @@ namespace EchoTrio {
                         break;
                     }
                 }
-
+                
                 fsm.ChangeState((int)State.Discuss);
             }
             // Otherwise, get the actors to respond as per usual.
@@ -454,7 +534,7 @@ namespace EchoTrio {
                 foreach (string speaker in response.speakerOrder) {
                     speakerQueue.Enqueue(speaker);
                 }
-
+                
                 fsm.ChangeState((int)State.Speak);
             }
         }
