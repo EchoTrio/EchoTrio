@@ -18,19 +18,15 @@ MonoBehaviour:
   triggerIdleTime: 60
   dialogues:
   - speaker: 1
-    message: " [snarls]: So, mortal, siding with her again?\L Tell me, Athena\u2014when
-      blades clash, what use are your clever speeches?\r"
+    message: "[speak faster]  [snarls]: So, mortal, siding with her again?\L Tell
+      me, Athena\u2014when blades clash, what use are your clever speeches?\r"
     emotion: 4
   - speaker: 0
     message: " [coldly]: The same as a map before war.\L Wisdom shapes victory long
       before strength arrives."
     emotion: 4
   - speaker: 1
-    message: " [mocking laugh]: Hah! Reason can't stop a flood.\L When fear rises,
-      mortals beg for warriors\u2014not thinkers."
-    emotion: 4
-  - speaker: 1
-    message: " [snorts]  Hah! Tell that to those who tremble at their borders. [leans
-      forward] When fear knocks, it\u2019s not wisdom they summon\u2014it\u2019s
+    message: "[speak faster]  [snorts]  Hah! Tell that to those who tremble at their
+      borders. [leans forward] When fear knocks, it\u2019s not wisdom they summon\u2014it\u2019s
       warriors.\r"
     emotion: 4
