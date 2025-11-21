@@ -6,7 +6,7 @@
 
 ## Running the Game
 ### Opening the Unity Project
-1. Ensure you have [Unity](https://docs.google.com/document/d/18ge-kDuYu1pYe3VaC0oYd6mhCOw7E2qkABDeP8M4Ptw/edit?usp=sharing) installed.
+1. Ensure you have [Unity 6.2](https://docs.google.com/document/d/18ge-kDuYu1pYe3VaC0oYd6mhCOw7E2qkABDeP8M4Ptw/edit?usp=sharing) or higher installed.
 2. Clone this repository to your local machine.
 3. Open the project with Unity, and open the `Playtest` scene.
 
@@ -42,7 +42,7 @@ The following dependencies have already been configured in Unity's Package Manag
 - Unofficial ElevenLabs Package for Unity: https://github.com/RageAgainstThePixel/com.rest.elevenlabs
 
 The following dependencies have been directly placed in the `Packages` folder:
-- Spelunx ORBBEC SDK (Only accessible via CMU's WLAN): https://upm.etc.cmu.edu/-/web/detail/com.spelunx.cavern.orbbec.sdk
+- Spelunx ORBBEC SDK (Only accessible via CMU's WLAN) to detect if a user has walked up to the booth: https://upm.etc.cmu.edu/-/web/detail/com.spelunx.cavern.orbbec.sdk
 
 The following dependencies need to be manually downloaded and placed in the `Packages` folder until ETC's UPM is back up and running and we can use the Unity Package Manager again:
-- Spelunx ORBBEC Library (Only accessible via CMU's WLAN): https://upm.etc.cmu.edu/-/web/detail/com.spelunx.cavern.orbbec.libs
+- Spelunx ORBBEC Library (Only accessible via CMU's WLAN) for the binary dependencies needed for the ORBBEC Femto Bolt: https://upm.etc.cmu.edu/-/web/detail/com.spelunx.cavern.orbbec.libs
