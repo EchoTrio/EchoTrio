@@ -52,7 +52,11 @@ public class FadingVideo : MonoBehaviour
 
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.P) && !hasStartedFade)
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            StartCoroutine(FadeOut());
+        }
+        if ((Input.GetKeyDown(KeyCode.F1) && !hasStartedFade)
             || (orbbecScript != null && orbbecScript.personInFrame && !hasStartedFade))
         {
             hasStartedFade = true;

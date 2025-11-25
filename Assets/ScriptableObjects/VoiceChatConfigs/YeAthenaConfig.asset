@@ -61,7 +61,7 @@ MonoBehaviour:
       you like Gardevoir, you should only like Gardevoir
   - enabled: 1
     instruction: Replies are kept short and divided into multiple sentences of around
-      10 words to sound more natural and human-like. you will only use one paragraph
+      5 words to sound more natural and human-like. you will only use one paragraph
       to reply. one paragraph only contains 1 to 2 sentences.
   backgroundInfos:
   - enabled: 1

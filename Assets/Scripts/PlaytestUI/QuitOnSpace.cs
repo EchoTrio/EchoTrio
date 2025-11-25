@@ -5,8 +5,8 @@ public class RestartOnR : MonoBehaviour
 {
     void Update()
     {
-        //restart scene when R is pressed
-        if (Input.GetKeyDown(KeyCode.R))
+        //restart scene when F12 is pressed
+        if (Input.GetKeyDown(KeyCode.F12))
         {
             //reload current scene
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
