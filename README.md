@@ -34,7 +34,7 @@ api_key = Your_API_Key
         - API Key: https://elevenlabs.io/app/developers/api-keys
 
 ### ElevenLabs Voice IDs
-You will also need to replace the Actor's ElevenLabs Voice IDs with your own, as they are configured by default to use the voices created in EchoTrio's account, which is not accessible to the public. Open the file `Assets/StreamingAssets/Configs/ActorOverrides.ini` and set the voice IDs of your choosing in the `elevenlabs_voice_id` variable for both Athena and Poseidon.
+You will also need to replace the Actor's ElevenLabs Voice IDs with your own, as they are configured by default to use the voices created in EchoTrio's account, which is not accessible to the public. Open the file `Assets/StreamingAssets/Configs/ActorOverrides.ini` and set the voice IDs of your choosing in the `elevenlabs_voice_id` variable for both Athena and Poseidon. You can find a list of default available voices here: https://elevenlabs.io/app/voice-library , and you can right-click the three dots to copy the voice ID of your preferred voice line.
 
 ## Dependencies
 The following dependencies have already been configured in Unity's Package Manager:
