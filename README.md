@@ -46,3 +46,12 @@ The following dependencies have been directly placed in the `Packages` folder:
 
 The following dependencies need to be manually downloaded and placed in the `Packages` folder until ETC's UPM is back up and running and we can use the Unity Package Manager again:
 - Spelunx ORBBEC Library (Only accessible via CMU's WLAN) for the binary dependencies needed for the ORBBEC Femto Bolt: https://upm.etc.cmu.edu/-/web/detail/com.spelunx.cavern.orbbec.libs
+
+### IMPORTANT NOTES WHEN BUILDING YOUR .EXE!
+When you build your executable, you have to copy the following ORBBEC binaries into your build folder too!
+- /directml.dll
+- /dnn_model_2_0_op11.onnx
+- /onnxruntime.dll
+- /onnxruntime_providers_cuda.dll
+- /onnxruntime_providers_shared.dll
+- /onnxruntime_providers_tensorrt.dll
