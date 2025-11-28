@@ -26,6 +26,8 @@ namespace EchoTrio {
             Speak,
             /// Actors playing a scripted discussion, or generating a discussion on a topic.
             Discuss,
+            /// The chat has ended.
+            Finish,
             Num
         }
 
@@ -35,6 +37,8 @@ namespace EchoTrio {
             public ActorConfig actorConfig;
             /// The audio source to output the speech of the actor.
             public AudioSource audioSource;
+            /// The listening icon of the actor.
+            public EchoTrio.UI.SpriteSwitcher listeningIcon = null;
         }
 
         /// Output of actors to be queued and played by the audio thread.
@@ -58,9 +62,6 @@ namespace EchoTrio {
 
         [Header("GUI References")]
         [SerializeField] private EchoTrio.UI.Chatbox chatbox = null;
-        [SerializeField] private EchoTrio.UI.SpriteSwitcher micMuteButton = null;
-        [SerializeField] private EchoTrio.UI.SpriteSwitcher listeningIcon = null;
-        [SerializeField] private EchoTrio.UI.SpriteSwitcher listeningIcon2 = null;
         [SerializeField] private TMPro.TextMeshProUGUI roundCounterText = null;
         [SerializeField] private TMPro.TextMeshProUGUI idleTimerText = null;
 
@@ -70,6 +71,9 @@ namespace EchoTrio {
 
         [Header("Discussions")]
         [SerializeField] private Discussion[] discussions = new Discussion[0];
+
+        [Header("Voice Chat Settings")]
+        [SerializeField, Range(1, 100), Tooltip("How many rounds to play before the chat ends.")] private int finishRound = 10;
 
         [Header("Debug")]
         [SerializeField] private bool enableDebug = true;
@@ -128,6 +132,8 @@ namespace EchoTrio {
 
         public int GetRoundCounter() { return roundCounter; }
 
+        public int GetFinishRound() { return finishRound; }
+
         // Internal Functions
         private void Awake() {
             // Initialise Input
@@ -154,6 +160,7 @@ namespace EchoTrio {
             fsm.SetStateUpdate((int)State.Listen, OnUpdateListen);
             fsm.SetStateEntry((int)State.Speak, OnEnterSpeak);
             fsm.SetStateEntry((int)State.Discuss, OnEnterDiscuss);
+            fsm.SetStateEntry((int)State.Finish, OnEnterFinish);
         }
 
         private void OnDestroy() {
@@ -171,7 +178,6 @@ namespace EchoTrio {
             gameInputActions.Enable();
             gameInputActions.VoiceChat.PushToTalk.started += OnPushToTalkStarted;
             gameInputActions.VoiceChat.PushToTalk.canceled += OnPushToTalkCancelled;
-            gameInputActions.VoiceChat.ToggleChatbox.performed += OnToggleChatbox;
         }
 
         private void OnDisable() {
@@ -179,7 +185,6 @@ namespace EchoTrio {
             gameInputActions.Disable();
             gameInputActions.VoiceChat.PushToTalk.started -= OnPushToTalkStarted;
             gameInputActions.VoiceChat.PushToTalk.canceled -= OnPushToTalkCancelled;
-            gameInputActions.VoiceChat.ToggleChatbox.performed -= OnToggleChatbox;
         }
 
         private void Start() {
@@ -193,10 +198,12 @@ namespace EchoTrio {
             fsm.Update();
 
             // Update GUI.
-            if (listeningIcon != null) { listeningIcon.SetSprite(director.IsListening ? 1 : 0); }
-            if (listeningIcon2 != null) { listeningIcon2.SetSprite(director.IsListening ? 1 : 0); }
-            if (micMuteButton != null) { micMuteButton.SetSprite(director.IsMicMuted ? 1 : 0); }
-
+            for (int i = 0; i < actorReferences.Length; ++i) {
+                if (actorReferences[i] != null && actorReferences[i].listeningIcon != null) {
+                    actorReferences[i].listeningIcon.SetSprite(director.IsListening ? 1 : 0);
+                }
+            }
+            
             // Cleanup finished audio clips.
             lock (audioClipGarbageCollector) {
                 foreach (var kv in audioClipGarbageCollector) {
@@ -339,7 +346,7 @@ namespace EchoTrio {
 
         // Prepare State
         private void OnEnterPrepare() {
-            Debug.Log("On Enter Prepare");
+            Debug.Log("VoiceChat: OnEnterPrepare");
 
             // Increase round counter && update GUI.
             ++roundCounter;
@@ -362,18 +369,24 @@ namespace EchoTrio {
         }
 
         // Wait State
-        private void OnEnterWait() { Debug.Log("On Enter Wait"); }
+        private void OnEnterWait() { Debug.Log("VoiceChat: OnEnterWait"); }
 
         private void OnUpdateWait() {
-            // If the director is connected to OpenAI's server and no audio is playing, listen for user input.
-            if (director.IsConnected && !isAudioPlaying) {
-                fsm.ChangeState((int)State.Listen);
+            if (!isAudioPlaying) {
+                // If no audio is playing and the game should finish, go to the finish state.
+                if (roundCounter >= finishRound) {
+                    fsm.ChangeState((int)State.Finish);
+                }
+                // If the director is connected to OpenAI's server and no audio is playing, listen for user input.
+                else if (director.IsConnected) {
+                    fsm.ChangeState((int)State.Listen);
+                }
             }
         }
 
         // Listen State
         private void OnEnterListen() {
-            Debug.Log("On Enter Listen");
+            Debug.Log("VoiceChat: OnEnterListen");
 
             idleTimer = 0.0f;
             discussionQueue.Clear();
@@ -443,7 +456,7 @@ namespace EchoTrio {
         }
 
         private void OnEnterSpeak() {
-            Debug.Log("On Enter Speak");
+            Debug.Log("VoiceChat: OnEnterSpeak");
             RunSpeak(); // Run the logic asynchronously so that it does not hang the main thread.
         }
 
@@ -489,16 +502,17 @@ namespace EchoTrio {
         }
 
         private void OnEnterDiscuss() {
+            Debug.Log("VoiceChat: OnEnterDiscussion");
             Discussion discussion = discussionQueue.Dequeue();
 
             // Run the logic asynchronously so that it does not hang the main thread.
             switch (discussion) {
                 case ScriptedDiscussion:
-                    Debug.Log("On Enter Scripted Discussion");
+                    Debug.Log("VoiceChat: Starting scripted discussion...");
                     RunScriptedDiscussion((ScriptedDiscussion)discussion);
                     break;
                 case GeneratedDiscussion:
-                    Debug.Log("On Enter Generated Discussion");
+                    Debug.Log("VoiceChat: Starting generated discussion...");
                     RunGeneratedDiscussion((GeneratedDiscussion)discussion);
                     break;
                 default:
@@ -506,12 +520,18 @@ namespace EchoTrio {
             }
         }
 
+        // Finish State
+        private void OnEnterFinish() {
+            Debug.Log("VoiceChat: OnEnterFinish");
+
+            // Let all listeners know that the game has finished.
+            GameEvent.GameEventSystem.GetInstance().TriggerEvent(nameof(GameEventName.GameFinish));
+        }
+
         // Input Callbacks
         private void OnPushToTalkStarted(UnityEngine.InputSystem.InputAction.CallbackContext context) { ToggleMicMute(); }
 
         private void OnPushToTalkCancelled(UnityEngine.InputSystem.InputAction.CallbackContext context) { ToggleMicMute(); }
-
-        private void OnToggleChatbox(UnityEngine.InputSystem.InputAction.CallbackContext context) { ToggleChatbox(); }
 
         /// Callback invoked by the director when it has a response ready.
         /// <param name="response">The director's response.</param>
