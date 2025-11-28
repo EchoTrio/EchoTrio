@@ -57,7 +57,7 @@ public class FadingVideo : MonoBehaviour
             StartCoroutine(FadeOut());
         }
         if ((Input.GetKeyDown(KeyCode.F1) && !hasStartedFade)
-            || (orbbecScript != null && orbbecScript.personInFrame && !hasStartedFade))
+            || (orbbecScript != null && orbbecScript.HasDetectedBodies() && !hasStartedFade))
         {
             hasStartedFade = true;
 
