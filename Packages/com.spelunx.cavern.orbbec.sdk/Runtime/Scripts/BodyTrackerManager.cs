@@ -32,7 +32,7 @@ namespace Spelunx.Orbbec {
 
         public void SetSensorOrientation(SensorOrientation sensorOrientation) { this.sensorOrientation = sensorOrientation; }
         public SensorOrientation GetSensorOrientation() { return this.sensorOrientation; }
-        
+
         public void SetDeviceSerial(string deviceSerial) { this.deviceSerial = deviceSerial; }
         public string GetDeviceSerial() { return deviceSerial; }
         public List<string> GetAvailableSerials() { return availableSerials; }
