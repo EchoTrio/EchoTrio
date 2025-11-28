@@ -14,8 +14,11 @@ namespace EchoTrio.Gameplay {
         private Color initialColour = Color.white;
         private FSM.FiniteStateMachine fsm = new FSM.FiniteStateMachine((int)State.Num);
         private float timer = 0.0f;
+        private bool isFading = false;
 
         // Public Interfaces
+        public bool IsFading() { return isFading; }
+        
         public float GetFadeDuration() { return fadeDuration; }
 
         public void FadeIn() { fsm.ChangeState((int)State.FadeIn); }
@@ -32,8 +35,11 @@ namespace EchoTrio.Gameplay {
             // Initialise FSM.
             fsm.SetStateEntry((int)State.FadeIn, OnEnterFadeIn);
             fsm.SetStateUpdate((int)State.FadeIn, OnUpdateFadeIn);
+            fsm.SetStateExit((int)State.FadeIn, OnExitFadeIn);
+
             fsm.SetStateEntry((int)State.FadeOut, OnEnterFadeOut);
             fsm.SetStateUpdate((int)State.FadeOut, OnUpdateFadeOut);
+            fsm.SetStateExit((int)State.FadeOut, OnExitFadeOut);
         }
 
         private void Start() {
@@ -46,7 +52,10 @@ namespace EchoTrio.Gameplay {
         private void LateUpdate() { fsm.LateUpdate(); }
 
         // Fade In State
-        private void OnEnterFadeIn() { timer = 0.0f; }
+        private void OnEnterFadeIn() {
+            isFading = true;
+            timer = 0.0f;
+        }
 
         private void OnUpdateFadeIn() {
             // Update timer.
@@ -62,7 +71,13 @@ namespace EchoTrio.Gameplay {
             if (timer == fadeDuration) { fsm.ChangeState((int)State.Idle); }
         }
 
-        private void OnEnterFadeOut() { timer = 0.0f; }
+        private void OnExitFadeIn() { isFading = false; }
+
+        // Fade Out State
+        private void OnEnterFadeOut() {
+            isFading = true;
+            timer = 0.0f;
+        }
 
         private void OnUpdateFadeOut() {
             // Update timer.
@@ -77,5 +92,7 @@ namespace EchoTrio.Gameplay {
             // Return to idle once done.
             if (timer == fadeDuration) { fsm.ChangeState((int)State.Idle); }
         }
+
+        private void OnExitFadeOut() { isFading = false; }
     }
 }

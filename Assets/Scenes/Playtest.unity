@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 20694776}
   - component: {fileID: 20694777}
   m_Layer: 0
-  m_Name: Round1Audio
+  m_Name: WaitBGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -724,98 +724,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 28236932}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &244918139
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 244918140}
-  - component: {fileID: 244918142}
-  - component: {fileID: 244918141}
-  - component: {fileID: 244918143}
-  m_Layer: 5
-  m_Name: Listening Icon
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &244918140
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244918139}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1636349950}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 35, y: 27.899902}
-  m_SizeDelta: {x: 376.5, y: 96}
-  m_Pivot: {x: 0, y: 0}
---- !u!114 &244918141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244918139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a4c390d49b3e60046a211c409cf3a8b6, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &244918142
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244918139}
-  m_CullTransparentMesh: 1
---- !u!114 &244918143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 244918139}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f61ebbafe252704d9dba3af6ac8dc65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpriteSwitcher
-  sprites:
-  - {fileID: 21300000, guid: a4c390d49b3e60046a211c409cf3a8b6, type: 3}
-  - {fileID: 21300000, guid: 1888956e146d8ab48a17e2c0697ba498, type: 3}
-  index: 0
 --- !u!1 &262016819
 GameObject:
   m_ObjectHideFlags: 0
@@ -863,17 +771,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.VoiceChat
   chatbox: {fileID: 1674855124}
-  micMuteButton: {fileID: 1350688365}
-  listeningIcon: {fileID: 92173571}
-  listeningIcon2: {fileID: 1777214235}
   roundCounterText: {fileID: 1925402864}
   idleTimerText: {fileID: 651709721}
   directorConfig: {fileID: 11400000, guid: d30fd95481ee13941a0f5b3ad6b8a033, type: 2}
   actorReferences:
   - actorConfig: {fileID: 11400000, guid: d0568ba0958e91a4285ce90d91aaba24, type: 2}
     audioSource: {fileID: 1655254853}
+    listeningIcon: {fileID: 92173571}
   - actorConfig: {fileID: 11400000, guid: f91cde7d04721784f952de6d05dcfe6b, type: 2}
     audioSource: {fileID: 1598031280}
+    listeningIcon: {fileID: 1777214235}
   discussions:
   - {fileID: 11400000, guid: efdaa45205794c84394ff715d57aca29, type: 2}
   - {fileID: 11400000, guid: 17a1d4fd4fb9d59419b3541c73847fb4, type: 2}
@@ -882,6 +789,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1eb7902375441994aa29987a14647d6d, type: 2}
   - {fileID: 11400000, guid: 318193a7b5dceaa4cb1a9dd4838c71df, type: 2}
   - {fileID: 11400000, guid: 474e181ffaf01bc48a1df99e326487b1, type: 2}
+  finishRound: 10
   enableDebug: 1
   showReasoning: 1
 --- !u!95 &268784621 stripped
@@ -973,7 +881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1086616951323083372, guid: 3e6d3e750eebaa545b80555e83ee135c, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1086616951323083372, guid: 3e6d3e750eebaa545b80555e83ee135c, type: 3}
       propertyPath: m_AnchorMax.y
@@ -981,7 +889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1086616951323083372, guid: 3e6d3e750eebaa545b80555e83ee135c, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1086616951323083372, guid: 3e6d3e750eebaa545b80555e83ee135c, type: 3}
       propertyPath: m_AnchorMin.y
@@ -989,7 +897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1086616951323083372, guid: 3e6d3e750eebaa545b80555e83ee135c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1024
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1086616951323083372, guid: 3e6d3e750eebaa545b80555e83ee135c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1510,7 +1418,7 @@ GameObject:
   - component: {fileID: 872425126}
   - component: {fileID: 872425127}
   m_Layer: 0
-  m_Name: AthenaThinkingSound
+  m_Name: AthenaThinkingSFX1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1638,7 +1546,7 @@ GameObject:
   m_Component:
   - component: {fileID: 979122320}
   m_Layer: 0
-  m_Name: BGM
+  m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1688,7 +1596,6 @@ GameObject:
   - component: {fileID: 984258206}
   - component: {fileID: 984258205}
   - component: {fileID: 984258204}
-  - component: {fileID: 984258208}
   m_Layer: 0
   m_Name: DebugCamera
   m_TagString: Untagged
@@ -1814,18 +1721,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1830451914}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &984258208
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984258203}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 378b968f3a4f0c14da9c9d7dd7477a09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MultiDisplayActivate
 --- !u!1 &1093834778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1837,7 +1732,7 @@ GameObject:
   - component: {fileID: 1093834779}
   - component: {fileID: 1093834780}
   m_Layer: 0
-  m_Name: PosideonThinkingSound2
+  m_Name: PosideonThinkingSFX2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2270,6 +2165,7 @@ GameObject:
   - component: {fileID: 1121822262}
   - component: {fileID: 1121822261}
   - component: {fileID: 1121822265}
+  - component: {fileID: 1121822266}
   m_Layer: 5
   m_Name: PoseidonClouds
   m_TagString: Untagged
@@ -2406,6 +2302,20 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!114 &1121822266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121822260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e4019fec028fc498f99f8359b92d0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.Gameplay.FadeEffect
+  targetRenderer: {fileID: 1121822262}
+  fadeDuration: 5
 --- !u!1 &1244527467
 GameObject:
   m_ObjectHideFlags: 0
@@ -2417,7 +2327,7 @@ GameObject:
   - component: {fileID: 1244527468}
   - component: {fileID: 1244527469}
   m_Layer: 0
-  m_Name: AthenaThinkingSound2
+  m_Name: AthenaThinkingSFX2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2535,155 +2445,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1350688360
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1350688361}
-  - component: {fileID: 1350688363}
-  - component: {fileID: 1350688362}
-  - component: {fileID: 1350688365}
-  - component: {fileID: 1350688364}
-  m_Layer: 5
-  m_Name: Mic Mute Button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1350688361
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350688360}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1636349950}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -38.700195, y: 21.399902}
-  m_SizeDelta: {x: 376.4082, y: 95.94}
-  m_Pivot: {x: 1, y: 0}
---- !u!114 &1350688362
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350688360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dbd2265eda366454c92e76193018fa9e, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1350688363
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350688360}
-  m_CullTransparentMesh: 1
---- !u!114 &1350688364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350688360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1350688362}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 262016821}
-        m_TargetAssemblyTypeName: EchoTrio.VoiceChat, Assembly-CSharp
-        m_MethodName: ToggleMicMute
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1350688365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1350688360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f61ebbafe252704d9dba3af6ac8dc65, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpriteSwitcher
-  sprites:
-  - {fileID: 21300000, guid: dbd2265eda366454c92e76193018fa9e, type: 3}
-  - {fileID: 21300000, guid: 1d498db6c6f5547469d8e9b20fd27784, type: 3}
-  index: 0
 --- !u!1 &1491060657
 GameObject:
   m_ObjectHideFlags: 0
@@ -2824,6 +2585,7 @@ GameObject:
   - component: {fileID: 1501429419}
   - component: {fileID: 1501429418}
   - component: {fileID: 1501429422}
+  - component: {fileID: 1501429423}
   m_Layer: 5
   m_Name: AthenaClouds
   m_TagString: Untagged
@@ -2960,6 +2722,20 @@ VideoPlayer:
   m_WaitForFirstFrame: 1
   m_FrameReadyEventEnabled: 0
   m_VideoShaders: []
+--- !u!114 &1501429423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501429416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52e4019fec028fc498f99f8359b92d0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.Gameplay.FadeEffect
+  targetRenderer: {fileID: 1501429419}
+  fadeDuration: 5
 --- !u!1 &1553113271
 GameObject:
   m_ObjectHideFlags: 0
@@ -3318,8 +3094,6 @@ RectTransform:
   m_Children:
   - {fileID: 1674855120}
   - {fileID: 1580595744}
-  - {fileID: 1350688361}
-  - {fileID: 244918140}
   - {fileID: 1925402863}
   - {fileID: 651709720}
   m_Father: {fileID: 1830451914}
@@ -3467,9 +3241,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1659469947}
-  - component: {fileID: 1659469951}
   - component: {fileID: 1659469950}
   - component: {fileID: 1659469952}
+  - component: {fileID: 1659469954}
+  - component: {fileID: 1659469955}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3516,18 +3291,6 @@ MonoBehaviour:
   AthenaAudio2: {fileID: 1244527469}
   PoseidonAudio1: {fileID: 1878383244}
   PoseidonAudio2: {fileID: 1093834780}
---- !u!114 &1659469951
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659469946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e97bd995c8c35043843b4316dd9954e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RestartOnR
 --- !u!114 &1659469952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3552,6 +3315,30 @@ MonoBehaviour:
   Audio1ToEnable: {fileID: 2108942791}
   Audio2ToDisable: {fileID: 20694775}
   silenceThreshold: 3
+--- !u!114 &1659469954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659469946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 378b968f3a4f0c14da9c9d7dd7477a09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MultiDisplayActivate
+--- !u!114 &1659469955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659469946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9cd30491b1daa44484742a485b05464, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RestartOnR
 --- !u!224 &1674855120 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 655069877675377519, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
@@ -3742,7 +3529,7 @@ GameObject:
   - component: {fileID: 1878383243}
   - component: {fileID: 1878383244}
   m_Layer: 0
-  m_Name: PosideonThinkingSound
+  m_Name: PosideonThinkingSFX1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4316,7 +4103,7 @@ GameObject:
   - component: {fileID: 2108942792}
   - component: {fileID: 2108942793}
   m_Layer: 0
-  m_Name: Round2Audio
+  m_Name: PlayBGM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4452,7 +4239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 655069877675377519, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 655069877675377519, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
       propertyPath: m_AnchorMax.y
@@ -4460,7 +4247,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 655069877675377519, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 655069877675377519, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
       propertyPath: m_AnchorMin.y
@@ -4468,7 +4255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 655069877675377519, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1920
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 655069877675377519, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
       propertyPath: m_SizeDelta.y
@@ -4530,26 +4317,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2111290351932239782, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4192099825202739650, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
       propertyPath: m_Name
       value: Chatbox
       objectReference: {fileID: 0}
-    - target: {fileID: 4192099825202739650, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4646678103806073850, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
-      propertyPath: m_Size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4788663083879725648, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
-      propertyPath: m_Size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5043141885051680029, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4574,10 +4345,6 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5627116456024235630, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7175375899865638665, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4597,10 +4364,6 @@ PrefabInstance:
     - target: {fileID: 8981600433336713757, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8981600433336713757, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0.000061035156
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4766,8 +4529,8 @@ SceneRoots:
   - {fileID: 174638769}
   - {fileID: 1659469947}
   - {fileID: 979122320}
+  - {fileID: 1830451914}
   - {fileID: 1804197644}
   - {fileID: 28236932}
-  - {fileID: 1830451914}
   - {fileID: 1916482506}
   - {fileID: 139690429}
