@@ -23,10 +23,11 @@
       "hash": "1bc1b7c9c92469bd6d5db86e6fa0bda346679c6a"
     },
     "com.spelunx.cavern.orbbec.libs": {
-      "version": "file:com.spelunx.cavern.orbbec.libs",
-      "depth": 0,
-      "source": "embedded",
-      "dependencies": {}
+      "version": "0.0.4",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://upm.etc.cmu.edu"
     },
     "com.spelunx.cavern.orbbec.sdk": {
       "version": "file:com.spelunx.cavern.orbbec.sdk",
