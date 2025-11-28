@@ -3245,6 +3245,7 @@ GameObject:
   - component: {fileID: 1659469952}
   - component: {fileID: 1659469954}
   - component: {fileID: 1659469955}
+  - component: {fileID: 1659469956}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3339,6 +3340,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9cd30491b1daa44484742a485b05464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RestartOnR
+--- !u!114 &1659469956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659469946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb58d21b5bb38f24f836a1782fe0c533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.Gameplay.GameManager
+  clouds:
+  - {fileID: 1501429423}
+  - {fileID: 1121822266}
+  bodyTrackerManager: {fileID: 979730417}
+  voiceChat: {fileID: 262016821}
+  waitBGM: {fileID: 20694777}
+  playBGM: {fileID: 2108942793}
+  animationReferences:
+  - animator: {fileID: 268784621}
+    audioSource: {fileID: 1655254853}
+    sfxVariants:
+    - {fileID: 872425127}
+    - {fileID: 1244527469}
+    pushToTalkStartedBool: IsCtrlPressed
+    pushToTalkCancelledBool: IsCtrlReleased
+    actorIsTalkingBool: AIsTalking
+  - animator: {fileID: 414058558}
+    audioSource: {fileID: 1598031280}
+    sfxVariants:
+    - {fileID: 1878383244}
+    - {fileID: 1093834780}
+    pushToTalkStartedBool: IsCtrlPressed
+    pushToTalkCancelledBool: IsCtrlReleased
+    actorIsTalkingBool: PIsTalking
 --- !u!224 &1674855120 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 655069877675377519, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
