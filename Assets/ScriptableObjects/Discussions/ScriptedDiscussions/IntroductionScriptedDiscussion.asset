@@ -23,8 +23,9 @@ MonoBehaviour:
       come to see my Athens?"
     emotion: 2
   - speaker: 1
-    message: "[laughs proudly] Athena, this mortal uses smart devices\u2014[snorts]
-      clearly from another timeline, knowing nothing of your city! [boasts] I am
-      Poseidon, ruler of the seas! [commands] Mortal, introduce yourself. [graciously]
-      Then, ask\u2014what wisdom do you seek from a god?"
+    message: "[laughs proudly] [speak fast] [moderate pitch] Athena, this mortal
+      uses smart devices\u2014[snorts] clearly from another timeline, knowing nothing
+      of your city! [boasts] [high pitch]  I am Poseidon, ruler of the seas! [commands] 
+      Mortal, introduce yourself. [graciously] Then, ask\u2014what wisdom do you
+      seek from a god?"
     emotion: 3

@@ -1,62 +1,152 @@
 using UnityEngine;
+using System.Collections;
 
 public class FadingVideo : MonoBehaviour
 {
-    public float duration = 5f; // how long the fade lasts
-    public GameObject objectToEnable; // assign in Inspector
-    // commit#1
-    // commit#2
-    // commit#3
+    public float duration = 5f;
 
-    private Material mat;
-    private Color originalColor;
+    // NEW: objects to fade instead of fading the attached object's renderer
+    public GameObject[] objectsToFade; // assign in Inspector
+    private bool hasFadedIn = false;
+
+
+    public GameObject objectToEnable;
+    public Spelunx.Orbbec.BodyTrackerManager orbbecScript;
+    public EchoTrio.VoiceChat voicechatScript;
+
+    public AudioSource audioA;
+    public AudioSource audioB;
+
+    public GameObject Audio1ToEnable;
+    public GameObject Audio2ToDisable;
+
+    public float silenceThreshold = 3f;
+    private float silenceTimer = 0f;
     private bool hasStartedFade = false;
+
+    // internal storage for materials & original colors
+    private Material[] mats;
+    private Color[] originalColors;
 
     void Start()
     {
-        mat = GetComponent<Renderer>().material;
-        originalColor = mat.color;
+        if (objectsToFade != null && objectsToFade.Length > 0)
+        {
+            mats = new Material[objectsToFade.Length];
+            originalColors = new Color[objectsToFade.Length];
 
-        //optional: start with object disabled
+            for (int i = 0; i < objectsToFade.Length; i++)
+            {
+                Renderer r = objectsToFade[i].GetComponent<Renderer>();
+                if (r != null)
+                {
+                    mats[i] = r.material;
+                    originalColors[i] = r.material.color;
+                }
+            }
+        }
+
         if (objectToEnable != null)
             objectToEnable.SetActive(false);
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P) && !hasStartedFade)
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            StartCoroutine(FadeOut());
+        }
+        if ((Input.GetKeyDown(KeyCode.F1) && !hasStartedFade)
+            || (orbbecScript != null && orbbecScript.personInFrame && !hasStartedFade))
         {
             hasStartedFade = true;
 
-            //enable the object
             if (objectToEnable != null)
                 objectToEnable.SetActive(true);
+            if (Audio1ToEnable != null)
+                Audio1ToEnable.SetActive(true);
+            if (Audio2ToDisable != null)
+                Audio2ToDisable.SetActive(false);
 
-            //start fading
             StartCoroutine(FadeOut());
+        }
+
+        int roundCounter = voicechatScript.GetRoundCounter();
+        bool aPlaying = audioA != null && audioA.isPlaying;
+        bool bPlaying = audioB != null && audioB.isPlaying;
+
+        if (!aPlaying && !bPlaying && roundCounter >= 10 && !hasFadedIn)
+        {
+            silenceTimer += Time.deltaTime;
+
+            if (silenceTimer >= silenceThreshold)
+            {
+                StartCoroutine(FadeIn());
+                hasFadedIn = true;
+                silenceTimer = 0f;
+            }
+        }
+        else
+        {
+            silenceTimer = 0f;
         }
     }
 
-    private System.Collections.IEnumerator FadeOut()
+    private IEnumerator FadeOut()
     {
         float elapsed = 0f;
 
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
+            float t = elapsed / duration;
 
-            float alpha = Mathf.Lerp(originalColor.a, 0f, elapsed / duration);
-
-            Color c = mat.color;
-            c.a = alpha;
-            mat.color = c;
+            for (int i = 0; i < mats.Length; i++)
+            {
+                if (mats[i] == null) continue;
+                Color c = mats[i].color;
+                c.a = Mathf.Lerp(originalColors[i].a, 0f, t);
+                mats[i].color = c;
+            }
 
             yield return null;
         }
 
-        // ensure exactly zero alpha at end
-        Color final = mat.color;
-        final.a = 0f;
-        mat.color = final;
+        for (int i = 0; i < mats.Length; i++)
+        {
+            if (mats[i] == null) continue;
+            Color c = mats[i].color;
+            c.a = 0f;
+            mats[i].color = c;
+        }
+    }
+
+    private IEnumerator FadeIn()
+    {
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+
+            for (int i = 0; i < mats.Length; i++)
+            {
+                if (mats[i] == null) continue;
+                Color c = mats[i].color;
+                c.a = Mathf.Lerp(0f, originalColors[i].a, t);
+                mats[i].color = c;
+            }
+
+            yield return null;
+        }
+
+        for (int i = 0; i < mats.Length; i++)
+        {
+            if (mats[i] == null) continue;
+            Color c = mats[i].color;
+            c.a = originalColors[i].a;
+            mats[i].color = c;
+        }
     }
 }

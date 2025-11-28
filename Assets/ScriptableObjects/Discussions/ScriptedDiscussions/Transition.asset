@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.ScriptedDiscussion
   triggerMode: 2
   triggerTopic: 
-  triggerRound: 6
+  triggerRound: 5
   triggerIdleTime: 60
   dialogues:
   - speaker: 0
@@ -22,6 +22,6 @@ MonoBehaviour:
       whose vision do you trust more?"
     emotion: 4
   - speaker: 1
-    message: "[chuckles confidently] The mortal doesn\u2019t need time to think.
-      [grins] They\u2019ll follow me\u2014the sea calls to every heart!"
+    message: "[speak faster] [chuckles confidently] The mortal doesn\u2019t need
+      time to think. [grins] They\u2019ll follow me\u2014the sea calls to every heart!"
     emotion: 4
