@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace EchoTrio.Gameplay {
+namespace EchoTrio.UI {
     public class FadeEffect : MonoBehaviour {
         private enum State { Idle, FadeIn, FadeOut, Num }
 
