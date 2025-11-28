@@ -135,6 +135,34 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""General"",
+            ""id"": ""cb054f7c-b2e6-4d82-878f-8681fc720127"",
+            ""actions"": [
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""aae8cf9f-4bf6-46c3-a382-9b36d33ec896"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""51bdde15-d1cd-40eb-97c9-241b85446e05"",
+                    ""path"": ""<Keyboard>/f12"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -143,11 +171,15 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         m_VoiceChat = asset.FindActionMap("VoiceChat", throwIfNotFound: true);
         m_VoiceChat_PushToTalk = m_VoiceChat.FindAction("PushToTalk", throwIfNotFound: true);
         m_VoiceChat_ToggleChatbox = m_VoiceChat.FindAction("ToggleChatbox", throwIfNotFound: true);
+        // General
+        m_General = asset.FindActionMap("General", throwIfNotFound: true);
+        m_General_Quit = m_General.FindAction("Quit", throwIfNotFound: true);
     }
 
     ~@GameInputActions()
     {
         UnityEngine.Debug.Assert(!m_VoiceChat.enabled, "This will cause a leak and performance issues, GameInputActions.VoiceChat.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_General.enabled, "This will cause a leak and performance issues, GameInputActions.General.Disable() has not been called.");
     }
 
     /// <summary>
@@ -326,6 +358,102 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="VoiceChatActions" /> instance referencing this action map.
     /// </summary>
     public VoiceChatActions @VoiceChat => new VoiceChatActions(this);
+
+    // General
+    private readonly InputActionMap m_General;
+    private List<IGeneralActions> m_GeneralActionsCallbackInterfaces = new List<IGeneralActions>();
+    private readonly InputAction m_General_Quit;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "General".
+    /// </summary>
+    public struct GeneralActions
+    {
+        private @GameInputActions m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public GeneralActions(@GameInputActions wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "General/Quit".
+        /// </summary>
+        public InputAction @Quit => m_Wrapper.m_General_Quit;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_General; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="GeneralActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(GeneralActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="GeneralActions" />
+        public void AddCallbacks(IGeneralActions instance)
+        {
+            if (instance == null || m_Wrapper.m_GeneralActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_GeneralActionsCallbackInterfaces.Add(instance);
+            @Quit.started += instance.OnQuit;
+            @Quit.performed += instance.OnQuit;
+            @Quit.canceled += instance.OnQuit;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="GeneralActions" />
+        private void UnregisterCallbacks(IGeneralActions instance)
+        {
+            @Quit.started -= instance.OnQuit;
+            @Quit.performed -= instance.OnQuit;
+            @Quit.canceled -= instance.OnQuit;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="GeneralActions.UnregisterCallbacks(IGeneralActions)" />.
+        /// </summary>
+        /// <seealso cref="GeneralActions.UnregisterCallbacks(IGeneralActions)" />
+        public void RemoveCallbacks(IGeneralActions instance)
+        {
+            if (m_Wrapper.m_GeneralActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="GeneralActions.AddCallbacks(IGeneralActions)" />
+        /// <seealso cref="GeneralActions.RemoveCallbacks(IGeneralActions)" />
+        /// <seealso cref="GeneralActions.UnregisterCallbacks(IGeneralActions)" />
+        public void SetCallbacks(IGeneralActions instance)
+        {
+            foreach (var item in m_Wrapper.m_GeneralActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_GeneralActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="GeneralActions" /> instance referencing this action map.
+    /// </summary>
+    public GeneralActions @General => new GeneralActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "VoiceChat" which allows adding and removing callbacks.
     /// </summary>
@@ -347,5 +475,20 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnToggleChatbox(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "General" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="GeneralActions.AddCallbacks(IGeneralActions)" />
+    /// <seealso cref="GeneralActions.RemoveCallbacks(IGeneralActions)" />
+    public interface IGeneralActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Quit" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnQuit(InputAction.CallbackContext context);
     }
 }

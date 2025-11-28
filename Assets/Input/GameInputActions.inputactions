@@ -49,6 +49,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "General",
+            "id": "cb054f7c-b2e6-4d82-878f-8681fc720127",
+            "actions": [
+                {
+                    "name": "Quit",
+                    "type": "Button",
+                    "id": "aae8cf9f-4bf6-46c3-a382-9b36d33ec896",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "51bdde15-d1cd-40eb-97c9-241b85446e05",
+                    "path": "<Keyboard>/f12",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Quit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
