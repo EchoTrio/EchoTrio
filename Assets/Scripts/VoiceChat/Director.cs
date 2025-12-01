@@ -28,9 +28,9 @@ namespace EchoTrio {
             /// Listening for user input.
             Listening,
             /// Replying to text input.
-            ReplyToText,
+            TextInput,
             /// Replying to voice input.
-            ReplyToVoice,
+            VoiceInput,
         }
 
         /// Helper class to act as a mutex for the status value, as it may be read by multiple threads.
@@ -58,7 +58,11 @@ namespace EchoTrio {
         private Director.Response response = null;
         private UnityAction<Director.Response> onDirectorResponse = null;
         private List<OpenAI.Tool> tools = new List<OpenAI.Tool>();
+
+        // Concurrency/Async Variables
         private StatusMutex statusMutex = new StatusMutex();
+        private int inputAudioBufferCommittedResponseCounter = 0;
+        private int conversationItemInputAudioTranscriptionResponseCounter = 0;
 
         // Public Interface
         public Director() {
@@ -142,7 +146,7 @@ namespace EchoTrio {
         /// <param name="cancellationToken">Cancellation token used to cancel any async actions when the program shuts down.</param>
         public async Awaitable<bool> SubmitUserTextInput(string message, CancellationToken cancellationToken) {
             // Check for status and update it.
-            if (!TestAndSetStatus(Status.Listening, Status.ReplyToText)) { return false; }
+            if (!TestAndSetStatus(Status.Listening, Status.TextInput)) { return false; }
 
             // Tell the director to clear everything it has heard.
             // await session.SendAsync(new InputAudioBufferClearRequest(), cancellationToken);
@@ -261,11 +265,27 @@ namespace EchoTrio {
                     if (!conversationItemTranscription.IsCompleted) { return; }
                     Debug.Log($"Director's User Transcription: " + conversationItemTranscription.Transcript.Trim());
 
-                    if (IsStatus(Status.ReplyToVoice)) {
+                    Interlocked.Increment(ref conversationItemInputAudioTranscriptionResponseCounter);
+
+                    // We only want to update the user transcript if this is the latest transcript.
+                    // This is to handle the insane case where:
+                    // 1. User sends text and voice input at the same time.
+                    // 2. Voice input is ignored, but a InputAudioBufferCommittedResponse was received.
+                    // 3. ConversationItemInputAudioTranscriptionResponse was not received.
+                    // 4. User sends voice input.
+                    // 5. Second InputAudioBufferCommittedResponse is received.
+                    // 6. First outdated ConversationItemInputAudioTranscriptionResponse is received. (This needs to be ignored.)
+                    // 7. Second correct ConversationItemInputAudioTranscriptionResponse is received.
+                    if (conversationItemInputAudioTranscriptionResponseCounter != inputAudioBufferCommittedResponseCounter) {
+                        Debug.Log("Director.OnServerEvent ConversationItemInputAudioTranscriptionResponse ignored as it is outdated.");
+                        return;
+                    }
+
+                    if (IsStatus(Status.VoiceInput)) {
                         response.userTranscript = conversationItemTranscription.Transcript.Trim();
                         InvokeOnDirectorResponse();
                     } else {
-                        Debug.Log("Director.OnServerEvent ConversationItemInputAudioTranscriptionResponse ignored.");
+                        Debug.Log("Director.OnServerEvent ConversationItemInputAudioTranscriptionResponse ignored as the status is not ReplyToVoice.");
                     }
                     break;
                 case ConversationItemTruncatedResponse conversationItemTruncated: break;
@@ -273,7 +293,10 @@ namespace EchoTrio {
                 case InputAudioBufferCommittedResponse committedResponse:
                     Debug.Log($"Director.OnServerEvent InputAudioBufferCommittedResponse");
 
-                    if (TestAndSetStatus(Status.Listening, Status.ReplyToVoice)) {
+                    // This should ALWAYS increment before conversationItemInputAudioTranscriptionResponseCounter.
+                    Interlocked.Increment(ref inputAudioBufferCommittedResponseCounter);
+
+                    if (TestAndSetStatus(Status.Listening, Status.VoiceInput)) {
                         session.Send(new OpenAI.Realtime.CreateResponseRequest()); // Now tell it to reply to our audio input.
                     } else {
                         Debug.Log("Director.OnServerEvent InputAudioBufferCommittedResponse ignored.");
