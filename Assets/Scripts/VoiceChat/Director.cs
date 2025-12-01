@@ -61,8 +61,7 @@ namespace EchoTrio {
 
         // Concurrency/Async Variables
         private StatusMutex statusMutex = new StatusMutex();
-        private int inputAudioBufferCommittedResponseCounter = 0;
-        private int conversationItemInputAudioTranscriptionResponseCounter = 0;
+        private string latestItemId = string.Empty;
 
         // Public Interface
         public Director() {
@@ -263,9 +262,7 @@ namespace EchoTrio {
                 case ConversationItemCreatedResponse conversationItemCreated: break;
                 case ConversationItemInputAudioTranscriptionResponse conversationItemTranscription:
                     if (!conversationItemTranscription.IsCompleted) { return; }
-                    Debug.Log($"Director's User Transcription: " + conversationItemTranscription.Transcript.Trim());
-
-                    Interlocked.Increment(ref conversationItemInputAudioTranscriptionResponseCounter);
+                    Debug.Log($"[{conversationItemTranscription.ItemId}] Director's User Transcription: " + conversationItemTranscription.Transcript.Trim());
 
                     // We only want to update the user transcript if this is the latest transcript.
                     // This is to handle the insane case where:
@@ -276,9 +273,10 @@ namespace EchoTrio {
                     // 5. Second InputAudioBufferCommittedResponse is received.
                     // 6. First outdated ConversationItemInputAudioTranscriptionResponse is received. (This needs to be ignored.)
                     // 7. Second correct ConversationItemInputAudioTranscriptionResponse is received.
-                    if (conversationItemInputAudioTranscriptionResponseCounter != inputAudioBufferCommittedResponseCounter) {
-                        Debug.Log("Director.OnServerEvent ConversationItemInputAudioTranscriptionResponse ignored as it is outdated.");
-                        return;
+                    lock (latestItemId) {
+                        if (latestItemId != conversationItemTranscription.ItemId) {
+                            Debug.Log("Director.OnServerEvent ConversationItemInputAudioTranscriptionResponse ignored as it is outdated.");
+                        }
                     }
 
                     if (IsStatus(Status.VoiceInput)) {
@@ -291,10 +289,10 @@ namespace EchoTrio {
                 case ConversationItemTruncatedResponse conversationItemTruncated: break;
                 case ConversationItemDeletedResponse conversationItemDeleted: break;
                 case InputAudioBufferCommittedResponse committedResponse:
-                    Debug.Log($"Director.OnServerEvent InputAudioBufferCommittedResponse");
+                    Debug.Log($"[{committedResponse.ItemId}] Director.OnServerEvent InputAudioBufferCommittedResponse");
 
-                    // This should ALWAYS increment before conversationItemInputAudioTranscriptionResponseCounter.
-                    Interlocked.Increment(ref inputAudioBufferCommittedResponseCounter);
+                    // InputAudioBufferCommittedResponse should always be received before ConversationItemInputAudioTranscriptionResponse.
+                    lock (latestItemId) { latestItemId = committedResponse.ItemId; }
 
                     if (TestAndSetStatus(Status.Listening, Status.VoiceInput)) {
                         session.Send(new OpenAI.Realtime.CreateResponseRequest()); // Now tell it to reply to our audio input.
