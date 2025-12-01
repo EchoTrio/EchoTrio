@@ -8,9 +8,9 @@ namespace EchoTrio.UI {
 
         private TMPro.TMP_InputField inputField = null;
 
-        public void SubmitUserTextInput() {
+        public async void SubmitUserTextInput() {
             string message = inputField.text.Trim();
-            if (0 < message.Length && voiceChat.SubmitUserTextInput(message)) {
+            if (0 < message.Length && await voiceChat.SubmitUserTextInput(message)) {
                 inputField.text = string.Empty;
             }
         }

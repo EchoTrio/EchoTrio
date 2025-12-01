@@ -15,7 +15,7 @@ MonoBehaviour:
   triggerMode: 4
   triggerTopic: 
   triggerRound: 1
-  triggerIdleTime: 1
+  triggerIdleTime: 10
   dialogues:
   - speaker: 0
     message: "[gentle chuckle] Mortal, speechlessness is not a crime.\n[curious tone]

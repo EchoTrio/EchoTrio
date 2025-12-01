@@ -1,15 +1,15 @@
 // By Terri Lim, CMU ETC Class of 2026. Last updated by me in December 2025. Feel free to judge any code up till then.
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using OpenAI;
+using OpenAI.Models;
+using OpenAI.Realtime;
 using System;
 using System.Buffers;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using OpenAI;
-using OpenAI.Models;
-using OpenAI.Realtime;
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -21,20 +21,34 @@ namespace EchoTrio {
     /// For example, Athena can speak first, or Poseidon can speak first, or only one of them replies.
     /// The director has a secondary function of triggering a Discussion if the user mentions certain topics.
     public class Director {
+        /// Current status of the director.
+        public enum Status {
+            /// Idling and waiting for VoiceChat system.
+            Waiting,
+            /// Listening for user input.
+            Listening,
+            /// Replying to text input.
+            ReplyToText,
+            /// Replying to voice input.
+            ReplyToVoice,
+        }
+
+        /// Helper class to act as a mutex for the status value, as it may be read by multiple threads.
+        public class StatusMutex {
+            public Status value = Status.Waiting;
+        }
+
         public class Response {
             public string userTranscript = null;
             public List<string> speakerOrder = null;
             public string discussionTopic = null;
 
-            public bool Done => userTranscript != null && (speakerOrder != null || discussionTopic != null);
+            public bool IsDone => userTranscript != null && (speakerOrder != null || discussionTopic != null);
         }
-
-        private enum InputMode { TextInput, VoiceInput }
 
         // Public Properties
         public bool EnableDebug { get; set; } = false;
         public bool IsMicMuted { get; set; } = false;
-        public bool IsListening { get; private set; } = false;
         public bool IsConnected { get; private set; } = false;
 
         // Internal Variables & Properties
@@ -44,8 +58,9 @@ namespace EchoTrio {
         private Director.Response response = null;
         private UnityAction<Director.Response> onDirectorResponse = null;
         private List<OpenAI.Tool> tools = new List<OpenAI.Tool>();
-        private InputMode inputMode = InputMode.VoiceInput;
+        private StatusMutex statusMutex = new StatusMutex();
 
+        // Public Interface
         public Director() {
             // Initialise OpenAI
             api = new OpenAIClient(Authentication.GetOpenAIAuthentication()) { EnableDebug = this.EnableDebug };
@@ -84,12 +99,19 @@ namespace EchoTrio {
             _ = run(cancellationToken);
         }
 
+        public bool IsStatus(Status value) { lock (statusMutex) { return statusMutex.value == value; } }
+
         /// Listens for the next user input. This needs to be invoked at the start of every round, in order to let the director prepare for user input.
+        /// Before invoking, you need to check that the status is Waiting.
         /// <param name="config">The director configuration.</param>
         /// <param name="speakers">The list of actors that are possibly speaking. The speaker order will be determined by choosing actors from this list.</param>
         /// <param name="topics">Possible discussion topics to be triggered by the user input.</param>
         /// <param name="cancellationToken">Cancellation token used to cancel any async actions when the program shuts down.</param>
         public async void ListenForNextUserInput(DirectorConfig config, List<string> speakers, List<string> topics, CancellationToken cancellationToken) {
+            if (!IsStatus(Status.Waiting)) {
+                throw new System.Exception("Director.ListenForNextInput can only be invoked if the status is Waiting!");
+            }
+
             // Update director session configuration.
             this.config = config;
             this.tools = new List<OpenAI.Tool>() { BuildTriggerResponseTool(speakers), BuildTriggerDiscussionTool(topics) };
@@ -102,30 +124,35 @@ namespace EchoTrio {
             }
 
             // Starting listening to the human user.
-            IsListening = true;
-            inputMode = InputMode.VoiceInput;
+            SetStatus(Status.Listening);
         }
 
-        /// Stop listening for user input.
-        public void StopListening() { IsListening = false; }
+        public bool CancelListen() {
+            lock (statusMutex) {
+                if (statusMutex.value == Status.Listening) {
+                    statusMutex.value = Status.Waiting;
+                    return true;
+                }
+                return false;
+            }
+        }
 
         /// Submit the user text input. Used as an alternative to speaking into the microphone, usually for development & debugging purposes.
         /// <param name="message">The user text input.</param>
         /// <param name="cancellationToken">Cancellation token used to cancel any async actions when the program shuts down.</param>
-        public async void SubmitUserTextInput(string message, CancellationToken cancellationToken) {
-            if (!IsListening) return;
-
-            // Stop listening.
-            IsListening = false;
-            inputMode = InputMode.TextInput;
+        public async Awaitable<bool> SubmitUserTextInput(string message, CancellationToken cancellationToken) {
+            // Check for status and update it.
+            if (!TestAndSetStatus(Status.Listening, Status.ReplyToText)) { return false; }
 
             // Tell the director to clear everything it has heard.
-            await session.SendAsync(new InputAudioBufferClearRequest(), cancellationToken);
+            // await session.SendAsync(new InputAudioBufferClearRequest(), cancellationToken);
 
             // Now tell it to reply to our text input.
             response.userTranscript = message;
             await session.SendAsync(new OpenAI.Realtime.ConversationItemCreateRequest(message), cancellationToken);
             await session.SendAsync(new OpenAI.Realtime.CreateResponseRequest(), cancellationToken);
+
+            return true;
         }
 
         // Internal Functions
@@ -135,7 +162,7 @@ namespace EchoTrio {
                 modalities: Modality.Text, // Text only since Director is not speaking to user directly.
                 instructions: this.config ? this.config.instructions : null,
                 inputAudioTranscriptionSettings: new OpenAI.Realtime.InputAudioTranscriptionSettings(Model.Transcribe_GPT_4o, language: "en"), // The settings we use to transcribe what the human says. Without this, the human's speech will not get transcibed. Apparently the language setting is fucking useless.
-                turnDetectionSettings: new OpenAI.Realtime.ServerVAD(silenceDuration: 2000), // We want Server VAD so that the AI automatically detects when speech starts or ends.
+                turnDetectionSettings: new OpenAI.Realtime.ServerVAD(silenceDuration: 2000, createResponse: false), // We want Server VAD so that the AI automatically detects when speech starts or ends. But we don't want it to automatically trigger a response, because we have to make sure that a text input isn't already sent.
                 tools: this.tools,
                 toolChoice: "required"); // Set to auto or required to allow the AI to use tools.
         }
@@ -158,7 +185,7 @@ namespace EchoTrio {
                 // RecordingManager is from the com.utilities.audio package.
                 // We don't await this so that we can implement buffer copy and send response to realtime API.
                 RecordingManager.StartRecordingStream<WavEncoder>(BufferCallback, 24000, cancellationToken); // Sample rate has to be 24000 according to the InputAudioBufferAppendRequest API docs.
-                
+
                 do {
                     byte[] voiceBuffer = ArrayPool<byte>.Shared.Rent(1024 * 16); // 16 KB buffer.
                     try {
@@ -174,7 +201,7 @@ namespace EchoTrio {
 
                         if (bytesRead > 0) {
                             // If we are recording, send what the microphone picks up.
-                            if (!IsMicMuted && IsListening) {
+                            if (!IsMicMuted && IsStatus(Status.Listening)) {
                                 await session.SendAsync(new InputAudioBufferAppendRequest(voiceBuffer.AsMemory(0, bytesRead)), cancellationToken).ConfigureAwait(false);
                             }
                             // Otherwise, send silence. We want to continue sending data so that the model can trigger a response if it received silence.
@@ -210,14 +237,19 @@ namespace EchoTrio {
         }
 
         /// If the director's response is ready, invoke the response callback.
+        /// <remarks>
+        /// Note that user transcript can come before or after the Response event!Note that user transcript can come before or after the Response event!
+        /// OpenAI API Link: https://platform.openai.com/docs/api-reference/realtime-server-events/conversation/item/input_audio_transcription?utm_source=chatgpt.com
+        /// </remarks>
         private void InvokeOnDirectorResponse() {
-            if (response != null && response.Done) {
+            if (response != null && response.IsDone) {
                 onDirectorResponse?.Invoke(response);
                 response = null;
+                SetStatus(Status.Waiting);
             }
         }
 
-        /// Callback function to receive events from OpenAI.
+        /// Callback function to receive server events from OpenAI.
         /// <param name="event">The event received from OpenAI.</param>
         private void OnServerEvent(IServerEvent @event) {
             switch (@event) {
@@ -226,33 +258,62 @@ namespace EchoTrio {
                 case RealtimeConversationResponse conversationResponse: break;
                 case ConversationItemCreatedResponse conversationItemCreated: break;
                 case ConversationItemInputAudioTranscriptionResponse conversationItemTranscription:
-                    if (inputMode == InputMode.VoiceInput && conversationItemTranscription.IsCompleted) {
-                        Debug.Log("User: " + conversationItemTranscription.Transcript.Trim());
+                    if (!conversationItemTranscription.IsCompleted) { return; }
+                    Debug.Log($"Director's User Transcription: " + conversationItemTranscription.Transcript.Trim());
+
+                    if (IsStatus(Status.ReplyToVoice)) {
                         response.userTranscript = conversationItemTranscription.Transcript.Trim();
                         InvokeOnDirectorResponse();
+                    } else {
+                        Debug.Log("Director.OnServerEvent ConversationItemInputAudioTranscriptionResponse ignored.");
                     }
                     break;
                 case ConversationItemTruncatedResponse conversationItemTruncated: break;
                 case ConversationItemDeletedResponse conversationItemDeleted: break;
                 case InputAudioBufferCommittedResponse committedResponse:
-                    // User has stopped speaking for this intercourse.
-                    if (inputMode == InputMode.VoiceInput) {
-                        IsListening = false;
+                    Debug.Log($"Director.OnServerEvent InputAudioBufferCommittedResponse");
+
+                    if (TestAndSetStatus(Status.Listening, Status.ReplyToVoice)) {
+                        session.Send(new OpenAI.Realtime.CreateResponseRequest()); // Now tell it to reply to our audio input.
+                    } else {
+                        Debug.Log("Director.OnServerEvent InputAudioBufferCommittedResponse ignored.");
                     }
                     break;
-                case InputAudioBufferClearedResponse clearedResponse: break;
-                case InputAudioBufferStartedResponse startedResponse: break;
+                case InputAudioBufferClearedResponse clearedResponse:
+                    Debug.Log($"Director.OnServerEvent InputAudioBufferClearedResponse");
+                    break;
+                case InputAudioBufferStartedResponse startedResponse:
+                    Debug.Log($"Director.OnServerEvent InputAudioBufferStartedResponse");
+                    break;
                 case InputAudioBufferStoppedResponse stoppedResponse: break;
-                case RealtimeResponse realtimeResponse: break;
+                case RealtimeResponse realtimeResponse:
+                    switch (realtimeResponse.Response.Status) {
+                        case RealtimeResponseStatus.InProgress:
+                            Debug.Log("Director Realtime Response InProgress.");
+                            break;
+                        case RealtimeResponseStatus.Completed:
+                            Debug.Log("Director Realtime Response Completed.");
+                            InvokeOnDirectorResponse();
+                            break;
+                        case RealtimeResponseStatus.Cancelled:
+                            Debug.Log("Director Realtime Response Cancelled.");
+                            break;
+                        case RealtimeResponseStatus.Failed:
+                            Debug.Log("Director Realtime Response Failed.");
+                            break;
+                        case RealtimeResponseStatus.Incomplete:
+                            Debug.Log("Director Realtime Response Incomplete.");
+                            break;
+                    }
+                    break;
                 case ResponseOutputItemResponse outputItemResponse: break;
                 case ResponseContentPartResponse contentPartResponse: break;
                 case ResponseTextResponse textResponse: break; // Used if modality is Modality.Text only.
                 case ResponseAudioResponse audioResponse: break;
                 case ResponseAudioTranscriptResponse transcriptResponse: break; // Used if modality has Modality.Audio.
                 case ResponseFunctionCallArgumentsResponse functionCallArgumentsResponse:
-                    if (!functionCallArgumentsResponse.IsDone) return;
-
-                    Debug.Log("Director Function Call: " + functionCallArgumentsResponse.Name + ", Arguments: " + functionCallArgumentsResponse.Arguments.ToString());
+                    if (!functionCallArgumentsResponse.IsDone) { return; }
+                    Debug.Log($"Director's Function Call: " + functionCallArgumentsResponse.Name + ", Arguments: " + functionCallArgumentsResponse.Arguments.ToString());
 
                     // Handle function calls.
                     string output = string.Empty;
@@ -265,11 +326,21 @@ namespace EchoTrio {
                     // Return the function call output to the model.
                     ConversationItem functionCallOutput = new ConversationItem((ToolCall)functionCallArgumentsResponse, output);
                     session.Send(new OpenAI.Realtime.ConversationItemCreateRequest(functionCallOutput));
-                     
-                    InvokeOnDirectorResponse();
                     break;
                 case RateLimitsResponse rateLimitsResponse: break;
                 default: break;
+            }
+        }
+
+        private void SetStatus(Status value) { lock (statusMutex) { statusMutex.value = value; } }
+
+        private bool TestAndSetStatus(Status condition, Status value) {
+            lock (statusMutex) {
+                if (statusMutex.value == condition) {
+                    statusMutex.value = value;
+                    return true;
+                }
+                return false;
             }
         }
 
@@ -290,8 +361,8 @@ namespace EchoTrio {
                             @enum = speakers.ToArray() // Adding an enum means that the AI can only pick from this set of values. (Well, the AI is stupid and still sometimes hallucinates invalid values.)
                         },
                         minItems = 1,
-                        maxItems = speakers.Count * 2,
-                        uniqueItems = false
+                        maxItems = speakers.Count,
+                        uniqueItems = true
                     }
                 },
                 required = new[] { "speaker_order" }

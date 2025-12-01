@@ -18,7 +18,7 @@ namespace EchoTrio {
         [SerializeField] protected TriggerMode triggerMode = TriggerMode.Topic | TriggerMode.Round;
         [SerializeField] protected string triggerTopic = string.Empty;
         [SerializeField, Min(1)] protected int triggerRound = 1;
-        [SerializeField, Range(1.0f, 300.0f)] protected float triggerIdleTime = 60.0f;
+        [SerializeField, Range(10.0f, 300.0f)] protected float triggerIdleTime = 60.0f;
 
         public bool HasAllTriggerModes(TriggerMode modes) { return (triggerMode & modes) == modes; }
         public bool HasAnyTriggerMode(TriggerMode modes) { return (triggerMode & modes) != 0; }

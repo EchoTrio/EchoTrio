@@ -86,7 +86,6 @@ namespace EchoTrio {
         private Director director = null;
         private int roundCounter = 0;
         private float idleTimer = 0.0f;
-        private float idleTimerBuffer = 10.0f; // The idle timer needs to be about 10s to reduce chances of a race condition. (This is not a real fix, but works for 99.99% of cases).
 
         // Audio
         private bool isAudioPlaying = false;
@@ -122,12 +121,8 @@ namespace EchoTrio {
         /// </summary>
         /// <param name="message">The user text input.</param>
         /// <returns>Returns true if the voice chat system is currently accepting user input. Else, returns false.</returns>
-        public bool SubmitUserTextInput(string message) {
-            if (fsm.GetCurrentState() == (int)State.Listen) {
-                director.SubmitUserTextInput(message, destroyCancellationToken);
-                return true;
-            }
-            return false;
+        public async Awaitable<bool> SubmitUserTextInput(string message) {
+            return fsm.GetCurrentState() == (int)State.Listen && await director.SubmitUserTextInput(message, destroyCancellationToken);
         }
 
         public int GetRoundCounter() { return roundCounter; }
@@ -200,7 +195,7 @@ namespace EchoTrio {
             // Update GUI.
             for (int i = 0; i < actorReferences.Length; ++i) {
                 if (actorReferences[i] != null && actorReferences[i].listeningIcon != null) {
-                    actorReferences[i].listeningIcon.SetSprite(director.IsListening ? 1 : 0);
+                    actorReferences[i].listeningIcon.SetSprite(director.IsStatus(Director.Status.Listening) ? 1 : 0);
                 }
             }
             
@@ -378,7 +373,7 @@ namespace EchoTrio {
                     fsm.ChangeState((int)State.Finish);
                 }
                 // If the director is connected to OpenAI's server and no audio is playing, listen for user input.
-                else if (director.IsConnected) {
+                else if (director.IsConnected && director.IsStatus(Director.Status.Waiting)) {
                     fsm.ChangeState((int)State.Listen);
                 }
             }
@@ -407,25 +402,20 @@ namespace EchoTrio {
         private void OnUpdateListen() {
             // Update Idle Timer
             if (director.IsMicMuted) { idleTimer += Time.deltaTime; }
-            if (idleTimerText != null) {
-                if (idleTimer < idleTimerBuffer) {
-                    idleTimerText.text = $"Idle Buffer Time: {(idleTimerBuffer - idleTimer).ToString("n2")}s";
-                } else {
-                    idleTimerText.text = $"Idle Time: {(idleTimer - idleTimerBuffer).ToString("n2")}s";
-                }
-            }
+            if (idleTimerText != null) { idleTimerText.text = $"Idle Time: {idleTimer.ToString("n2")}s"; }
 
             // Check if we should trigger any idle discussions if the user has not given any input after a while. This ends the round.
             for (int i = 0; i < untriggeredDiscussions.Count; ++i) {
                 Discussion discussion = untriggeredDiscussions[i];
-                if (discussion.HasAllTriggerModes(Discussion.TriggerMode.IdleTime) &&
-                    discussion.GetTriggerIdleTime() + idleTimerBuffer <= idleTimer) {
-                    // We need an additional idleTimerBuffer to ensure that the idle timer is at least 10 seconds.
-                    // This is because even if the user says something and stop speaking, it takes 2 seconds of silence for the Director to sense that the user is done.
-                    // It then takes another 2 to 3 seconds for it to start replying. Therefore, 10 seconds is a good buffer to allow all these to happen, in order
-                    // to prevent a race condition where the idle discussion is triggered, and then a couple seconds later the director replies and trigger the actors to speak.
-                    // Is this the proper way to handle async operations like this? Fuck no! Does it work 99.99% of the time and am I too exhausted and out of time to implement a proper solution? Yes.
-                    director.StopListening();
+                // Check if we should trigger this idle discussion.
+                if (discussion.HasAllTriggerModes(Discussion.TriggerMode.IdleTime) && discussion.GetTriggerIdleTime() <= idleTimer) {
+                    // If the director has already stopped listening, abort.
+                    if (!director.CancelListen()) {
+                        Debug.Log("Aborting idle discussion as director has already started responding.");
+                        break;
+                    }
+
+                    // Else, trigger idle discussion.
                     discussionQueue.Enqueue(discussion);
                     untriggeredDiscussions.RemoveAt(i);
                     fsm.ChangeState((int)State.Discuss);
@@ -536,6 +526,9 @@ namespace EchoTrio {
         /// Callback invoked by the director when it has a response ready.
         /// <param name="response">The director's response.</param>
         private void OnDirectorResponse(Director.Response response) {
+            // We only care about a response when we are in the listening state.
+            if (fsm.GetCurrentState() != (int)State.Listen) { return; }
+
             // Add the user transcript to the chatbox.
             chatbox.AddMessage("User", response.userTranscript);
             // Inform each actor of what the user said.
