@@ -149,7 +149,7 @@ namespace EchoTrio {
             if (!TestAndSetStatus(Status.Listening, Status.TextInput)) { return false; }
 
             // Tell the director to clear everything it has heard.
-            // await session.SendAsync(new InputAudioBufferClearRequest(), cancellationToken);
+            await session.SendAsync(new InputAudioBufferClearRequest(), cancellationToken);
 
             // Now tell it to reply to our text input.
             response.userTranscript = message;
