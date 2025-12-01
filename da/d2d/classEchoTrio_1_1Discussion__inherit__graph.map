@@ -1,0 +1,6 @@
+<map id="EchoTrio.Discussion" name="EchoTrio.Discussion">
+<area shape="rect" id="node1" title="Discussions are a way for the designers to create a way for the actors to interact beyond the standar..." alt="" coords="167,131,344,325"/>
+<area shape="rect" id="node3" href="$d2/d65/classEchoTrio_1_1GeneratedDiscussion.html" title="GeneratedDiscussions allow the designer to request the actors to generate N responses based on a prom..." alt="" coords="5,373,255,524"/>
+<area shape="rect" id="node4" href="$da/d80/classEchoTrio_1_1ScriptedDiscussion.html" title="ScriptedDiscussions allow the designer to make the actors speak scripted lines." alt="" coords="279,410,482,487"/>
+<area shape="rect" id="node2" title=" " alt="" coords="191,5,320,83"/>
+</map>

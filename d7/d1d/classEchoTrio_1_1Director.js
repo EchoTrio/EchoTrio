@@ -1,0 +1,38 @@
+var classEchoTrio_1_1Director =
+[
+    [ "Response", "da/d5f/classEchoTrio_1_1Director_1_1Response.html", "da/d5f/classEchoTrio_1_1Director_1_1Response" ],
+    [ "StatusMutex", "d7/d6c/classEchoTrio_1_1Director_1_1StatusMutex.html", "d7/d6c/classEchoTrio_1_1Director_1_1StatusMutex" ],
+    [ "Status", "d7/d1d/classEchoTrio_1_1Director.html#af77a40de522ce06b697080fbb2fc9642", [
+      [ "Waiting", "d7/d1d/classEchoTrio_1_1Director.html#af77a40de522ce06b697080fbb2fc9642a5706de961fb376d701be6e7762d8b09c", null ],
+      [ "Listening", "d7/d1d/classEchoTrio_1_1Director.html#af77a40de522ce06b697080fbb2fc9642a962ef616821625a13a028ac14ac0fef8", null ],
+      [ "TextInput", "d7/d1d/classEchoTrio_1_1Director.html#af77a40de522ce06b697080fbb2fc9642ac852755f85e80bfa21ab754f8dde93dc", null ],
+      [ "VoiceInput", "d7/d1d/classEchoTrio_1_1Director.html#af77a40de522ce06b697080fbb2fc9642a7176939b25c7087ef148acd72a55b1bf", null ]
+    ] ],
+    [ "Director", "d7/d1d/classEchoTrio_1_1Director.html#a8b0fcbe79302d17855a7f5880ccf9a2a", null ],
+    [ "BuildTriggerDiscussionTool", "d7/d1d/classEchoTrio_1_1Director.html#ae539f84db2896d7f52575f69fd32a1bf", null ],
+    [ "BuildTriggerResponseTool", "d7/d1d/classEchoTrio_1_1Director.html#ab5ec5b782cbb6192e9112eed72a9af23", null ],
+    [ "CancelListen", "d7/d1d/classEchoTrio_1_1Director.html#ac4d783944e3d0bea94e1f8f4bd89001a", null ],
+    [ "GetSessionConfiguration", "d7/d1d/classEchoTrio_1_1Director.html#acaf380083c7ee58b8d5110923b06d5e5", null ],
+    [ "Initialise", "d7/d1d/classEchoTrio_1_1Director.html#a6787d4cb7983c0adaba1c8fbbe9219b1", null ],
+    [ "InvokeOnDirectorResponse", "d7/d1d/classEchoTrio_1_1Director.html#a9e4a1d1680ffcff391a4d843e99f6588", null ],
+    [ "IsStatus", "d7/d1d/classEchoTrio_1_1Director.html#a7ceefc01f432ee0a5e93462f2eddfbe6", null ],
+    [ "ListenForNextUserInput", "d7/d1d/classEchoTrio_1_1Director.html#ae5fd144b7d5524ee5d8f73764601f390", null ],
+    [ "OnServerEvent", "d7/d1d/classEchoTrio_1_1Director.html#ad86cdfc18a933ad47a20a3694b898583", null ],
+    [ "ParseDiscussionTopic", "d7/d1d/classEchoTrio_1_1Director.html#abf1f9efb4d032f642e81802466240c2c", null ],
+    [ "ParseSpeakerOrder", "d7/d1d/classEchoTrio_1_1Director.html#a1ced9345e0af123c3679ad65caed163f", null ],
+    [ "RecordInputAudio", "d7/d1d/classEchoTrio_1_1Director.html#a433cd919fac0b9f650191c3e45e41785", null ],
+    [ "SetStatus", "d7/d1d/classEchoTrio_1_1Director.html#a11163b6acc16aea8597f6681130be2c7", null ],
+    [ "SubmitUserTextInput", "d7/d1d/classEchoTrio_1_1Director.html#ad6aadf60f2db44a2d9867dcf55b4bde2", null ],
+    [ "TestAndSetStatus", "d7/d1d/classEchoTrio_1_1Director.html#aba4eac1099c215c98a81e8931b2dcdfd", null ],
+    [ "api", "d7/d1d/classEchoTrio_1_1Director.html#a0765993823f47f9a35041e2d14356a3d", null ],
+    [ "config", "d7/d1d/classEchoTrio_1_1Director.html#af50fb405d9b6fb1a925154ac47a3c152", null ],
+    [ "latestItemId", "d7/d1d/classEchoTrio_1_1Director.html#a43971af22eaa75472eb28887dadd344c", null ],
+    [ "onDirectorResponse", "d7/d1d/classEchoTrio_1_1Director.html#aedd6bc433e320410313c2b51015d9213", null ],
+    [ "response", "d7/d1d/classEchoTrio_1_1Director.html#abe76e496cfc0fe55c8722b9d11cbd4f6", null ],
+    [ "session", "d7/d1d/classEchoTrio_1_1Director.html#ae0d1baecc3da5993ea2a8e7561533f0d", null ],
+    [ "statusMutex", "d7/d1d/classEchoTrio_1_1Director.html#a12d97760556d6a7d6c3b72d677901462", null ],
+    [ "tools", "d7/d1d/classEchoTrio_1_1Director.html#aa91770ed6ecce0524c396d37e805a7eb", null ],
+    [ "EnableDebug", "d7/d1d/classEchoTrio_1_1Director.html#a22dc399e08e134073765af1e3d27ecd6", null ],
+    [ "IsConnected", "d7/d1d/classEchoTrio_1_1Director.html#a006d120c143ac475e60ce8a7c16d7a6d", null ],
+    [ "IsMicMuted", "d7/d1d/classEchoTrio_1_1Director.html#abbe3931b4377a9347ad89e5934120f40", null ]
+];

@@ -1,0 +1,3 @@
+<map id="EchoTrio.VoiceChat.ActorOutput" name="EchoTrio.VoiceChat.ActorOutput">
+<area shape="rect" id="node1" title="Output of actors to be queued and played by the audio thread." alt="" coords="5,5,188,171"/>
+</map>

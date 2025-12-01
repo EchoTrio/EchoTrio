@@ -1,0 +1,6 @@
+<map id="EchoTrio.VoiceChat.ActorReferences" name="EchoTrio.VoiceChat.ActorReferences">
+<area shape="rect" id="node1" title="Reference to an actor configuration, and the AudioSource it should play it&#39;s output audio from." alt="" coords="80,535,263,641"/>
+<area shape="rect" id="node2" href="$d8/df0/classEchoTrio_1_1ActorConfig.html" title=" " alt="" coords="68,219,275,472"/>
+<area shape="rect" id="node3" title=" " alt="" coords="5,20,135,97"/>
+<area shape="rect" id="node4" href="$d1/db5/classEchoTrio_1_1ActorConfig_1_1InstructionSnippet.html" title=" " alt="" coords="159,5,387,112"/>
+</map>

@@ -1,0 +1,3 @@
+<map id="EchoTrio.Director.StatusMutex" name="EchoTrio.Director.StatusMutex">
+<area shape="rect" id="node1" title="Helper class to act as a mutex for the status value, as it may be read by multiple threads." alt="" coords="5,5,181,97"/>
+</map>

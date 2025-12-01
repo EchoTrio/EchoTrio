@@ -1,0 +1,14 @@
+<map id="EchoTrio.UI.UserTextInput" name="EchoTrio.UI.UserTextInput">
+<area shape="rect" id="node1" title=" " alt="" coords="232,2021,420,2143"/>
+<area shape="rect" id="node2" title=" " alt="" coords="325,876,449,953"/>
+<area shape="rect" id="node3" href="$dd/d64/classEchoTrio_1_1VoiceChat.html" title=" " alt="" coords="363,1192,569,1959"/>
+<area shape="rect" id="node4" title=" " alt="" coords="5,876,68,953"/>
+<area shape="rect" id="node5" href="$de/d02/classEchoTrio_1_1DirectorConfig.html" title=" " alt="" coords="329,307,502,384"/>
+<area shape="rect" id="node11" href="$d7/d1d/classEchoTrio_1_1Director.html" title=" " alt="" coords="473,715,691,1115"/>
+<area shape="rect" id="node6" title=" " alt="" coords="767,20,896,97"/>
+<area shape="rect" id="node8" href="$d8/df0/classEchoTrio_1_1ActorConfig.html" title=" " alt="" coords="931,219,1137,472"/>
+<area shape="rect" id="node10" href="$d5/df6/classEchoTrio_1_1Discussion.html" title="Discussions are a way for the designers to create a way for the actors to interact beyond the standar..." alt="" coords="744,496,921,691"/>
+<area shape="rect" id="node7" href="$d0/d21/classEchoTrio_1_1VoiceChat_1_1ActorReferences.html" title="Reference to an actor configuration, and the AudioSource it should play it&#39;s output audio from." alt="" coords="943,861,1125,968"/>
+<area shape="rect" id="node9" href="$d1/db5/classEchoTrio_1_1ActorConfig_1_1InstructionSnippet.html" title=" " alt="" coords="920,5,1148,112"/>
+<area shape="rect" id="node12" href="$d7/d6c/classEchoTrio_1_1Director_1_1StatusMutex.html" title="Helper class to act as a mutex for the status value, as it may be read by multiple threads." alt="" coords="526,299,702,391"/>
+</map>

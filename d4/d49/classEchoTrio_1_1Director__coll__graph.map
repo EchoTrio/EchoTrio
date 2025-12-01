@@ -1,0 +1,7 @@
+<map id="EchoTrio.Director" name="EchoTrio.Director">
+<area shape="rect" id="node1" title=" " alt="" coords="158,749,376,1149"/>
+<area shape="rect" id="node2" href="$de/d02/classEchoTrio_1_1DirectorConfig.html" title=" " alt="" coords="296,139,470,217"/>
+<area shape="rect" id="node4" href="$d7/d1d/classEchoTrio_1_1Director.html" title=" " alt="" coords="158,287,376,687"/>
+<area shape="rect" id="node3" title=" " alt="" coords="318,5,448,83"/>
+<area shape="rect" id="node5" href="$d7/d6c/classEchoTrio_1_1Director_1_1StatusMutex.html" title="Helper class to act as a mutex for the status value, as it may be read by multiple threads." alt="" coords="84,132,260,224"/>
+</map>
