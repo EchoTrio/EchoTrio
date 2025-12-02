@@ -11,7 +11,10 @@ namespace EchoTrio {
         [SerializeField, Range(1, 10)] private int minTurns = 1;
         [SerializeField, Range(1, 10)] private int maxTurns = 3;
         [SerializeField] private List<Persona> speakers = new List<Persona>();
-        [SerializeField, Tooltip("The prompt to give to the model to generate a discussion. If left blank, it will default to the trigger topic.")] private string discussionPrompt = string.Empty;
+        [SerializeField,
+            TextArea(minLines: 4, maxLines: 16),
+            Tooltip("The prompt to give to the model to generate a discussion. If left blank, it will default to the trigger topic.")]
+        private string discussionPrompt = string.Empty;
 
         public List<Persona> GenerateRandomSpeakerOrder() {
             if (speakers.Count == 0) { return new List<Persona>(); }
