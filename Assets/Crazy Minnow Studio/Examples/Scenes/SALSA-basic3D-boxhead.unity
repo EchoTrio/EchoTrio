@@ -525,9 +525,9 @@ MonoBehaviour:
   inspStateFoldoutHeads: 0
   inspStateFoldoutHeadProps: 1
   inspStateFoldoutAnimBones: 0
-  inspStateFoldoutEyes: 0
+  inspStateFoldoutEyes: 1
   inspStateFoldoutEyeProps: 1
-  inspStateFoldoutEyelids: 0
+  inspStateFoldoutEyelids: 1
   inspStateFoldoutEyelidBlinkProps: 1
   inspStateFoldoutEyelidTrackProps: 1
   drawEyeBoneCaptureControls: 0
@@ -1009,7 +1009,7 @@ MonoBehaviour:
         controlType: 0
         lipsyncControlType: 0
         emoteControlType: 0
-        eyesControlType: 1
+        eyesControlType: 0
         durationDelay: 0
         durationOn: 0.1
         durationHold: 0
@@ -1975,7 +1975,7 @@ MonoBehaviour:
   randomHoldDurationMax: 0.5
   configReady: 1
   warnOnNullRefs: 1
-  inspSalsaLinked: 1
+  inspSalsaLinked: 0
   inspStateFoldoutProcessing: 0
   inspStateFoldoutSettings: 0
   inspStateFoldoutEmotes: 0
@@ -2793,6 +2793,10 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 1.2588727
       objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 2ca10c22b135faf419bbb2d6cba14789, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 706356698f3dcd44c84952e8db2f0b3d, type: 2}
     - target: {fileID: 13700000, guid: 2ca10c22b135faf419bbb2d6cba14789, type: 3}
       propertyPath: m_BlendShapeWeights.Array.size
       value: 9

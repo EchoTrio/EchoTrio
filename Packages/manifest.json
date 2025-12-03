@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.openai.unity": "8.8.6",
+    "com.openai.unity": "8.8.7",
     "com.rest.elevenlabs": "https://github.com/RageAgainstThePixel/com.rest.elevenlabs.git#upm",
     "com.unity.ide.visualstudio": "2.0.25",
     "com.unity.inputsystem": "1.14.2",
@@ -58,6 +58,13 @@
       "url": "https://package.openupm.com",
       "scopes": [
         "com.rest.elevenlabs"
+      ]
+    },
+    {
+      "name": "CMU ETC",
+      "url": "https://upm.etc.cmu.edu",
+      "scopes": [
+        "com.spelunx"
       ]
     }
   ]

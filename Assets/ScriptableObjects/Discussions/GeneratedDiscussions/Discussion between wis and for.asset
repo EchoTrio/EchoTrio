@@ -14,12 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.GeneratedDiscussion
   triggerMode: 2
   triggerTopic: 
-  triggerRound: 9
+  triggerRound: 7
   triggerIdleTime: 60
   minRounds: 1
   maxRounds: 2
+  minTurns: 1
+  maxTurns: 2
   speakers: 0000000001000000
   discussionPrompt: Athena and Poseidon start to fight. Their relationship starts
-    to be extremely terrible. They will shout with each other. They will use detsailed
-    examples to expain they they trust wisdom and force. At the end of the conversation,
-    they will ask the user's opinion.
+    to be extremely terrible. They will shout with each other. They will use details
+    to explain their opinions. If possible. use some interesting examples to make
+    the conversation more funny.  At the end of the conversation, they will ask the
+    user's opinion.

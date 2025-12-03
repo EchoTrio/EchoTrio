@@ -23,12 +23,12 @@ MonoBehaviour:
       predictable.\r"
     emotion: 4
   - speaker: 1
-    message: " [chuckles, leans in, snorts]: Hah! Indecision is just weakness in
-      a mask. Better a brute than a coward.\r"
+    message: " [speak faster] [chuckles, leans in, snorts]: Hah! Indecision is just
+      weakness in a mask. Better a brute than a coward.\r"
     emotion: 4
   - speaker: 0
     message: "[sharp]: Think again, traveler.\r"
     emotion: 4
   - speaker: 1
-    message: "Choose. Next time\u2014faster.\r\r"
+    message: "[speak faster] Choose. Next time\u2014faster.\r\r"
     emotion: 4

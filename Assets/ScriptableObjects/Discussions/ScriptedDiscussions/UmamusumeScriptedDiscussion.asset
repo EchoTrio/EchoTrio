@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68e8b72e83fbe845a28297cb26f76fb, type: 3}
   m_Name: UmamusumeScriptedDiscussion
   m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.ScriptedDiscussion
-  triggerMode: 6
+  triggerMode: 4
   triggerTopic: Umamusume
   triggerRound: 1
-  triggerIdleTime: 1
+  triggerIdleTime: 3
   dialogues:
   - speaker: 1
     message: Rice Shower is such a daughter!

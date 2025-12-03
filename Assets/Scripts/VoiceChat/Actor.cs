@@ -1,3 +1,4 @@
+// By Terri Lim, CMU ETC Class of 2026. Last updated by me in December 2025. Feel free to judge any code up till then.
 using ElevenLabs;
 using ElevenLabs.TextToSpeech;
 using Newtonsoft.Json;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 
 namespace EchoTrio {
+    /// The actors are the OpenAI Response model which chats with the user.
     public class Actor {
         [System.Serializable]
         public class Response {
@@ -27,8 +29,10 @@ namespace EchoTrio {
             public List<OpenAI.Tool> tools = new List<Tool>();
 
             public OpenAISettings(ActorConfig config) {
+                // Choose the minimum reasoning effort that is required to run the enabled features.
                 reasoningEffort = config.IsAnyFeatureEnabled(ActorConfig.Feature.WebSearch | ActorConfig.Feature.FileSearch | ActorConfig.Feature.Reasoning) ? ReasoningEffort.Low : ReasoningEffort.Minimal;
 
+                // TODO: Change from WebSearchPreviewTool to WebSearchTool once the com.openai.unity library supports it.
                 if (config.AreAllFeaturesEnabled(ActorConfig.Feature.WebSearch)) {
                     tools.Add(new WebSearchPreviewTool(SearchContextSize.Low)); // User Location: Optional Free Text City, ISO 3166-1 Country Code, Free Text State/Region, IANA Time Zone
                     include.Add("web_search_call.action.sources");
@@ -65,6 +69,7 @@ namespace EchoTrio {
         private ElevenLabsSettings elevenLabsSettings = null;
 
         // Internal Variables
+        /// The conversation history from this actor's point of view.
         private List<IResponseItem> conversation = new List<IResponseItem>();
 
         // Public Properties
@@ -78,7 +83,7 @@ namespace EchoTrio {
 
             // Initialise OpenAI
             openAISettings = new OpenAISettings(config);
-            openAISettings.tools.AddRange(GetCustomTools());
+            openAISettings.tools.Add(BuildSetEmotionTool());
 
             openAIApi = new OpenAIClient(Authentication.GetOpenAIAuthentication()) { EnableDebug = this.EnableDebug };
             AddSystemMesssage(config.GetInstructions());
@@ -88,14 +93,37 @@ namespace EchoTrio {
             elevenLabsApi = new ElevenLabsClient(Authentication.GetElevenLabsAuthentication()) { EnableDebug = this.EnableDebug };
         }
 
+        /// Append a system message to the actor's conversation history.
+        /// <param name="message">The message to append.</param>
         public void AddSystemMesssage(string message) {
             conversation.Add(new Message(OpenAI.Role.System, message));
         }
 
+        /// Append a user message to the actor's conversation history.
+        /// <param name="message">The message to append.</param>
         public void AddUserMessage(string message) {
             conversation.Add(new Message(OpenAI.Role.User, message));
         }
 
+        /// Append an assistant message to the actor's conversation history. This means that we can make the actor think it said something, even if it did not. 
+        /// Used for scripted speech, where we force the actor to say something the designer wrote.
+        /// <param name="message">The message to append.</param>
+        /// <param name="emotion">The emotion of the message.</param>
+        /// <param name="cancellationToken">Cancellation token used to cancel any async actions when the program shuts down.</param>
+        /// <returns>The actor's response.</returns>
+        public async Task<Actor.Response> InsertResponse(string message, Emotion emotion, CancellationToken cancellationToken) {
+            // Bit of a hack because assistant messages must now be of type output_text. Had to make my own custom class because the package's creator rejected my pull request.
+            conversation.Add(new Message(OpenAI.Role.Assistant, new OutputTextContent(message)));
+            return new Actor.Response() {
+                message = message,
+                emotion = emotion,
+                audioClip = await GetAudioClipAsync(message, cancellationToken)
+            };
+        }
+
+        /// Request the actor to generate a response based on the conversation history.
+        /// <param name="cancellationToken">Cancellation token used to cancel any async actions when the program shuts down.</param>
+        /// <returns>The actor's response.</returns>
         public async Task<Actor.Response> GetResponse(CancellationToken cancellationToken) {
             try {
                 // Request a response from OpenAI.
@@ -157,16 +185,6 @@ namespace EchoTrio {
             }
         }
 
-        public async Task<Actor.Response> InsertResponse(string message, Emotion emotion, CancellationToken cancellationToken) {
-            // Bit of a hack because assistant messages must now be of type output_text. Had to make my own custom class because the package's creator rejected my pull request.
-            conversation.Add(new Message(OpenAI.Role.Assistant, new OutputTextContent(message)));
-            return new Actor.Response() {
-                message = message,
-                emotion = emotion,
-                audioClip = await GetAudioClipAsync(message, cancellationToken)
-            };
-        }
-
         // Internal Functions
         private async Task<AudioClip> GetAudioClipAsync(string text, CancellationToken cancellationToken) {
             try {
@@ -183,15 +201,9 @@ namespace EchoTrio {
         }
 
         // Tools
-        private List<OpenAI.Tool> GetCustomTools() {
-            List<OpenAI.Tool> tools = new List<OpenAI.Tool>();
-
-            // Add tools here.
-            tools.Add(BuildSetEmotionTool());
-
-            return tools;
-        }
-
+        /// Create a function following OpenAI's JSON Schema for the actor to select its emotion for the current response.
+        /// OpenAI API on function calling: https://platform.openai.com/docs/guides/function-calling
+        /// <returns>The function's JSON Object.</returns>
         private OpenAI.Function BuildSetEmotionTool() {
             List<string> emotions = new List<string>();
             for (int i = 0; i < (int)Emotion.Num; ++i) {

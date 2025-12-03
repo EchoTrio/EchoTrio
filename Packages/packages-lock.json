@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.openai.unity": {
-      "version": "8.8.6",
+      "version": "8.8.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -21,6 +21,21 @@
         "com.utilities.encoder.wav": "3.0.2"
       },
       "hash": "1bc1b7c9c92469bd6d5db86e6fa0bda346679c6a"
+    },
+    "com.spelunx.cavern.orbbec.libs": {
+      "version": "0.0.4",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://upm.etc.cmu.edu"
+    },
+    "com.spelunx.cavern.orbbec.sdk": {
+      "version": "file:com.spelunx.cavern.orbbec.sdk",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.spelunx.cavern.orbbec.libs": "0.0.4"
+      }
     },
     "com.unity.burst": {
       "version": "1.8.25",

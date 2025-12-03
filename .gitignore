@@ -101,17 +101,30 @@ InitTestScene*.unity*
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
 
-# Visual Studio Code
+# Visual Studio & Visual Studio Code
 /.vscode
-
-# Visual Studio
 /.vsconfig
+*.slnx
 
 # ******************************* EchoTrio *******************************
 # Playtest Logs
 /[Aa]ssets/PlaytestLogs
 /[Aa]ssets/PlaytestLogs.meta
 
+# Other Logs
+/[Ll]og/*
+
 # Authentication File
 /[Aa]ssets/StreamingAssets/Configs/Authentication.ini
 /[Aa]ssets/StreamingAssets/Configs/Authentication.ini.meta
+
+# ORBBEC Library Binaries
+/directml.dll
+/dnn_model_2_0_op11.onnx
+/onnxruntime.dll
+/onnxruntime_providers_cuda.dll
+/onnxruntime_providers_shared.dll
+/onnxruntime_providers_tensorrt.dll
+
+# Ignore ORBBEC Lib Package Temporarily
+/Packages/com.spelunx.cavern.orbbec.libs

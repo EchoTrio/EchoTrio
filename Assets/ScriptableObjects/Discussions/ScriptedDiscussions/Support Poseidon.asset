@@ -22,7 +22,7 @@ MonoBehaviour:
       truly think might alone can hold a nation together?\r"
     emotion: 4
   - speaker: 1
-    message: " [grins]: [laughs] It always has.\L Power commands respect\u2014when
+    message: "[speak faster]  [grins]: [laughs] It always has.\L Power commands respect\u2014when
       waves roar loud enough, no one dares invade.\r"
     emotion: 4
   - speaker: 0
@@ -30,7 +30,7 @@ MonoBehaviour:
       that tide turns, strength becomes terror, not safety.\r"
     emotion: 4
   - speaker: 1
-    message: "[low, intense]: [growls] Terror still stops arrows.\L [turns to user]
-      Mortal\u2014when storms rise, do you seek peace through wisdom\u2026 or survive
-      through force?.\r\r"
+    message: "[speak faster] [low, intense]: [growls] Terror still stops arrows.\L
+      [turns to user] Mortal\u2014when storms rise, do you seek peace through wisdom\u2026
+      or survive through force?.\r\r"
     emotion: 4

@@ -1,24 +1,29 @@
+// By Terri Lim, CMU ETC Class of 2026. Last updated by me in December 2025. Feel free to judge any code up till then.
 using System;
 using Microsoft.Extensions.Configuration;
 using UnityEngine;
-using static UnityEngine.Rendering.DebugUI;
 
 namespace EchoTrio {
+    /// Actor's configuration as a ScriptableObject.
+    /// Some configurations can be overridden via the ActorOverrides.ini file.
     [CreateAssetMenu(fileName = "ActorConfig", menuName = "EchoTrio/ActorConfig")]
     public class ActorConfig : ScriptableObject {
         private const string OverrideFileName = "ActorOverrides.ini";
 
-        [System.Serializable]
-        public class InstructionSnippet {
+        [System.Serializable] public class InstructionSnippet {
             public bool enabled = true;
             [TextArea(minLines: 4, maxLines: 8)] public string instruction = string.Empty;
         }
 
-        [System.Flags]
-        public enum Feature {
+        /// Flags to enable or disable actor features.
+        [System.Flags] public enum Feature {
+            /// Allow the actor's OpenAI model to access the internet and search for information.
             WebSearch = 1 << 0,
+            /// Allow the actor's OpenAI model to access files uploaded into the vector store. https://platform.openai.com/storage
             FileSearch = 1 << 1,
+            /// Allow the actor's OpenAI model to provide its reasoning when generating a response.
             Reasoning = 1 << 2,
+            /// Allow the actor's ElevenLabs model to use audio tags to generate more expressive dialouge. https://elevenlabs.io/blog/v3-audiotags
             AudioTags = 1 << 3,
         }
 
