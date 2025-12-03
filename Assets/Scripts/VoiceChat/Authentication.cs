@@ -13,9 +13,9 @@ namespace EchoTrio {
             IConfiguration config = new ConfigurationBuilder().AddIniFile($"{Application.streamingAssetsPath}/Configs/{FileName}").Build();
             IConfigurationSection section = config.GetSection("OpenAI");
             string apiKey = section["api_key"];
-            string orgKey = section["org_key"];
-            string projKey = section["proj_key"];
-            return new OpenAIAuthentication(apiKey, orgKey, projKey);
+            string orgId = section["org_id"];
+            string projId = section["proj_id"];
+            return new OpenAIAuthentication(apiKey, orgId, projId);
         }
 
         public static ElevenLabsAuthentication GetElevenLabsAuthentication() {

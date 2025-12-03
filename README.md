@@ -9,6 +9,7 @@
 1. Ensure you have [Unity 6.2](https://docs.google.com/document/d/18ge-kDuYu1pYe3VaC0oYd6mhCOw7E2qkABDeP8M4Ptw/edit?usp=sharing) or higher installed.
 2. Clone this repository to your local machine.
 3. Open the project with Unity, and open the `Playtest` scene.
+4. Ensure you have 3 Game windows opened in Unity and set them to Display 1, Display 2, Display 3 respectively.
 
 ### Authentication & API Keys
 In order to run the game, you will need your OpenAI and ElevenLabs API Keys.  
@@ -18,18 +19,18 @@ In order to run the game, you will need your OpenAI and ElevenLabs API Keys.
 ```
 [OpenAI]
 api_key = Your_API_Key
-org_key = Your_Organisation_Key
-proj_key = Your_Project_Key
+org_id = Your_Organisation_ID
+proj_id = Your_Project_ID
 
 [ElevenLabs]
 api_key = Your_API_Key
 ```
 
-2. Then, fill up the template with your API keys, which can be found in the following links:
+2. Then, fill up the template with your API keys and IDs, which can be found in the following links:
     - OpenAI
         - API Key: https://platform.openai.com/api-keys
-        - Organisation Key: https://platform.openai.com/settings/organization/general
-        - Project Key: https://platform.openai.com/settings/project
+        - Organisation ID: https://platform.openai.com/settings/organization/general
+        - Project ID: https://platform.openai.com/settings/project
     - ElevenLabs
         - API Key: https://elevenlabs.io/app/developers/api-keys
 
