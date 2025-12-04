@@ -37,9 +37,7 @@ namespace EchoTrio.Gameplay {
         [Header("Prefabs & References")]
         [SerializeField] private EchoTrio.UI.FadeEffect[] clouds = new EchoTrio.UI.FadeEffect[0];
         [SerializeField] private Spelunx.Orbbec.BodyTrackerManager bodyTrackerManager = null;
-        [SerializeField] private VoiceChat voiceChat = null;
-        [SerializeField] private GameObject voiceChatObject = null;
-        [SerializeField] private int maxRounds = 0;
+        [SerializeField] private GameObject voiceChat = null;
         [SerializeField] private AudioSource waitBGM = null;
         [SerializeField] private AudioSource playBGM = null;
         [SerializeField] private AnimationReferences[] animationReferences = new AnimationReferences[0];
@@ -51,7 +49,6 @@ namespace EchoTrio.Gameplay {
         // Finish State Variables
         private float fadeInDelay = 3.0f;
         private float fadeInTimer = 0.0f;
-        private bool hasFadedIn = false;
 
         // Internal Functions
         private void Awake() {
@@ -159,7 +156,7 @@ namespace EchoTrio.Gameplay {
                 cloud.FadeOut();
             }
             // Is there also anything else we should activate or deactivate?
-            voiceChatObject.SetActive(true);
+            voiceChat.SetActive(true);
 
             // Switch BGMs.
             waitBGM.Stop();
@@ -183,23 +180,6 @@ namespace EchoTrio.Gameplay {
                 animationReferences[1].animator.SetBool(animationReferences[1].actorIsTalkingBool, isPTalking);
                 animationReferences[1].animator.SetBool(animationReferences[0].actorIsTalkingBool, isATalking);
             }
-
-            // disable user voice input if actor is talking
-            // if (isATalking || isPTalking)
-            // {
-            //     gameInputActions.VoiceChat.PushToTalk.Disable();
-            // }
-            // else
-            // {
-            //     gameInputActions.VoiceChat.PushToTalk.Enable();
-            // }
-
-            // check the rounds, and fade in clouds when we reach the final round + actors are silent for a while
-            // int roundCounter = voiceChat.GetRoundCounter();
-            // if (!isATalking && !isPTalking && roundCounter >= maxRounds && !hasFadedIn)
-            // {
-            //     OnGameFinish();
-            // }
         }
 
         private void OnExitPlay() {
@@ -222,7 +202,6 @@ namespace EchoTrio.Gameplay {
                     Debug.Log("Fading in cloud");
                     cloud.FadeIn();
                 }
-                hasFadedIn = true;
             }
         }
 

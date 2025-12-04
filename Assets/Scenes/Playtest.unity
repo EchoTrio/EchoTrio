@@ -3280,9 +3280,7 @@ MonoBehaviour:
   - {fileID: 1501429423}
   - {fileID: 1121822266}
   bodyTrackerManager: {fileID: 979730417}
-  voiceChat: {fileID: 262016821}
-  voiceChatObject: {fileID: 262016819}
-  maxRounds: 10
+  voiceChat: {fileID: 262016819}
   waitBGM: {fileID: 20694777}
   playBGM: {fileID: 2108942793}
   animationReferences:
