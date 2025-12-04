@@ -290,7 +290,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: 5ab7ec89c4675ad468b2d723a4cd58d1, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -3241,10 +3241,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1659469947}
-  - component: {fileID: 1659469950}
-  - component: {fileID: 1659469952}
-  - component: {fileID: 1659469954}
-  - component: {fileID: 1659469955}
   - component: {fileID: 1659469956}
   m_Layer: 0
   m_Name: GameManager
@@ -3268,78 +3264,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1659469950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659469946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f89f1f3a652db794f921f6223cab91ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AudioAnimationTrigger
-  animatorA: {fileID: 268784621}
-  audioA: {fileID: 1655254853}
-  animatorP: {fileID: 414058558}
-  audioP: {fileID: 1598031280}
-  ctrlPressedBool: IsCtrlPressed
-  ctrlReleasedBool: IsCtrlReleased
-  AtalkingBool: AIsTalking
-  PtalkingBool: PIsTalking
-  AthenaAudio1: {fileID: 872425127}
-  AthenaAudio2: {fileID: 1244527469}
-  PoseidonAudio1: {fileID: 1878383244}
-  PoseidonAudio2: {fileID: 1093834780}
---- !u!114 &1659469952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659469946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49c19e347d8f53c4d863aade79ab2dcf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FadingVideo
-  duration: 5
-  objectsToFade:
-  - {fileID: 1121822260}
-  - {fileID: 1501429416}
-  objectToEnable: {fileID: 262016819}
-  orbbecScript: {fileID: 979730417}
-  voicechatScript: {fileID: 262016821}
-  audioA: {fileID: 1655254853}
-  audioB: {fileID: 1598031280}
-  Audio1ToEnable: {fileID: 2108942791}
-  Audio2ToDisable: {fileID: 20694775}
-  silenceThreshold: 3
---- !u!114 &1659469954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659469946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 378b968f3a4f0c14da9c9d7dd7477a09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MultiDisplayActivate
---- !u!114 &1659469955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659469946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9cd30491b1daa44484742a485b05464, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RestartOnR
 --- !u!114 &1659469956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3357,6 +3281,8 @@ MonoBehaviour:
   - {fileID: 1121822266}
   bodyTrackerManager: {fileID: 979730417}
   voiceChat: {fileID: 262016821}
+  voiceChatObject: {fileID: 262016819}
+  maxRounds: 10
   waitBGM: {fileID: 20694777}
   playBGM: {fileID: 2108942793}
   animationReferences:
@@ -4173,7 +4099,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: e3be8d81c24b3684fbe7f9c10c014a9d, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
@@ -4352,6 +4278,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2111290351932239782, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2111290351932239782, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4192099825202739650, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
