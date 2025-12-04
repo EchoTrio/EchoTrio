@@ -176,21 +176,23 @@ namespace EchoTrio.Gameplay {
             if (animationReferences[0].animator != null)
             {
                 animationReferences[0].animator.SetBool(animationReferences[0].actorIsTalkingBool, isATalking);
+                animationReferences[0].animator.SetBool(animationReferences[1].actorIsTalkingBool, isPTalking);
             }
             if (animationReferences[1].animator != null)
             {
                 animationReferences[1].animator.SetBool(animationReferences[1].actorIsTalkingBool, isPTalking);
+                animationReferences[1].animator.SetBool(animationReferences[0].actorIsTalkingBool, isATalking);
             }
 
             // disable user voice input if actor is talking
-            if (isATalking || isPTalking)
-            {
-                gameInputActions.VoiceChat.PushToTalk.Disable();
-            }
-            else
-            {
-                gameInputActions.VoiceChat.PushToTalk.Enable();
-            }
+            // if (isATalking || isPTalking)
+            // {
+            //     gameInputActions.VoiceChat.PushToTalk.Disable();
+            // }
+            // else
+            // {
+            //     gameInputActions.VoiceChat.PushToTalk.Enable();
+            // }
 
             // check the rounds, and fade in clouds when we reach the final round + actors are silent for a while
             int roundCounter = voiceChat.GetRoundCounter();
