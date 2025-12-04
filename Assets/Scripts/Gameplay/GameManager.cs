@@ -5,7 +5,7 @@ namespace EchoTrio.Gameplay {
     /// GameManager controls the gameplay animation and audio.
     public class GameManager : MonoBehaviour {
         // TODO: This class should replace AudioAnimationTrigger, FadingVideo, and MultiDisplayActivate.
-
+        //
         private enum State {
             /// Wait for the player to start the game.
             Wait,
