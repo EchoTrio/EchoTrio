@@ -57,8 +57,8 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "d7/d1d/classEchoTrio_1_1Director.html#af77a40de522ce06b697080fbb2fc9642a5706de961fb376d701be6e7762d8b09c",
-"da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#ad4c4319612690c8a1567c650e2757305",
-"dd/d64/classEchoTrio_1_1VoiceChat.html#ae3f414f4577a278374fa2d697fbbe193"
+"da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#ac03e211956b5b16a2d6640d3abfec0ad",
+"dd/d64/classEchoTrio_1_1VoiceChat.html#ad91f5a21325af67528babba984eb6073"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

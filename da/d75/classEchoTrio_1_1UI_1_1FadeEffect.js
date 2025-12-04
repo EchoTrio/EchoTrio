@@ -24,6 +24,8 @@ var classEchoTrio_1_1UI_1_1FadeEffect =
     [ "fsm", "da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#a6e998af12fc4e3d0fe5a25e65ea6db50", null ],
     [ "initialColour", "da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#adc60e43118064fd3d59f4f3e4b2e8cd9", null ],
     [ "isFading", "da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#a24fc8382a89202a1a28c87acf3594ae7", null ],
+    [ "onFadeEnd", "da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#ac03e211956b5b16a2d6640d3abfec0ad", null ],
+    [ "onFadeStart", "da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#ae657bba7464d2614f9dfc8f0adb16117", null ],
     [ "targetRenderer", "da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#a9310cb80c6bb53df293f32e93d338885", null ],
     [ "timer", "da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#add96b6d7148e67bcec6f37f4ad059322", null ]
 ];
