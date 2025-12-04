@@ -195,11 +195,11 @@ namespace EchoTrio.Gameplay {
             // }
 
             // check the rounds, and fade in clouds when we reach the final round + actors are silent for a while
-            int roundCounter = voiceChat.GetRoundCounter();
-            if (!isATalking && !isPTalking && roundCounter >= maxRounds && !hasFadedIn)
-            {
-                OnGameFinish();
-            }
+            // int roundCounter = voiceChat.GetRoundCounter();
+            // if (!isATalking && !isPTalking && roundCounter >= maxRounds && !hasFadedIn)
+            // {
+            //     OnGameFinish();
+            // }
         }
 
         private void OnExitPlay() {
@@ -209,24 +209,21 @@ namespace EchoTrio.Gameplay {
         // Finish State (You may not have to use all of these functions. I am just creating a template for you.)
         private void OnEnterFinish() {
             Debug.Log("GameManager: OnEnterFinish");
+        }
 
+        private void OnUpdateFinish() {
+            Debug.Log("GameManager: OnUpdateFinish");
             // Fade the clouds back in.
             fadeInTimer += Time.deltaTime;
             if (fadeInTimer >= fadeInDelay)
             {
                 foreach (var cloud in clouds)
                 {
+                    Debug.Log("Fading in cloud");
                     cloud.FadeIn();
                 }
                 hasFadedIn = true;
             }
-        }
-
-        private void OnUpdateFinish() {
-            Debug.Log("GameManager: OnUpdateFinish");
-
-            // TODO: Now that the game has finished, what should happen? Maybe we can consider restarting after a few seconds?
-
         }
 
         private void OnExitFinish() {
@@ -251,7 +248,6 @@ namespace EchoTrio.Gameplay {
         private void OnPushToTalkStarted(InputAction.CallbackContext context) {
             Debug.Log("GameManager: OnPushToTalkStarted");
 
-            // TODO: What do we want to do when the user has pressed the CTRL key?
             foreach (var animRef in animationReferences)
             {
                 if (animRef.animator != null)
@@ -265,7 +261,6 @@ namespace EchoTrio.Gameplay {
         private void OnPushToTalkCancelled(InputAction.CallbackContext context) {
             Debug.Log("GameManager: OnPushToTalkCancelled");
 
-            // TODO: What do we want to do when the user has released the CTRL key?
             foreach (var animRef in animationReferences)
             {
                 // play the thinking SFX
