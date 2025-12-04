@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace EchoTrio.UI {
     public class FadeEffect : MonoBehaviour {
@@ -9,6 +10,10 @@ namespace EchoTrio.UI {
         
         [Header("Fade Settings")]
         [SerializeField, Range(0.1f, 60.0f)] private float fadeDuration = 5.0f;
+
+        // Public Interfaace
+        public UnityAction onFadeStart = null;
+        public UnityAction onFadeEnd = null;
 
         // Private Variables
         private Color initialColour = Color.white;
@@ -55,6 +60,7 @@ namespace EchoTrio.UI {
         private void OnEnterFadeIn() {
             isFading = true;
             timer = 0.0f;
+            onFadeStart?.Invoke();
         }
 
         private void OnUpdateFadeIn() {
@@ -71,12 +77,16 @@ namespace EchoTrio.UI {
             if (timer == fadeDuration) { fsm.ChangeState((int)State.Idle); }
         }
 
-        private void OnExitFadeIn() { isFading = false; }
+        private void OnExitFadeIn() {
+            isFading = false;
+            onFadeEnd?.Invoke();
+        }
 
         // Fade Out State
         private void OnEnterFadeOut() {
             isFading = true;
             timer = 0.0f;
+            onFadeStart?.Invoke();
         }
 
         private void OnUpdateFadeOut() {
@@ -93,6 +103,9 @@ namespace EchoTrio.UI {
             if (timer == fadeDuration) { fsm.ChangeState((int)State.Idle); }
         }
 
-        private void OnExitFadeOut() { isFading = false; }
+        private void OnExitFadeOut() {
+            isFading = false;
+            onFadeEnd?.Invoke();
+        }
     }
 }
