@@ -1,6 +1,9 @@
 var annotated_dup =
 [
     [ "EchoTrio", "dd/df7/namespaceEchoTrio.html", [
+      [ "Gameplay", "d7/d06/namespaceEchoTrio_1_1Gameplay.html", [
+        [ "GameManager", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager" ]
+      ] ],
       [ "Log", "d4/db6/namespaceEchoTrio_1_1Log.html", [
         [ "ConversationLogger", "dc/d70/classEchoTrio_1_1Log_1_1ConversationLogger.html", "dc/d70/classEchoTrio_1_1Log_1_1ConversationLogger" ],
         [ "FeedbackLogger", "d9/d96/classEchoTrio_1_1Log_1_1FeedbackLogger.html", "d9/d96/classEchoTrio_1_1Log_1_1FeedbackLogger" ]

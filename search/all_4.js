@@ -18,6 +18,7 @@ var searchData=
   ['endqueuingaudio_15',['EndQueuingAudio',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a40670cae79537e0970d889b719b4f59c',1,'EchoTrio::VoiceChat']]],
   ['events_16',['events',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a63399460aff2f5ff2557ea296b216b50',1,'GameEvent::GameEventSystem']]],
   ['exampleresponses_17',['exampleResponses',['../d8/df0/classEchoTrio_1_1ActorConfig.html#a2a354cc6891096272d780d3106199661',1,'EchoTrio::ActorConfig']]],
-  ['log_18',['Log',['../d4/db6/namespaceEchoTrio_1_1Log.html',1,'EchoTrio']]],
-  ['ui_19',['UI',['../dd/deb/namespaceEchoTrio_1_1UI.html',1,'EchoTrio']]]
+  ['gameplay_18',['Gameplay',['../d7/d06/namespaceEchoTrio_1_1Gameplay.html',1,'EchoTrio']]],
+  ['log_19',['Log',['../d4/db6/namespaceEchoTrio_1_1Log.html',1,'EchoTrio']]],
+  ['ui_20',['UI',['../dd/deb/namespaceEchoTrio_1_1UI.html',1,'EchoTrio']]]
 ];

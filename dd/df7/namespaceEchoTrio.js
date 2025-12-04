@@ -1,5 +1,6 @@
 var namespaceEchoTrio =
 [
+    [ "Gameplay", "d7/d06/namespaceEchoTrio_1_1Gameplay.html", "d7/d06/namespaceEchoTrio_1_1Gameplay" ],
     [ "Log", "d4/db6/namespaceEchoTrio_1_1Log.html", "d4/db6/namespaceEchoTrio_1_1Log" ],
     [ "UI", "dd/deb/namespaceEchoTrio_1_1UI.html", "dd/deb/namespaceEchoTrio_1_1UI" ],
     [ "Actor", "d9/d56/classEchoTrio_1_1Actor.html", "d9/d56/classEchoTrio_1_1Actor" ],

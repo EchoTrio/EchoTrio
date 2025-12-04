@@ -17,12 +17,13 @@ var searchData=
   ['getopenaiauthentication_14',['GetOpenAIAuthentication',['../d4/d50/classEchoTrio_1_1Authentication.html#ac7e8fa30e5457d19af41c77158a5f9cb',1,'EchoTrio::Authentication']]],
   ['getopenaivectorstoreid_15',['GetOpenAIVectorStoreID',['../d8/df0/classEchoTrio_1_1ActorConfig.html#a8da0d64925f58402f9870ca5cab783bd',1,'EchoTrio::ActorConfig']]],
   ['getpersona_16',['GetPersona',['../d8/df0/classEchoTrio_1_1ActorConfig.html#a7978045c70f08d6dcd189f03b6e08b03',1,'EchoTrio::ActorConfig']]],
-  ['getresponse_17',['GetResponse',['../d9/d56/classEchoTrio_1_1Actor.html#ac3bf0c0a2ddb9de617ecca6a950c4eec',1,'EchoTrio::Actor']]],
-  ['getroundcounter_18',['GetRoundCounter',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a6afe08f0ad168edcac611970debc3a4d',1,'EchoTrio::VoiceChat']]],
-  ['getsessionconfiguration_19',['GetSessionConfiguration',['../d7/d1d/classEchoTrio_1_1Director.html#acaf380083c7ee58b8d5110923b06d5e5',1,'EchoTrio::Director']]],
-  ['getsnippetsinstructions_20',['GetSnippetsInstructions',['../d8/df0/classEchoTrio_1_1ActorConfig.html#ad9b582e824ca8bd1078e9557e4cbf720',1,'EchoTrio::ActorConfig']]],
-  ['gettriggeridletime_21',['GetTriggerIdleTime',['../d5/df6/classEchoTrio_1_1Discussion.html#a8cf08761506d507b782fdc054511fe11',1,'EchoTrio::Discussion']]],
-  ['gettriggermode_22',['GetTriggerMode',['../d5/df6/classEchoTrio_1_1Discussion.html#a469b332af62dd0e815c8b71ffc1d6970',1,'EchoTrio::Discussion']]],
-  ['gettriggerround_23',['GetTriggerRound',['../d5/df6/classEchoTrio_1_1Discussion.html#a5c76faeae121f1d0abe4bb5011fd5584',1,'EchoTrio::Discussion']]],
-  ['gettriggertopic_24',['GetTriggerTopic',['../d5/df6/classEchoTrio_1_1Discussion.html#ac0c7dc23a66dbdedd032761d109d484a',1,'EchoTrio::Discussion']]]
+  ['getrandomsfxvariant_17',['GetRandomSFXVariant',['../df/d43/classEchoTrio_1_1Gameplay_1_1GameManager_1_1AnimationReferences.html#a039b393c4a335c3c73891cee433fa831',1,'EchoTrio::Gameplay::GameManager::AnimationReferences']]],
+  ['getresponse_18',['GetResponse',['../d9/d56/classEchoTrio_1_1Actor.html#ac3bf0c0a2ddb9de617ecca6a950c4eec',1,'EchoTrio::Actor']]],
+  ['getroundcounter_19',['GetRoundCounter',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a6afe08f0ad168edcac611970debc3a4d',1,'EchoTrio::VoiceChat']]],
+  ['getsessionconfiguration_20',['GetSessionConfiguration',['../d7/d1d/classEchoTrio_1_1Director.html#acaf380083c7ee58b8d5110923b06d5e5',1,'EchoTrio::Director']]],
+  ['getsnippetsinstructions_21',['GetSnippetsInstructions',['../d8/df0/classEchoTrio_1_1ActorConfig.html#ad9b582e824ca8bd1078e9557e4cbf720',1,'EchoTrio::ActorConfig']]],
+  ['gettriggeridletime_22',['GetTriggerIdleTime',['../d5/df6/classEchoTrio_1_1Discussion.html#a8cf08761506d507b782fdc054511fe11',1,'EchoTrio::Discussion']]],
+  ['gettriggermode_23',['GetTriggerMode',['../d5/df6/classEchoTrio_1_1Discussion.html#a469b332af62dd0e815c8b71ffc1d6970',1,'EchoTrio::Discussion']]],
+  ['gettriggerround_24',['GetTriggerRound',['../d5/df6/classEchoTrio_1_1Discussion.html#a5c76faeae121f1d0abe4bb5011fd5584',1,'EchoTrio::Discussion']]],
+  ['gettriggertopic_25',['GetTriggerTopic',['../d5/df6/classEchoTrio_1_1Discussion.html#ac0c7dc23a66dbdedd032761d109d484a',1,'EchoTrio::Discussion']]]
 ];
