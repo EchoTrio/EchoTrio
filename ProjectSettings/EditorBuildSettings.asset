@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/VoiceChat.unity
-    guid: eceecc669a8b54d4eb818e7111f85497
   - enabled: 1
     path: Assets/Scenes/Playtest.unity
     guid: 89162aa5ffbf4144489d5f2044c2806b

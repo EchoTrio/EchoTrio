@@ -184,6 +184,17 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""f31dcbc9-05f1-489c-b1bd-074ab4d9ad0b"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""35b07677-46c1-4ddf-8b7f-686f4f4a10f6"",
                     ""path"": ""<Keyboard>/f1"",
                     ""interactions"": """",
@@ -206,6 +217,17 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""26c78983-c1c3-44a7-a0c2-4335193c44f5"",
+                    ""path"": ""<Gamepad>/select"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""7f8666b3-6563-4be4-9515-2c41cf2b3bbd"",
                     ""path"": ""<Keyboard>/f2"",
                     ""interactions"": """",
@@ -219,6 +241,17 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""d747dc75-cfc2-4b1a-9f9b-3ece905c846f"",
                     ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Continue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd870424-b926-4aed-ad9f-2715b79994b6"",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
