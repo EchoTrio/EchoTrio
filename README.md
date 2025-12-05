@@ -40,6 +40,9 @@ api_key = Your_API_Key
 You will also need to replace the Actor's ElevenLabs Voice IDs with your own, as they are configured by default to use the voices created in EchoTrio's account, which is not accessible to the public. Open the file `Assets/StreamingAssets/Configs/ActorOverrides.ini` and set the voice IDs of your choosing in the `elevenlabs_voice_id` variable for both Athena and Poseidon. You can find a list of default available voices here: https://elevenlabs.io/app/voice-library , and you can right-click the three dots to copy the voice ID of your preferred voice line.
 
 ## Dependencies
+The following dependencies were downloaded from the Unity Asset Store and imported into the `Assets` folder:
+- SALSA LipSync Package for processing visemes: https://crazyminnowstudio.com/docs/salsa-lip-sync/
+
 The following dependencies have already been configured in Unity's Package Manager:
 - Unofficial OpenAI Package for Unity: https://github.com/RageAgainstThePixel/com.openai.unity  
 - Unofficial ElevenLabs Package for Unity: https://github.com/RageAgainstThePixel/com.rest.elevenlabs
@@ -47,7 +50,7 @@ The following dependencies have already been configured in Unity's Package Manag
 The following dependencies have been directly placed in the `Packages` folder:
 - Spelunx ORBBEC SDK to detect if a user has walked up to the booth: https://upm.etc.cmu.edu/-/web/detail/com.spelunx.cavern.orbbec.sdk (Link only accessible via CMU's WLAN.)
 
-The following dependencies are automatically downloaded as a dependency. (Must be connected to CMU's WLAN!)
+The following dependencies are automatically downloaded as a dependency. (Must be connected to CMU's WLAN!):
 - Spelunx ORBBEC Library for the binary dependencies needed for the ORBBEC Femto Bolt: https://upm.etc.cmu.edu/-/web/detail/com.spelunx.cavern.orbbec.libs (Link only accessible via CMU's WLAN.)
 
 ### IMPORTANT NOTES WHEN BUILDING YOUR .EXE!
