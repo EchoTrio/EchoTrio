@@ -100,29 +100,9 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""ToggleChatbox"",
-                    ""type"": ""Button"",
-                    ""id"": ""b600c960-f258-4aaf-b332-1b3d48ba3f7c"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""bf3dbd11-a4a0-4e81-88ed-20b933921944"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""ToggleChatbox"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""569044b3-c31d-445f-9ec5-43431b4df053"",
@@ -210,7 +190,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         // VoiceChat
         m_VoiceChat = asset.FindActionMap("VoiceChat", throwIfNotFound: true);
         m_VoiceChat_PushToTalk = m_VoiceChat.FindAction("PushToTalk", throwIfNotFound: true);
-        m_VoiceChat_ToggleChatbox = m_VoiceChat.FindAction("ToggleChatbox", throwIfNotFound: true);
         // Game
         m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
         m_Game_Restart = m_Game.FindAction("Restart", throwIfNotFound: true);
@@ -298,7 +277,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_VoiceChat;
     private List<IVoiceChatActions> m_VoiceChatActionsCallbackInterfaces = new List<IVoiceChatActions>();
     private readonly InputAction m_VoiceChat_PushToTalk;
-    private readonly InputAction m_VoiceChat_ToggleChatbox;
     /// <summary>
     /// Provides access to input actions defined in input action map "VoiceChat".
     /// </summary>
@@ -314,10 +292,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "VoiceChat/PushToTalk".
         /// </summary>
         public InputAction @PushToTalk => m_Wrapper.m_VoiceChat_PushToTalk;
-        /// <summary>
-        /// Provides access to the underlying input action "VoiceChat/ToggleChatbox".
-        /// </summary>
-        public InputAction @ToggleChatbox => m_Wrapper.m_VoiceChat_ToggleChatbox;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -347,9 +321,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @PushToTalk.started += instance.OnPushToTalk;
             @PushToTalk.performed += instance.OnPushToTalk;
             @PushToTalk.canceled += instance.OnPushToTalk;
-            @ToggleChatbox.started += instance.OnToggleChatbox;
-            @ToggleChatbox.performed += instance.OnToggleChatbox;
-            @ToggleChatbox.canceled += instance.OnToggleChatbox;
         }
 
         /// <summary>
@@ -364,9 +335,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
             @PushToTalk.started -= instance.OnPushToTalk;
             @PushToTalk.performed -= instance.OnPushToTalk;
             @PushToTalk.canceled -= instance.OnPushToTalk;
-            @ToggleChatbox.started -= instance.OnToggleChatbox;
-            @ToggleChatbox.performed -= instance.OnToggleChatbox;
-            @ToggleChatbox.canceled -= instance.OnToggleChatbox;
         }
 
         /// <summary>
@@ -532,13 +500,6 @@ public partial class @GameInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnPushToTalk(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "ToggleChatbox" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnToggleChatbox(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Game" which allows adding and removing callbacks.

@@ -5,8 +5,7 @@ using UnityEngine.InputSystem;
 namespace EchoTrio.Gameplay {
     /// GameManager controls the gameplay animation and audio.
     public class GameManager : MonoBehaviour {
-        // TODO: This class should replace AudioAnimationTrigger, FadingVideo, and MultiDisplayActivate.
-        //
+        /// GameManager states.
         private enum State {
             /// Wait for the player to start the game.
             Wait,
@@ -14,11 +13,10 @@ namespace EchoTrio.Gameplay {
             Play,
             /// Game has finished.
             Finish,
-            // Optional: Add more states as necessary.
             Num,
         }
 
-        // Let's wrap all the references we need for an animation into a nice little class.
+        /// Helper class to group references needed for animation.
         [System.Serializable] public class AnimationReferences {
             [Header("References")]
             public Animator animator = null;
@@ -49,6 +47,7 @@ namespace EchoTrio.Gameplay {
         // Finish State Variables
         private float fadeInDelay = 3.0f;
         private float fadeInTimer = 0.0f;
+        private bool hasFadedIn = false;
 
         // Internal Functions
         private void Awake() {
@@ -105,19 +104,12 @@ namespace EchoTrio.Gameplay {
 
         // Wait State (You may not have to use all of these functions. I am just creating a template for you.)
         private void OnEnterWait() {
-            Debug.Log("GameManager: OnEnterWait");
-
-            // TODO: We want the player to be able to start the game via the keyboard override. (Hint: input)
-            // wouldn't they always have the ability to do that though?
-            gameInputActions.Game.Start.Enable(); //?
+            gameInputActions.Game.Start.Enable();
             // they shouldn't be allowed to input audio yet
             gameInputActions.VoiceChat.PushToTalk.Disable();
 
-            // TODO: Is there anything we want to do just once when we loaded the scene? (Hint: displays/audio)
-
             // Activate the displays
             Debug.Log("Connected displays: " + Display.displays.Length);
-
             for (int i = 1; i < Display.displays.Length; i++)
             {
                 Display.displays[i].Activate();
@@ -128,18 +120,12 @@ namespace EchoTrio.Gameplay {
         }
 
         private void OnUpdateWait() {
-            Debug.Log("GameManager: OnUpdateWait");
-
             if (bodyTrackerManager.HasDetectedBodies()) {
-                // TODO: We want to start the game if the body tracker has detected something. (Hint: FSM)
                 fsm.ChangeState((int)State.Play);
             }
         }
 
         private void OnExitWait() {
-            Debug.Log("GameManager: OnExitWait");
-
-            // TODO: Now that the game has started, do not let the player start it again. (Hint: input)
             gameInputActions.Game.Start.Disable();
 
             // Enable push-to-talk input.
@@ -148,14 +134,10 @@ namespace EchoTrio.Gameplay {
 
         // Play State (You may not have to use all of these functions. I am just creating a template for you.)
         private void OnEnterPlay() {
-            Debug.Log("GameManager: OnEnterPlay");
-
-            // TODO: Now that the game has started, we want to do something with the clouds. (Hint: check out the FadeEffect class)
             foreach (var cloud in clouds)
             {
                 cloud.FadeOut();
             }
-            // Is there also anything else we should activate or deactivate?
             voiceChat.SetActive(true);
 
             // Switch BGMs.
@@ -164,9 +146,6 @@ namespace EchoTrio.Gameplay {
         }
 
         private void OnUpdatePlay() {
-            Debug.Log("GameManager: OnUpdatePlay");
-
-            // TODO: Are there things we need to update during gameplay? (Hint: animation)
             bool isATalking = animationReferences[0].audioSource != null && animationReferences[0].audioSource.isPlaying;
             bool isPTalking = animationReferences[1].audioSource != null && animationReferences[1].audioSource.isPlaying;
 
@@ -182,32 +161,25 @@ namespace EchoTrio.Gameplay {
             }
         }
 
-        private void OnExitPlay() {
-            Debug.Log("GameManager: OnExitPlay");
-        }
+        private void OnExitPlay() { }
 
         // Finish State (You may not have to use all of these functions. I am just creating a template for you.)
-        private void OnEnterFinish() {
-            Debug.Log("GameManager: OnEnterFinish");
-        }
+        private void OnEnterFinish() { hasFadedIn = false; }
 
         private void OnUpdateFinish() {
-            Debug.Log("GameManager: OnUpdateFinish");
             // Fade the clouds back in.
             fadeInTimer += Time.deltaTime;
-            if (fadeInTimer >= fadeInDelay)
+            if (!hasFadedIn && fadeInTimer >= fadeInDelay)
             {
                 foreach (var cloud in clouds)
                 {
-                    Debug.Log("Fading in cloud");
                     cloud.FadeIn();
                 }
+                hasFadedIn = true;
             }
         }
 
-        private void OnExitFinish() {
-            Debug.Log("GameManager: OnExitFinish");
-        }
+        private void OnExitFinish() { }
 
         // Input Callbacks
         private void OnStart(InputAction.CallbackContext context) {
@@ -225,8 +197,6 @@ namespace EchoTrio.Gameplay {
         }
 
         private void OnPushToTalkStarted(InputAction.CallbackContext context) {
-            Debug.Log("GameManager: OnPushToTalkStarted");
-
             foreach (var animRef in animationReferences)
             {
                 if (animRef.animator != null)
@@ -238,8 +208,6 @@ namespace EchoTrio.Gameplay {
         }
 
         private void OnPushToTalkCancelled(InputAction.CallbackContext context) {
-            Debug.Log("GameManager: OnPushToTalkCancelled");
-
             foreach (var animRef in animationReferences)
             {
                 // play the thinking SFX

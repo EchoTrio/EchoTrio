@@ -14,29 +14,9 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "ToggleChatbox",
-                    "type": "Button",
-                    "id": "b600c960-f258-4aaf-b332-1b3d48ba3f7c",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "bf3dbd11-a4a0-4e81-88ed-20b933921944",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ToggleChatbox",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "569044b3-c31d-445f-9ec5-43431b4df053",
