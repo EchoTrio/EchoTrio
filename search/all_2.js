@@ -12,8 +12,6 @@ var searchData=
   ['conversationlogger_9',['ConversationLogger',['../dc/d70/classEchoTrio_1_1Log_1_1ConversationLogger.html',1,'EchoTrio::Log']]],
   ['conversationlogger_2ecs_10',['ConversationLogger.cs',['../d0/d83/ConversationLogger_8cs.html',1,'']]],
   ['conversationtext_11',['conversationText',['../dc/d70/classEchoTrio_1_1Log_1_1ConversationLogger.html#a15763ade0fb86ec827916c7249b11d15',1,'EchoTrio.Log.ConversationLogger.conversationText()'],['../d9/d96/classEchoTrio_1_1Log_1_1FeedbackLogger.html#ab3e6c48da1967dc7468ccdf429d33363',1,'EchoTrio.Log.FeedbackLogger.conversationText()']]],
-  ['ctrlpressedbool_12',['ctrlPressedBool',['../d3/dcf/classAudioAnimationTrigger.html#a80b0d089e12ebd789d21418f9ec55709',1,'AudioAnimationTrigger']]],
-  ['ctrlreleasedbool_13',['ctrlReleasedBool',['../d3/dcf/classAudioAnimationTrigger.html#acbedd4134f345b2caca02b3992c53049',1,'AudioAnimationTrigger']]],
-  ['currentstate_14',['currentState',['../db/d4d/classFSM_1_1FiniteStateMachine.html#a74d2edd6ce8242a6253147445e7d6ac4',1,'FSM::FiniteStateMachine']]],
-  ['cyclesprite_15',['CycleSprite',['../d9/d55/classEchoTrio_1_1UI_1_1SpriteSwitcher.html#afeefbb8b2695fe66fc3d292fb0936713',1,'EchoTrio::UI::SpriteSwitcher']]]
+  ['currentstate_12',['currentState',['../db/d4d/classFSM_1_1FiniteStateMachine.html#a74d2edd6ce8242a6253147445e7d6ac4',1,'FSM::FiniteStateMachine']]],
+  ['cyclesprite_13',['CycleSprite',['../d9/d55/classEchoTrio_1_1UI_1_1SpriteSwitcher.html#afeefbb8b2695fe66fc3d292fb0936713',1,'EchoTrio::UI::SpriteSwitcher']]]
 ];

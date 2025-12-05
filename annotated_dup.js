@@ -33,9 +33,5 @@ var annotated_dup =
     ] ],
     [ "GameEvent", "df/d1a/namespaceGameEvent.html", [
       [ "GameEventSystem", "d7/d61/classGameEvent_1_1GameEventSystem.html", "d7/d61/classGameEvent_1_1GameEventSystem" ]
-    ] ],
-    [ "AudioAnimationTrigger", "d3/dcf/classAudioAnimationTrigger.html", "d3/dcf/classAudioAnimationTrigger" ],
-    [ "FadingVideo", "d3/d9f/classFadingVideo.html", "d3/d9f/classFadingVideo" ],
-    [ "MultiDisplayActivate", "d7/dbb/classMultiDisplayActivate.html", "d7/dbb/classMultiDisplayActivate" ],
-    [ "RestartOnR", "d1/de9/classRestartOnR.html", "d1/de9/classRestartOnR" ]
+    ] ]
 ];

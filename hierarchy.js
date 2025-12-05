@@ -22,7 +22,6 @@ var hierarchy =
       [ "EchoTrio.OutputTextContent", "dc/d34/classEchoTrio_1_1OutputTextContent.html", null ]
     ] ],
     [ "MonoBehaviour", null, [
-      [ "AudioAnimationTrigger", "d3/dcf/classAudioAnimationTrigger.html", null ],
       [ "EchoTrio.Gameplay.GameManager", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html", null ],
       [ "EchoTrio.Log.ConversationLogger", "dc/d70/classEchoTrio_1_1Log_1_1ConversationLogger.html", null ],
       [ "EchoTrio.Log.FeedbackLogger", "d9/d96/classEchoTrio_1_1Log_1_1FeedbackLogger.html", null ],
@@ -30,10 +29,7 @@ var hierarchy =
       [ "EchoTrio.UI.FadeEffect", "da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html", null ],
       [ "EchoTrio.UI.SpriteSwitcher", "d9/d55/classEchoTrio_1_1UI_1_1SpriteSwitcher.html", null ],
       [ "EchoTrio.UI.UserTextInput", "d1/d52/classEchoTrio_1_1UI_1_1UserTextInput.html", null ],
-      [ "EchoTrio.VoiceChat", "dd/d64/classEchoTrio_1_1VoiceChat.html", null ],
-      [ "FadingVideo", "d3/d9f/classFadingVideo.html", null ],
-      [ "MultiDisplayActivate", "d7/dbb/classMultiDisplayActivate.html", null ],
-      [ "RestartOnR", "d1/de9/classRestartOnR.html", null ]
+      [ "EchoTrio.VoiceChat", "dd/d64/classEchoTrio_1_1VoiceChat.html", null ]
     ] ],
     [ "EchoTrio.Actor.OpenAISettings", "d6/da8/classEchoTrio_1_1Actor_1_1OpenAISettings.html", null ],
     [ "EchoTrio.PersonaExtensions", "dc/dc6/classEchoTrio_1_1PersonaExtensions.html", null ],

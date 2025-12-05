@@ -35,6 +35,7 @@ var classEchoTrio_1_1Gameplay_1_1GameManager =
     [ "fadeInTimer", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a71f3027b5254e352e94b81860c188184", null ],
     [ "fsm", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a12bb456e612d647be03fe814c6406d99", null ],
     [ "gameInputActions", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a4e8830bb8d73625e4504904baf4bc851", null ],
+    [ "hasFadedIn", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#ae7a2326338b2c291810aabc4e7bc0680", null ],
     [ "playBGM", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a1eb522b3ca5e02b4ca1bfeac6ab82180", null ],
     [ "voiceChat", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a1c317a67704674b7187aed3eb40e7c5b", null ],
     [ "waitBGM", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#acc53ce8a8c2d99dd620356b2bad2fb4b", null ]

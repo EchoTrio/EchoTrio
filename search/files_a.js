@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['scripteddiscussion_2ecs_0',['ScriptedDiscussion.cs',['../da/dcb/ScriptedDiscussion_8cs.html',1,'']]],
-  ['spriteswitcher_2ecs_1',['SpriteSwitcher.cs',['../d6/dd3/SpriteSwitcher_8cs.html',1,'']]]
+  ['voicechat_2ecs_0',['VoiceChat.cs',['../d4/d39/VoiceChat_8cs.html',1,'']]]
 ];

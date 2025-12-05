@@ -4,6 +4,5 @@ var searchData=
   ['hasalltriggermodes_1',['HasAllTriggerModes',['../d5/df6/classEchoTrio_1_1Discussion.html#a50935212558c724edfed7dd60fb1da21',1,'EchoTrio::Discussion']]],
   ['hasanytriggermode_2',['HasAnyTriggerMode',['../d5/df6/classEchoTrio_1_1Discussion.html#af0faecf834d46e945828302d9c75fa6e',1,'EchoTrio::Discussion']]],
   ['hasevent_3',['HasEvent',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a0d9a2c3e536328d49e5ca3a5c083122e',1,'GameEvent::GameEventSystem']]],
-  ['hasfadedin_4',['hasFadedIn',['../d3/d9f/classFadingVideo.html#a8dae71069ff8b4601e0a85bde9ac2f91',1,'FadingVideo']]],
-  ['hasstartedfade_5',['hasStartedFade',['../d3/d9f/classFadingVideo.html#a55317d165501ea4b9e63ae0b1cfcff5f',1,'FadingVideo']]]
+  ['hasfadedin_4',['hasFadedIn',['../dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#ae7a2326338b2c291810aabc4e7bc0680',1,'EchoTrio::Gameplay::GameManager']]]
 ];

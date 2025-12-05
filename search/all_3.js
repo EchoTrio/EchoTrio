@@ -18,6 +18,5 @@ var searchData=
   ['discussionprompt_15',['discussionPrompt',['../d2/d65/classEchoTrio_1_1GeneratedDiscussion.html#a54450777580a4bbba96f3682d49aefac',1,'EchoTrio::GeneratedDiscussion']]],
   ['discussionqueue_16',['discussionQueue',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a59345e06c6ac22bd4e6c858b966a4aba',1,'EchoTrio::VoiceChat']]],
   ['discussions_17',['discussions',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a1a34c5991263cfb32aeb718b8d40a09d',1,'EchoTrio::VoiceChat']]],
-  ['discussiontopic_18',['discussionTopic',['../da/d5f/classEchoTrio_1_1Director_1_1Response.html#a111e20a7e5c0918a0e32d91d8d3255b9',1,'EchoTrio::Director::Response']]],
-  ['duration_19',['duration',['../d3/d9f/classFadingVideo.html#af6cf0b63a01c8abd2715a3761bdf9ee5',1,'FadingVideo']]]
+  ['discussiontopic_18',['discussionTopic',['../da/d5f/classEchoTrio_1_1Director_1_1Response.html#a111e20a7e5c0918a0e32d91d8d3255b9',1,'EchoTrio::Director::Response']]]
 ];
