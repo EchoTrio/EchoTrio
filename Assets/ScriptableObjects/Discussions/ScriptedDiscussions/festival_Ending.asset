@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f68e8b72e83fbe845a28297cb26f76fb, type: 3}
+  m_Name: festival_Ending
+  m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.ScriptedDiscussion
+  triggerMode: 2
+  triggerTopic: the user doesn't know whether trust Athena or Poseidon
+  triggerRound: 8
+  triggerIdleTime: 60
+  dialogues:
+  - speaker: 0
+    message: "[exhales sharply] Enough. [glares at Poseidon] Your storms drown reason.
+      Olympus will hear of this.\r"
+    emotion: 4
+  - speaker: 1
+    message: "[snorts] [speak faster] Let them hear. [leans toward user] Mortal,
+      stay out of godly affairs.\r"
+    emotion: 4
+  - speaker: 0
+    message: "[lowers voice, cold]  peace without thought is only silence before
+      the storm.\r"
+    emotion: 4
+  - speaker: 1
+    message: "[laughs darkly] [speak faster]  And storms always return.\r\r"
+    emotion: 4

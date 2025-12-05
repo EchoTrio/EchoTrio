@@ -788,14 +788,14 @@ MonoBehaviour:
     audioSource: {fileID: 1598031280}
     listeningIcon: {fileID: 1777214235}
   discussions:
-  - {fileID: 11400000, guid: efdaa45205794c84394ff715d57aca29, type: 2}
+  - {fileID: 11400000, guid: b10936ad98062f84cbfeae32540ad184, type: 2}
   - {fileID: 11400000, guid: 17a1d4fd4fb9d59419b3541c73847fb4, type: 2}
   - {fileID: 11400000, guid: 04c9a84dfe4f5974387d5fb2ac916aa7, type: 2}
   - {fileID: 11400000, guid: 2a7c98993fb0e7e4284b1ba02976f499, type: 2}
   - {fileID: 11400000, guid: 1eb7902375441994aa29987a14647d6d, type: 2}
   - {fileID: 11400000, guid: 318193a7b5dceaa4cb1a9dd4838c71df, type: 2}
-  - {fileID: 11400000, guid: 474e181ffaf01bc48a1df99e326487b1, type: 2}
-  finishRound: 10
+  - {fileID: 11400000, guid: 3d355fe229cb17d45b9707a41d50e01c, type: 2}
+  finishRound: 9
   enableDebug: 1
   showReasoning: 1
 --- !u!1001 &285523687
