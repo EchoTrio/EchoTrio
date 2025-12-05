@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using GameEvent;
 using UnityEngine;
 
 namespace EchoTrio {
@@ -16,6 +17,8 @@ namespace EchoTrio {
         /// All the possible states of the system.
         private enum State {
             Invalid = -1,
+            /// Idle while waiting for player to start the game.
+            Idle,
             /// Before we start each round, we enter the Prepare stage, and make a decision of which state to enter for the round.
             Prepare,
             /// If user input is allowed this round, enter the Wait stage to wait for the actors to finish speaking, and ensure that the director has connected to OpenAI's server.
@@ -86,6 +89,7 @@ namespace EchoTrio {
         private Director director = null;
         private int roundCounter = 0;
         private float idleTimer = 0.0f;
+        private bool continueChat = false;
 
         // Audio
         private bool isAudioPlaying = false;
@@ -148,6 +152,7 @@ namespace EchoTrio {
             director = new Director() { IsMicMuted = true, EnableDebug = enableDebug };
 
             // Initialise Finite State Machine
+            fsm.SetStateEntry((int)State.Idle, OnEnterIdle);
             fsm.SetStateEntry((int)State.Prepare, OnEnterPrepare);
             fsm.SetStateEntry((int)State.Wait, OnEnterWait);
             fsm.SetStateUpdate((int)State.Wait, OnUpdateWait);
@@ -173,6 +178,10 @@ namespace EchoTrio {
             gameInputActions.Enable();
             gameInputActions.VoiceChat.PushToTalk.started += OnPushToTalkStarted;
             gameInputActions.VoiceChat.PushToTalk.canceled += OnPushToTalkCancelled;
+
+            // Subcribe to game events.
+            GameEventSystem.GetInstance().SubscribeToEvent(nameof(GameEventName.GameStart), OnGameStart);
+            GameEventSystem.GetInstance().SubscribeToEvent(nameof(GameEventName.GameContinue), OnGameContinue);
         }
 
         private void OnDisable() {
@@ -180,12 +189,16 @@ namespace EchoTrio {
             gameInputActions.Disable();
             gameInputActions.VoiceChat.PushToTalk.started -= OnPushToTalkStarted;
             gameInputActions.VoiceChat.PushToTalk.canceled -= OnPushToTalkCancelled;
+
+            // Unsubcribe from game events.
+            GameEventSystem.GetInstance().UnsubscribeFromEvent(nameof(GameEventName.GameStart), OnGameStart);
+            GameEventSystem.GetInstance().SubscribeToEvent(nameof(GameEventName.GameContinue), OnGameContinue);
         }
 
         private void Start() {
             StartCoroutine(AudioThread()); // Launch a thread to play queued audio.
             director.Initialise(OnDirectorResponse, destroyCancellationToken); // Tell the director to connect to OpenAI's server.
-            fsm.ChangeState((int)State.Prepare); // Start off the voice chat system in the "Prepare" state.
+            fsm.ChangeState((int)State.Idle); // Start off the voice chat system in the "Idle" state.
         }
 
         private void Update() {
@@ -339,6 +352,9 @@ namespace EchoTrio {
             isQueueingAudio = false;
         }
 
+        // Idle State
+        private void OnEnterIdle() { Debug.Log("VoiceChat: OnEnterIdle"); }
+
         // Prepare State
         private void OnEnterPrepare() {
             Debug.Log("VoiceChat: OnEnterPrepare");
@@ -368,8 +384,8 @@ namespace EchoTrio {
 
         private void OnUpdateWait() {
             if (!isAudioPlaying) {
-                // If no audio is playing and the game should finish, go to the finish state.
-                if (roundCounter >= finishRound) {
+                // If no audio is playing and the game should finish, and we did not trigger continue chat, go to the finish state.
+                if (!continueChat && roundCounter >= finishRound) {
                     fsm.ChangeState((int)State.Finish);
                 }
                 // If the director is connected to OpenAI's server and no audio is playing, listen for user input.
@@ -516,6 +532,20 @@ namespace EchoTrio {
 
             // Let all listeners know that the game has finished.
             GameEvent.GameEventSystem.GetInstance().TriggerEvent(nameof(GameEventName.GameFinish));
+        }
+
+        // Game Event Callbacks
+        private void OnGameStart() {
+            if (fsm.GetCurrentState() == (int)State.Idle) {
+                fsm.ChangeState((int)State.Prepare);
+            }
+        }
+
+        private void OnGameContinue() {
+            if (fsm.GetCurrentState() == (int)State.Finish) {
+                continueChat = true;
+                fsm.ChangeState((int)State.Wait);
+            }
         }
 
         // Input Callbacks
