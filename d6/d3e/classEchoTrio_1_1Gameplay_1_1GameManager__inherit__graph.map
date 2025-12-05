@@ -1,4 +1,4 @@
 <map id="EchoTrio.Gameplay.GameManager" name="EchoTrio.Gameplay.GameManager">
-<area shape="rect" id="node1" title="GameManager controls the gameplay animation and audio." alt="" coords="5,131,251,648"/>
+<area shape="rect" id="node1" title="GameManager controls the gameplay animation and audio." alt="" coords="5,131,251,633"/>
 <area shape="rect" id="node2" title=" " alt="" coords="66,5,190,83"/>
 </map>

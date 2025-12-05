@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['idle_0',['Idle',['../da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#a5e57372b541b16df361ddf82db387d98ae599161956d626eda4cb0a5ffb85271c',1,'EchoTrio::UI::FadeEffect']]],
+  ['idle_0',['Idle',['../dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a5e3907acd18bf47c0bef4865c2966c44ae599161956d626eda4cb0a5ffb85271c',1,'EchoTrio.Gameplay.GameManager.Idle()'],['../da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#a5e57372b541b16df361ddf82db387d98ae599161956d626eda4cb0a5ffb85271c',1,'EchoTrio.UI.FadeEffect.Idle()'],['../dd/d64/classEchoTrio_1_1VoiceChat.html#a752575eab8952268953aa1da22816e59ae599161956d626eda4cb0a5ffb85271c',1,'EchoTrio.VoiceChat.Idle()']]],
   ['idletime_1',['IdleTime',['../d5/df6/classEchoTrio_1_1Discussion.html#a1ab7a2bdc106017a6d0a74b26a097b0ea72aec3463e4b55dc0def75078150877f',1,'EchoTrio::Discussion']]],
   ['idletimer_2',['idleTimer',['../dd/d64/classEchoTrio_1_1VoiceChat.html#abbfadf991043a3ace68824a31b60d879',1,'EchoTrio::VoiceChat']]],
   ['idletimertext_3',['idleTimerText',['../dd/d64/classEchoTrio_1_1VoiceChat.html#ae5181d9f283719be66b0b798eb01417b',1,'EchoTrio::VoiceChat']]],
@@ -22,8 +22,8 @@ var searchData=
   ['isaudioplaying_19',['isAudioPlaying',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a3bdf3e189baacefee793c93cd9918875',1,'EchoTrio::VoiceChat']]],
   ['isconnected_20',['IsConnected',['../d7/d1d/classEchoTrio_1_1Director.html#a006d120c143ac475e60ce8a7c16d7a6d',1,'EchoTrio::Director']]],
   ['isdone_21',['IsDone',['../da/d5f/classEchoTrio_1_1Director_1_1Response.html#a8fbc2d0ca2fc0d4b517e6e7107d91803',1,'EchoTrio::Director::Response']]],
-  ['isfading_22',['isFading',['../da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#a24fc8382a89202a1a28c87acf3594ae7',1,'EchoTrio::UI::FadeEffect']]],
-  ['isfading_23',['IsFading',['../da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#a84111ec3c172d47b3ba73f9d3c43cfe5',1,'EchoTrio::UI::FadeEffect']]],
+  ['isfading_22',['IsFading',['../da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#a84111ec3c172d47b3ba73f9d3c43cfe5',1,'EchoTrio::UI::FadeEffect']]],
+  ['isfading_23',['isFading',['../da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#a24fc8382a89202a1a28c87acf3594ae7',1,'EchoTrio::UI::FadeEffect']]],
   ['ismicmuted_24',['IsMicMuted',['../d7/d1d/classEchoTrio_1_1Director.html#abbe3931b4377a9347ad89e5934120f40',1,'EchoTrio::Director']]],
   ['isqueueingaudio_25',['isQueueingAudio',['../dd/d64/classEchoTrio_1_1VoiceChat.html#abfcf39c9c45788337497177191b5a32a',1,'EchoTrio::VoiceChat']]],
   ['isstatus_26',['IsStatus',['../d7/d1d/classEchoTrio_1_1Director.html#a7ceefc01f432ee0a5e93462f2eddfbe6',1,'EchoTrio::Director']]]

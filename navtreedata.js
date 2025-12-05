@@ -56,9 +56,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"d7/d61/classGameEvent_1_1GameEventSystem.html#a63399460aff2f5ff2557ea296b216b50",
-"db/d4d/classFSM_1_1FiniteStateMachine.html",
-"dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a433c290ee26c015c974376a1cc99e872"
+"d7/d61/classGameEvent_1_1GameEventSystem.html#a5f5ff60b8de5a689abc53470ad9cc5ce",
+"da/dcb/ScriptedDiscussion_8cs.html",
+"dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a185384d44aaea0529c057af458a70458"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

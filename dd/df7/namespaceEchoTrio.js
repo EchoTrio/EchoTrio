@@ -24,7 +24,9 @@ var namespaceEchoTrio =
       [ "Num", "dd/df7/namespaceEchoTrio.html#a418bd30181685f930a5a663fb9a0ee77ab3e3076d9b3c53bede50d468b647b109", null ]
     ] ],
     [ "GameEventName", "dd/df7/namespaceEchoTrio.html#a3456fc3f547e0c84ae31a8126adb4612", [
-      [ "GameFinish", "dd/df7/namespaceEchoTrio.html#a3456fc3f547e0c84ae31a8126adb4612a853a435ea7fdec79f0b65d1c55cfde42", null ]
+      [ "GameStart", "dd/df7/namespaceEchoTrio.html#a3456fc3f547e0c84ae31a8126adb4612a492785297322c6add81eb6abe8744bdf", null ],
+      [ "GameFinish", "dd/df7/namespaceEchoTrio.html#a3456fc3f547e0c84ae31a8126adb4612a853a435ea7fdec79f0b65d1c55cfde42", null ],
+      [ "GameContinue", "dd/df7/namespaceEchoTrio.html#a3456fc3f547e0c84ae31a8126adb4612ae1c792df8ce1df27259e2109bce0c5e9", null ]
     ] ],
     [ "Persona", "dd/df7/namespaceEchoTrio.html#aa71b392daa9f8dadb7c63e0e13f6a02a", [
       [ "Athena", "dd/df7/namespaceEchoTrio.html#aa71b392daa9f8dadb7c63e0e13f6a02aa582ca45acfd3e21caca8b786c1413850", null ],
