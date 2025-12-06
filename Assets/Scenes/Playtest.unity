@@ -795,7 +795,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1eb7902375441994aa29987a14647d6d, type: 2}
   - {fileID: 11400000, guid: 318193a7b5dceaa4cb1a9dd4838c71df, type: 2}
   - {fileID: 11400000, guid: 3d355fe229cb17d45b9707a41d50e01c, type: 2}
-  finishRound: 9
+  finishRound: 4
   enableDebug: 1
   showReasoning: 1
 --- !u!1001 &285523687
@@ -1693,7 +1693,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -2127,7 +2127,7 @@ Canvas:
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
 --- !u!224 &1118306884
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3656,9 +3656,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.5
     y: 0
-    width: 1
+    width: 0.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -3671,7 +3671,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 2
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -4802,7 +4802,7 @@ Canvas:
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
 --- !u!224 &1636349950
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5022,6 +5022,7 @@ MonoBehaviour:
     pushToTalkStartedBool: IsCtrlPressed
     pushToTalkCancelledBool: IsCtrlReleased
     actorIsTalkingBool: PIsTalking
+  numDisplays: 2
 --- !u!224 &1674855120 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 655069877675377519, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
@@ -5632,7 +5633,7 @@ Canvas:
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_TargetDisplay: 2
+  m_TargetDisplay: 0
 --- !u!224 &1930815336
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5680,7 +5681,7 @@ Transform:
   m_GameObject: {fileID: 2080546915}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 100, y: 0, z: -50.5}
+  m_LocalPosition: {x: 100.2, y: 0, z: -50.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5759,7 +5760,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
+    width: 0.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -5772,7 +5773,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1

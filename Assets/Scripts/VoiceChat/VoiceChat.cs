@@ -1,9 +1,12 @@
 // By Terri Lim, CMU ETC Class of 2026. Last updated by me in December 2025. Feel free to judge any code up till then.
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using GameEvent;
+using Microsoft.Extensions.Configuration;
 using UnityEngine;
+using static EchoTrio.ActorConfig;
 
 namespace EchoTrio {
     /// Voice chat system that acts as an intermediary between the human user and the AI models.
@@ -14,6 +17,8 @@ namespace EchoTrio {
     ///     - User input is accepted and it triggers a scripted or generated discussion as the reply from the actors if the user mentions certain topics. OR
     ///     - User input is allowed by the user does not provide any input. A scripted or generated dicussion is triggered after some time as specified by the designer.
     public class VoiceChat : MonoBehaviour {
+        private const string OverrideFileName = "GameOverrides.ini";
+
         /// All the possible states of the system.
         private enum State {
             Invalid = -1,
@@ -135,6 +140,9 @@ namespace EchoTrio {
 
         // Internal Functions
         private void Awake() {
+            // Read config file and override.
+            Override();
+
             // Initialise Input
             gameInputActions = new GameInputActions();
 
@@ -584,6 +592,29 @@ namespace EchoTrio {
                 }
                 
                 fsm.ChangeState((int)State.Speak);
+            }
+        }
+
+        private void Override() {
+            string filePath = $"{Application.streamingAssetsPath}/Configs/{OverrideFileName}";
+            IConfiguration config = new ConfigurationBuilder().AddIniFile(filePath).Build();
+            IConfigurationSection section = config.GetSection("VoiceChat");
+
+            // We cannot proceed if the section does not exist.
+            if (section == null) {
+                Debug.LogWarning($"Section VoiceChat not found in {filePath}!");
+                return;
+            }
+
+            // Define a helper function.
+            Func<string, string> GetValue = (string key) => { return section[key] == null ? string.Empty : section[key].Trim(); };
+            string value = string.Empty;
+
+            // Override OpenAI Vector Store ID
+            value = GetValue("finish_round");
+            if (!string.IsNullOrEmpty(value)) {
+                finishRound = int.Parse(value);
+                Debug.Log($"Overrode VoiceChat's Finish Round to {finishRound}");
             }
         }
     }

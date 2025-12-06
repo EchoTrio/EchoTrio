@@ -40,6 +40,9 @@ namespace EchoTrio.Gameplay {
         [SerializeField] private AudioSource playBGM = null;
         [SerializeField] private AnimationReferences[] animationReferences = new AnimationReferences[0];
 
+        [Header("Settings")]
+        [SerializeField, Min(1)] private int numDisplays = 3;
+
         // Internal Variables
         GameInputActions gameInputActions = null;
         FSM.FiniteStateMachine fsm = new FSM.FiniteStateMachine((int)State.Num);
@@ -113,7 +116,7 @@ namespace EchoTrio.Gameplay {
 
             // Activate the displays
             Debug.Log("Connected displays: " + Display.displays.Length);
-            for (int i = 1; i < Display.displays.Length; i++)
+            for (int i = 1; i < Mathf.Min(Display.displays.Length, numDisplays); i++)
             {
                 Display.displays[i].Activate();
             }
