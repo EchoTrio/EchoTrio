@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f68e8b72e83fbe845a28297cb26f76fb, type: 3}
-  m_Name: IntroductionScriptedDiscussion 1
+  m_Name: FinalPresentationIntroduction
   m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.ScriptedDiscussion
   triggerMode: 2
   triggerTopic: 
@@ -18,8 +18,10 @@ MonoBehaviour:
   triggerIdleTime: 60
   dialogues:
   - speaker: 0
-    message: 1
-    emotion: 2
+    message: I am Athena, goddess of wisdom. Welcome mortal, to EchoTrio's final
+      presentation!
+    emotion: 0
   - speaker: 1
-    message: 1
-    emotion: 3
+    message: And I am Poseidon, god of the seas. We need one volunteer among the
+      audience. State your name and ask a question. Remember, you only get one question.
+    emotion: 0

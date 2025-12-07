@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3c6a3fa656904346860be43daec1904, type: 3}
-  m_Name: YeAthenaConfig
+  m_Name: FestivalAthenaConfig
   m_EditorClassIdentifier: Assembly-CSharp::Persona
   persona: 0
   enabledFeatures: 8

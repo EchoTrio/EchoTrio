@@ -21,21 +21,22 @@ MonoBehaviour:
     and trigger_discussion.
 
 
-    The function trigger_response will trigger the
-    2 AIs to generate a regular response to the human user.
+    If it exists, the function trigger_response will
+    trigger the 2 AIs to generate a regular response to the human user.
 
 
-    The function trigger_discussion
-    will trigger the 2 AIs to discuss about a specific topic.
+    If
+    it exists, the function trigger_discussion will trigger the 2 AIs to discuss
+    about a specific topic.
 
 
-    After each input
-    from the human user, if one of the topics in the list of possible arguments in
-    trigger_discussion is brought up, invoke the trigger_discussion function with
-    that topic as the argument.
+    After each input from the human user, if one of
+    the topics in the list of possible arguments in trigger_discussion is brought
+    up, invoke the trigger_discussion function with that topic as the argument.
 
 
-    Otherwise, invoke the trigger_response function,
-    providing the order in which you think the AIs should respond to the user which
-    makes the most sense in a conversation as the argument. If the human user is
-    calling out to a specific AI, it is valid to have only that AI respond.'
+    Otherwise,
+    invoke the trigger_response function, providing the order in which you think
+    the AIs should respond to the user which makes the most sense in a conversation
+    as the argument. If the human user is calling out to a specific AI, it is valid
+    to have only that AI respond.'

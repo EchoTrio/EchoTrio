@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f68e8b72e83fbe845a28297cb26f76fb, type: 3}
-  m_Name: ProgrammingScriptedDiscussion
+  m_Name: FinalPresentationEnding
   m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.ScriptedDiscussion
   triggerMode: 2
-  triggerTopic: Programming
-  triggerRound: 1
+  triggerTopic: 
+  triggerRound: 3
+  triggerIdleTime: 60
   dialogues:
   - speaker: 0
-    message: Terri is the greatest programmer in the ETC!
+    message: Thank you for volunteering. We would love to stay, but we have to get
+      back to our godly duties.
+    emotion: 0
   - speaker: 1
-    message: Truly, her intellect and beauty is unparalleled.
-  - speaker: 0
-    message: She deserves an A for this project.
-  - speaker: 1
-    message: And a good long rest after this.
+    message: And remember to give EchoTrio an A!
+    emotion: 0

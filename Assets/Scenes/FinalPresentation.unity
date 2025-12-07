@@ -781,22 +781,17 @@ MonoBehaviour:
   idleTimerText: {fileID: 651709721}
   directorConfig: {fileID: 11400000, guid: d30fd95481ee13941a0f5b3ad6b8a033, type: 2}
   actorReferences:
-  - actorConfig: {fileID: 11400000, guid: d0568ba0958e91a4285ce90d91aaba24, type: 2}
+  - actorConfig: {fileID: 11400000, guid: 2c519ba5d0e7f3544837488253e539f9, type: 2}
     audioSource: {fileID: 1655254853}
     listeningIcon: {fileID: 92173571}
-  - actorConfig: {fileID: 11400000, guid: f91cde7d04721784f952de6d05dcfe6b, type: 2}
+  - actorConfig: {fileID: 11400000, guid: b1766e5174b454c4685f1d7760d7ce92, type: 2}
     audioSource: {fileID: 1598031280}
     listeningIcon: {fileID: 1777214235}
   discussions:
-  - {fileID: 11400000, guid: b10936ad98062f84cbfeae32540ad184, type: 2}
-  - {fileID: 11400000, guid: 17a1d4fd4fb9d59419b3541c73847fb4, type: 2}
-  - {fileID: 11400000, guid: 04c9a84dfe4f5974387d5fb2ac916aa7, type: 2}
-  - {fileID: 11400000, guid: 2a7c98993fb0e7e4284b1ba02976f499, type: 2}
-  - {fileID: 11400000, guid: 1eb7902375441994aa29987a14647d6d, type: 2}
-  - {fileID: 11400000, guid: 318193a7b5dceaa4cb1a9dd4838c71df, type: 2}
-  - {fileID: 11400000, guid: 3d355fe229cb17d45b9707a41d50e01c, type: 2}
+  - {fileID: 11400000, guid: f94d4e91d1438244f8978d9b63028ab9, type: 2}
+  - {fileID: 11400000, guid: cc369c9ee68adf540ba39a509678b127, type: 2}
   - {fileID: 11400000, guid: 0379451f9c8d8454daaf415ad9491e15, type: 2}
-  finishRound: 9
+  finishRound: 3
   enableDebug: 1
   showReasoning: 1
 --- !u!1001 &285523687
@@ -1694,7 +1689,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -2128,7 +2123,7 @@ Canvas:
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
 --- !u!224 &1118306884
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3657,9 +3652,9 @@ Camera:
   m_LensShift: {x: 0, y: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
+    x: 0.5
     y: 0
-    width: 1
+    width: 0.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -3672,7 +3667,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 2
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -4803,7 +4798,7 @@ Canvas:
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_TargetDisplay: 0
+  m_TargetDisplay: 1
 --- !u!224 &1636349950
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5023,7 +5018,7 @@ MonoBehaviour:
     pushToTalkStartedBool: IsCtrlPressed
     pushToTalkCancelledBool: IsCtrlReleased
     actorIsTalkingBool: PIsTalking
-  numDisplays: 3
+  numDisplays: 2
 --- !u!224 &1674855120 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 655069877675377519, guid: a8cdeabe404402540a8d30a6acc82941, type: 3}
@@ -5634,7 +5629,7 @@ Canvas:
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_TargetDisplay: 2
+  m_TargetDisplay: 0
 --- !u!224 &1930815336
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5761,7 +5756,7 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
+    width: 0.5
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
@@ -5774,7 +5769,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1

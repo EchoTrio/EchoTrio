@@ -10,19 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f68e8b72e83fbe845a28297cb26f76fb, type: 3}
-  m_Name: UmamusumeScriptedDiscussion
+  m_Name: ScriptedDiscussion_Hololive
   m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.ScriptedDiscussion
-  triggerMode: 4
-  triggerTopic: Umamusume
+  triggerMode: 1
+  triggerTopic: Hololive
   triggerRound: 1
-  triggerIdleTime: 3
+  triggerIdleTime: 60
   dialogues:
   - speaker: 1
-    message: Rice Shower is such a daughter!
+    message: I love Hololive! My favourite Hololive member is Yukihana Lamy. She's
+      just adorable.
     emotion: 0
   - speaker: 0
-    message: I just want to pet her head!
-    emotion: 0
-  - speaker: 1
-    message: I will destroy the world if anything bad ever happens to her!
+    message: Me too, my favourite is Yozora Mel. She's super cute!
     emotion: 0

@@ -76,6 +76,7 @@ namespace EchoTrio.Gameplay {
             gameInputActions.Game.Start.performed += OnStart;
             gameInputActions.Game.Restart.performed += OnRestart;
             gameInputActions.Game.Continue.performed += OnContinue;
+            gameInputActions.Game.Quit.performed += OnQuit;
             gameInputActions.VoiceChat.PushToTalk.started += OnPushToTalkStarted;
             gameInputActions.VoiceChat.PushToTalk.canceled += OnPushToTalkCancelled;
 
@@ -89,6 +90,7 @@ namespace EchoTrio.Gameplay {
             gameInputActions.Game.Start.performed -= OnStart;
             gameInputActions.Game.Restart.performed -= OnRestart;
             gameInputActions.Game.Continue.performed -= OnContinue;
+            gameInputActions.Game.Quit.performed -= OnQuit;
             gameInputActions.VoiceChat.PushToTalk.started -= OnPushToTalkStarted;
             gameInputActions.VoiceChat.PushToTalk.canceled -= OnPushToTalkCancelled;
 
@@ -212,6 +214,8 @@ namespace EchoTrio.Gameplay {
             // Trigger the Game Continue event.
             GameEventSystem.GetInstance().TriggerEvent(nameof(GameEventName.GameContinue));
         }
+
+        private void OnQuit(InputAction.CallbackContext context) { Application.Quit(); }
 
         private void OnPushToTalkStarted(InputAction.CallbackContext context) {
             foreach (var animRef in animationReferences)

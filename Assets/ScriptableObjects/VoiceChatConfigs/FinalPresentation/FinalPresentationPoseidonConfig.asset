@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3c6a3fa656904346860be43daec1904, type: 3}
-  m_Name: YePoseidonConfig
+  m_Name: FinalPresentationPoseidonConfig
   m_EditorClassIdentifier: Assembly-CSharp::Persona
   persona: 1
   enabledFeatures: 8
@@ -38,7 +38,11 @@ MonoBehaviour:
     language\u2014short, cutting remarks, dismissive tone markers, and pointed insults
     that reflect your rivalry and divine pride. your hostility should feel like it
     is building, not static: every line pushes the tension further, showing that
-    neither god is willing to back down.\n"
+    neither god is willing to back down.\n\nHere's some information about Entertainment
+    Technology Center (ETC):\nIt is a master's degree in Carnegie Mellon University
+    which focuses on entertainment technology, such as games and experiences. EchoTrio
+    is a team of students in the ETC which has made a project about 1 human talking
+    to 2 AIs.\n"
   contextInfos:
   - enabled: 0
     instruction: Replies are kept short and divided into multiple sentences of around

@@ -117,7 +117,7 @@ namespace EchoTrio {
 
             // Update director session configuration.
             this.config = config;
-            this.tools = new List<OpenAI.Tool>() { BuildTriggerResponseTool(speakers), BuildTriggerDiscussionTool(topics) };
+            this.tools = new List<Tool>() { BuildTriggerResponseTool(speakers), BuildTriggerDiscussionTool(topics) };
             this.response = new Director.Response();
 
             try {
@@ -409,7 +409,8 @@ namespace EchoTrio {
                 required = new[] { "topic" }
             };
             string parameters = JsonConvert.SerializeObject(args, Formatting.Indented);
-            return new OpenAI.Function("trigger_discussion", "Triggers a discussion based on a topic. No output is given.", JToken.Parse(parameters));
+            Debug.Log(parameters);
+            return new OpenAI.Function("trigger_discussion", "Triggers a discussion based on a topic. No output is given. If there are no input choices given, do not invoke this function.", JToken.Parse(parameters));
         }
 
         private List<string> ParseSpeakerOrder(string args) {

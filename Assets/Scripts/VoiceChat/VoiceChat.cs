@@ -576,25 +576,34 @@ namespace EchoTrio {
             if (response.discussionTopic != null) {
                 for (int i = 0; i < untriggeredDiscussions.Count; ++i) {
                     Discussion discussion = untriggeredDiscussions[i];
-                    if (discussion.GetTriggerTopic() == response.discussionTopic) {
+                    if (!string.IsNullOrEmpty(discussion.GetTriggerTopic()) &&
+                        discussion.GetTriggerTopic() == response.discussionTopic) {
                         discussionQueue.Enqueue(discussion);
                         untriggeredDiscussions.RemoveAt(i);
-                        break;
+                        fsm.ChangeState((int)State.Discuss);
+                        return;
                     }
                 }
-                
-                fsm.ChangeState((int)State.Discuss);
             }
+
             // Otherwise, get the actors to respond as per usual.
-            else if (response.speakerOrder != null) {
+            if (response.speakerOrder != null) {
                 foreach (string speaker in response.speakerOrder) {
                     speakerQueue.Enqueue(speaker);
                 }
-                
                 fsm.ChangeState((int)State.Speak);
+                return;
+            }
+
+            // As a backup, just respond in order.
+            foreach (var key in actors.Keys) {
+                speakerQueue.Enqueue(key);
+                fsm.ChangeState((int)State.Speak);
+                Debug.Log("Director decision failed. Applying backup.");
             }
         }
 
+        // Configuration File Override
         private void Override() {
             string filePath = $"{Application.streamingAssetsPath}/Configs/{OverrideFileName}";
             IConfiguration config = new ConfigurationBuilder().AddIniFile(filePath).Build();
@@ -609,11 +618,12 @@ namespace EchoTrio {
             // Define a helper function.
             Func<string, string> GetValue = (string key) => { return section[key] == null ? string.Empty : section[key].Trim(); };
             string value = string.Empty;
+            int parsedInt = 0;
 
             // Override OpenAI Vector Store ID
             value = GetValue("finish_round");
-            if (!string.IsNullOrEmpty(value)) {
-                finishRound = int.Parse(value);
+            if (!string.IsNullOrEmpty(value) && int.TryParse(value, out parsedInt)) {
+                finishRound = parsedInt;
                 Debug.Log($"Overrode VoiceChat's Finish Round to {finishRound}");
             }
         }
