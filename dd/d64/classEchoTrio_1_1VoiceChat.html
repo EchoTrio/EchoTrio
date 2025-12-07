@@ -171,7 +171,7 @@ Private Types</h2></td></tr>
 , <a class="el" href="../../dd/d64/classEchoTrio_1_1VoiceChat.html#a752575eab8952268953aa1da22816e59a0f68101772bd5397ef8eb1b632798652">Wait</a>
 , <br />
 &#160;&#160;<a class="el" href="../../dd/d64/classEchoTrio_1_1VoiceChat.html#a752575eab8952268953aa1da22816e59ace6802b46091c31e2ec2363883fe8369">Listen</a>
-, <a class="el" href="../../dd/d64/classEchoTrio_1_1VoiceChat.html#a752575eab8952268953aa1da22816e59a8b1e2b9b342dd37344c6343dc23a6733">Speak</a>
+, <a class="el" href="../../dd/d64/classEchoTrio_1_1VoiceChat.html#a752575eab8952268953aa1da22816e59ac06f8d8321bbf5c46fee101f9cf761ad">FreeTalk</a>
 , <a class="el" href="../../dd/d64/classEchoTrio_1_1VoiceChat.html#a752575eab8952268953aa1da22816e59ac7df65dda878ac02ecdceea042185df7">Discuss</a>
 , <a class="el" href="../../dd/d64/classEchoTrio_1_1VoiceChat.html#a752575eab8952268953aa1da22816e59aa20ddccbb6f808ec42cd66323e6c6061">Finish</a>
 , <br />
@@ -227,10 +227,10 @@ Private Member Functions</h2></td></tr>
 <tr class="separator:a3ae1f1a43d09b0feb567e8e31b6bd28d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8cb33f927658a23cc122b068205ac123"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d64/classEchoTrio_1_1VoiceChat.html#a8cb33f927658a23cc122b068205ac123">OnUpdateListen</a> ()</td></tr>
 <tr class="separator:a8cb33f927658a23cc122b068205ac123"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3a31df55fd3a310e3efff93c4bc6cb52"><td class="memItemLeft" align="right" valign="top">async void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d64/classEchoTrio_1_1VoiceChat.html#a3a31df55fd3a310e3efff93c4bc6cb52">RunSpeak</a> ()</td></tr>
-<tr class="separator:a3a31df55fd3a310e3efff93c4bc6cb52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad91f5a21325af67528babba984eb6073"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d64/classEchoTrio_1_1VoiceChat.html#ad91f5a21325af67528babba984eb6073">OnEnterSpeak</a> ()</td></tr>
-<tr class="separator:ad91f5a21325af67528babba984eb6073"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7335ad149cfe7eda69defbd56975b3e4"><td class="memItemLeft" align="right" valign="top">async void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d64/classEchoTrio_1_1VoiceChat.html#a7335ad149cfe7eda69defbd56975b3e4">RunFreeTalk</a> ()</td></tr>
+<tr class="separator:a7335ad149cfe7eda69defbd56975b3e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af647124b3a56c1b28c63cb3a33189f42"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d64/classEchoTrio_1_1VoiceChat.html#af647124b3a56c1b28c63cb3a33189f42">OnEnterFreeTalk</a> ()</td></tr>
+<tr class="separator:af647124b3a56c1b28c63cb3a33189f42"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abe529cbd6ddae3188f5a71f51b95f5d6"><td class="memItemLeft" align="right" valign="top">async void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d64/classEchoTrio_1_1VoiceChat.html#abe529cbd6ddae3188f5a71f51b95f5d6">RunScriptedDiscussion</a> (<a class="el" href="../../da/d80/classEchoTrio_1_1ScriptedDiscussion.html">ScriptedDiscussion</a> discussion)</td></tr>
 <tr class="separator:abe529cbd6ddae3188f5a71f51b95f5d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e29570df5953383e423dc3e9e874e4d"><td class="memItemLeft" align="right" valign="top">async void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d64/classEchoTrio_1_1VoiceChat.html#a6e29570df5953383e423dc3e9e874e4d">RunGeneratedDiscussion</a> (<a class="el" href="../../d2/d65/classEchoTrio_1_1GeneratedDiscussion.html">GeneratedDiscussion</a> discussion)</td></tr>
@@ -348,7 +348,7 @@ Static Private Attributes</h2></td></tr>
 </td></tr>
 <tr><td class="fieldname"><a id="a752575eab8952268953aa1da22816e59ace6802b46091c31e2ec2363883fe8369" name="a752575eab8952268953aa1da22816e59ace6802b46091c31e2ec2363883fe8369"></a>Listen&#160;</td><td class="fielddoc"><p>Listen for user input. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a752575eab8952268953aa1da22816e59a8b1e2b9b342dd37344c6343dc23a6733" name="a752575eab8952268953aa1da22816e59a8b1e2b9b342dd37344c6343dc23a6733"></a>Speak&#160;</td><td class="fielddoc"><p>Actors speaking. </p>
+<tr><td class="fieldname"><a id="a752575eab8952268953aa1da22816e59ac06f8d8321bbf5c46fee101f9cf761ad" name="a752575eab8952268953aa1da22816e59ac06f8d8321bbf5c46fee101f9cf761ad"></a>FreeTalk&#160;</td><td class="fielddoc"><p>Actors responding to user input as per normal AI conversations. </p>
 </td></tr>
 <tr><td class="fieldname"><a id="a752575eab8952268953aa1da22816e59ac7df65dda878ac02ecdceea042185df7" name="a752575eab8952268953aa1da22816e59ac7df65dda878ac02ecdceea042185df7"></a>Discuss&#160;</td><td class="fielddoc"><p>Actors playing a scripted discussion, or generating a discussion on a topic. </p>
 </td></tr>
@@ -727,6 +727,33 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="af647124b3a56c1b28c63cb3a33189f42" name="af647124b3a56c1b28c63cb3a33189f42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af647124b3a56c1b28c63cb3a33189f42">&#9670;&#160;</a></span>OnEnterFreeTalk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void EchoTrio.VoiceChat.OnEnterFreeTalk </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d39/VoiceChat_8cs_source.html#l00472">472</a> of file <a class="el" href="../../d4/d39/VoiceChat_8cs_source.html">VoiceChat.cs</a>.</p>
+
+</div>
+</div>
 <a id="abc09702835324ff72c4bdfe5d1538a61" name="abc09702835324ff72c4bdfe5d1538a61"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc09702835324ff72c4bdfe5d1538a61">&#9670;&#160;</a></span>OnEnterIdle()</h2>
 
@@ -805,33 +832,6 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d4/d39/VoiceChat_8cs_source.html#l00367">367</a> of file <a class="el" href="../../d4/d39/VoiceChat_8cs_source.html">VoiceChat.cs</a>.</p>
-
-</div>
-</div>
-<a id="ad91f5a21325af67528babba984eb6073" name="ad91f5a21325af67528babba984eb6073"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad91f5a21325af67528babba984eb6073">&#9670;&#160;</a></span>OnEnterSpeak()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void EchoTrio.VoiceChat.OnEnterSpeak </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d39/VoiceChat_8cs_source.html#l00472">472</a> of file <a class="el" href="../../d4/d39/VoiceChat_8cs_source.html">VoiceChat.cs</a>.</p>
 
 </div>
 </div>
@@ -1201,6 +1201,33 @@ Static Private Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a7335ad149cfe7eda69defbd56975b3e4" name="a7335ad149cfe7eda69defbd56975b3e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7335ad149cfe7eda69defbd56975b3e4">&#9670;&#160;</a></span>RunFreeTalk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">async void EchoTrio.VoiceChat.RunFreeTalk </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d39/VoiceChat_8cs_source.html#l00452">452</a> of file <a class="el" href="../../d4/d39/VoiceChat_8cs_source.html">VoiceChat.cs</a>.</p>
+
+</div>
+</div>
 <a id="a6e29570df5953383e423dc3e9e874e4d" name="a6e29570df5953383e423dc3e9e874e4d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6e29570df5953383e423dc3e9e874e4d">&#9670;&#160;</a></span>RunGeneratedDiscussion()</h2>
 
@@ -1254,33 +1281,6 @@ Static Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="../../d4/d39/VoiceChat_8cs_source.html#l00478">478</a> of file <a class="el" href="../../d4/d39/VoiceChat_8cs_source.html">VoiceChat.cs</a>.</p>
-
-</div>
-</div>
-<a id="a3a31df55fd3a310e3efff93c4bc6cb52" name="a3a31df55fd3a310e3efff93c4bc6cb52"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a31df55fd3a310e3efff93c4bc6cb52">&#9670;&#160;</a></span>RunSpeak()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">async void EchoTrio.VoiceChat.RunSpeak </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="../../d4/d39/VoiceChat_8cs_source.html#l00452">452</a> of file <a class="el" href="../../d4/d39/VoiceChat_8cs_source.html">VoiceChat.cs</a>.</p>
 
 </div>
 </div>

@@ -10,7 +10,7 @@ var searchData=
   ['round_7',['Round',['../d5/df6/classEchoTrio_1_1Discussion.html#a1ab7a2bdc106017a6d0a74b26a097b0eab7f41fc1412ad2ee75e9b2635d3b9d5c',1,'EchoTrio.Discussion.Round()'],['../d4/d39/VoiceChat_8cs.html#ac3c2637a0f3b2c4bef93d28a08847d2b',1,'Round():&#160;VoiceChat.cs']]],
   ['roundcounter_8',['roundCounter',['../dd/d64/classEchoTrio_1_1VoiceChat.html#ae19584314a7fb65ff6c6c20d2b9ad31f',1,'EchoTrio::VoiceChat']]],
   ['roundcountertext_9',['roundCounterText',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a66b5a61dfec4b6af351c155cdf4a9662',1,'EchoTrio::VoiceChat']]],
-  ['rungenerateddiscussion_10',['RunGeneratedDiscussion',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a6e29570df5953383e423dc3e9e874e4d',1,'EchoTrio::VoiceChat']]],
-  ['runscripteddiscussion_11',['RunScriptedDiscussion',['../dd/d64/classEchoTrio_1_1VoiceChat.html#abe529cbd6ddae3188f5a71f51b95f5d6',1,'EchoTrio::VoiceChat']]],
-  ['runspeak_12',['RunSpeak',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a3a31df55fd3a310e3efff93c4bc6cb52',1,'EchoTrio::VoiceChat']]]
+  ['runfreetalk_10',['RunFreeTalk',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a7335ad149cfe7eda69defbd56975b3e4',1,'EchoTrio::VoiceChat']]],
+  ['rungenerateddiscussion_11',['RunGeneratedDiscussion',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a6e29570df5953383e423dc3e9e874e4d',1,'EchoTrio::VoiceChat']]],
+  ['runscripteddiscussion_12',['RunScriptedDiscussion',['../dd/d64/classEchoTrio_1_1VoiceChat.html#abe529cbd6ddae3188f5a71f51b95f5d6',1,'EchoTrio::VoiceChat']]]
 ];

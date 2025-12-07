@@ -22,8 +22,8 @@ var searchData=
   ['isaudioplaying_19',['isAudioPlaying',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a3bdf3e189baacefee793c93cd9918875',1,'EchoTrio::VoiceChat']]],
   ['isconnected_20',['IsConnected',['../d7/d1d/classEchoTrio_1_1Director.html#a006d120c143ac475e60ce8a7c16d7a6d',1,'EchoTrio::Director']]],
   ['isdone_21',['IsDone',['../da/d5f/classEchoTrio_1_1Director_1_1Response.html#a8fbc2d0ca2fc0d4b517e6e7107d91803',1,'EchoTrio::Director::Response']]],
-  ['isfading_22',['isFading',['../da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#a24fc8382a89202a1a28c87acf3594ae7',1,'EchoTrio::UI::FadeEffect']]],
-  ['isfading_23',['IsFading',['../da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#a84111ec3c172d47b3ba73f9d3c43cfe5',1,'EchoTrio::UI::FadeEffect']]],
+  ['isfading_22',['IsFading',['../da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#a84111ec3c172d47b3ba73f9d3c43cfe5',1,'EchoTrio::UI::FadeEffect']]],
+  ['isfading_23',['isFading',['../da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#a24fc8382a89202a1a28c87acf3594ae7',1,'EchoTrio::UI::FadeEffect']]],
   ['ismicmuted_24',['IsMicMuted',['../d7/d1d/classEchoTrio_1_1Director.html#abbe3931b4377a9347ad89e5934120f40',1,'EchoTrio::Director']]],
   ['isqueueingaudio_25',['isQueueingAudio',['../dd/d64/classEchoTrio_1_1VoiceChat.html#abfcf39c9c45788337497177191b5a32a',1,'EchoTrio::VoiceChat']]],
   ['isstatus_26',['IsStatus',['../d7/d1d/classEchoTrio_1_1Director.html#a7ceefc01f432ee0a5e93462f2eddfbe6',1,'EchoTrio::Director']]]
