@@ -396,6 +396,7 @@ namespace EchoTrio {
         /// OpenAI API on function calling: https://platform.openai.com/docs/guides/function-calling
         /// <param name="topics">The possible topics to trigger a discussion for.</param>
         /// <returns>The function's JSON Object.</returns>
+        /// <remarks>If there is no topic given, the AI tends to hallucinate a topic. To prevent that, add a couple of placeholder discussions with the most obscure, niche topic that the user is unlikely to ever trigger.</remarks>
         private OpenAI.Function BuildTriggerDiscussionTool(List<string> topics) {
             var args = new {
                 type = "object",
