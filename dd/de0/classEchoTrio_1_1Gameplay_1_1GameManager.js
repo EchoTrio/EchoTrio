@@ -21,6 +21,7 @@ var classEchoTrio_1_1Gameplay_1_1GameManager =
     [ "OnGameFinish", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a1e3b354d393aa9827ee5841758073b2a", null ],
     [ "OnPushToTalkCancelled", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a32ba6df7abdc171d5d176bc3d7bba17e", null ],
     [ "OnPushToTalkStarted", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#aac7f853e902ba67c05f4e3891e4965ea", null ],
+    [ "OnQuit", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a4655a0eefbbc7bf7b24a17d6b8ab6293", null ],
     [ "OnRestart", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#ae24f805233883a92d2c345e9961bab1d", null ],
     [ "OnStart", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#ae48058f92116d8f0c6e49a7eeeb70904", null ],
     [ "OnUpdateFinish", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a4ac69b20d5c6b558a336121707f2d822", null ],
@@ -36,6 +37,7 @@ var classEchoTrio_1_1Gameplay_1_1GameManager =
     [ "fsm", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a12bb456e612d647be03fe814c6406d99", null ],
     [ "gameInputActions", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a4e8830bb8d73625e4504904baf4bc851", null ],
     [ "hasFadedIn", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#ae7a2326338b2c291810aabc4e7bc0680", null ],
+    [ "numDisplays", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a68f839e7395b1ec8ddefa12503a25feb", null ],
     [ "playBGM", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a1eb522b3ca5e02b4ca1bfeac6ab82180", null ],
     [ "waitBGM", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#acc53ce8a8c2d99dd620356b2bad2fb4b", null ]
 ];
