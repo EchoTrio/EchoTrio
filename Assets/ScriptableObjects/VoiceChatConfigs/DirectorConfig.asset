@@ -32,7 +32,8 @@ MonoBehaviour:
 
     After each input from the human user, if one of
     the topics in the list of possible arguments in trigger_discussion is brought
-    up, invoke the trigger_discussion function with that topic as the argument.
+    up, invoke the trigger_discussion function with that topic as the argument. If
+    no list of possible arguments is given in trigger_discussion, do not invoke it.
 
 
     Otherwise,

@@ -30,8 +30,8 @@ namespace EchoTrio {
             Wait,
             /// Listen for user input.
             Listen,
-            /// Actors speaking.
-            Speak,
+            /// Actors responding to user input as per normal AI conversations.
+            FreeTalk,
             /// Actors playing a scripted discussion, or generating a discussion on a topic.
             Discuss,
             /// The chat has ended.
@@ -166,7 +166,7 @@ namespace EchoTrio {
             fsm.SetStateUpdate((int)State.Wait, OnUpdateWait);
             fsm.SetStateEntry((int)State.Listen, OnEnterListen);
             fsm.SetStateUpdate((int)State.Listen, OnUpdateListen);
-            fsm.SetStateEntry((int)State.Speak, OnEnterSpeak);
+            fsm.SetStateEntry((int)State.FreeTalk, OnEnterFreeTalk);
             fsm.SetStateEntry((int)State.Discuss, OnEnterDiscuss);
             fsm.SetStateEntry((int)State.Finish, OnEnterFinish);
         }
@@ -448,8 +448,8 @@ namespace EchoTrio {
             }
         }
 
-        // Speak State
-        private async void RunSpeak() {
+        // FreeTalk State
+        private async void RunFreeTalk() {
             BeginQueuingAudio();
 
             // Get a response from every actor.
@@ -469,9 +469,9 @@ namespace EchoTrio {
             fsm.ChangeState((int)State.Prepare);
         }
 
-        private void OnEnterSpeak() {
-            Debug.Log("VoiceChat: OnEnterSpeak");
-            RunSpeak(); // Run the logic asynchronously so that it does not hang the main thread.
+        private void OnEnterFreeTalk() {
+            Debug.Log("VoiceChat: OnEnterFreeTalk");
+            RunFreeTalk(); // Run the logic asynchronously so that it does not hang the main thread.
         }
 
         // Discussion State
@@ -591,14 +591,14 @@ namespace EchoTrio {
                 foreach (string speaker in response.speakerOrder) {
                     speakerQueue.Enqueue(speaker);
                 }
-                fsm.ChangeState((int)State.Speak);
+                fsm.ChangeState((int)State.FreeTalk);
                 return;
             }
 
             // As a backup, just respond in order.
             foreach (var key in actors.Keys) {
                 speakerQueue.Enqueue(key);
-                fsm.ChangeState((int)State.Speak);
+                fsm.ChangeState((int)State.FreeTalk);
                 Debug.Log("Director decision failed. Applying backup.");
             }
         }
