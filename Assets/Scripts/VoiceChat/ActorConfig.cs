@@ -98,27 +98,47 @@ namespace EchoTrio {
 
             // Override Features
             value = GetValue("feature_web_search");
-            if (!string.IsNullOrEmpty(value) && value.ToUpper() == "TRUE") {
-                Debug.Log($"Overrode {persona.ToString()}'s Web Search Feature Setting.");
-                overriddenConfig.enabledFeatures |= Feature.WebSearch;
+            if (!string.IsNullOrEmpty(value)) {
+                if (value.ToUpper() == "TRUE") {
+                    Debug.Log($"Overrode {persona.ToString()}'s Web Search Feature Setting To TRUE.");
+                    overriddenConfig.enabledFeatures |= Feature.WebSearch;
+                } else if (value.ToUpper() == "FALSE") {
+                    Debug.Log($"Overrode {persona.ToString()}'s Web Search Feature Setting To TRUE.");
+                    overriddenConfig.enabledFeatures &= ~Feature.WebSearch;
+                }
             }
 
             value = GetValue("feature_file_search");
-            if (!string.IsNullOrEmpty(value) && value.ToUpper() == "TRUE") {
-                Debug.Log($"Overrode {persona.ToString()}'s File Search Feature Setting.");
-                overriddenConfig.enabledFeatures |= Feature.FileSearch;
+            if (!string.IsNullOrEmpty(value)) {
+                if (value.ToUpper() == "TRUE") {
+                    Debug.Log($"Overrode {persona.ToString()}'s File Search Feature Setting To TRUE.");
+                    overriddenConfig.enabledFeatures |= Feature.FileSearch;
+                } else if (value.ToUpper() == "FALSE") {
+                    Debug.Log($"Overrode {persona.ToString()}'s File Search Feature Setting To FALSE.");
+                    overriddenConfig.enabledFeatures &= ~Feature.FileSearch;
+                }
             }
 
             value = GetValue("feature_reasoning");
-            if (!string.IsNullOrEmpty(value) && value.ToUpper() == "TRUE") {
-                Debug.Log($"Overrode {persona.ToString()}'s Reasoning Feature Setting.");
-                overriddenConfig.enabledFeatures |= Feature.Reasoning;
+            if (!string.IsNullOrEmpty(value)) {
+                if (value.ToUpper() == "TRUE") {
+                    Debug.Log($"Overrode {persona.ToString()}'s Reasoning Feature Setting To TRUE.");
+                    overriddenConfig.enabledFeatures |= Feature.Reasoning;
+                } else if (value.ToUpper() == "FALSE") {
+                    Debug.Log($"Overrode {persona.ToString()}'s Reasoning Feature Setting To FALSE.");
+                    overriddenConfig.enabledFeatures &= ~Feature.Reasoning;
+                }
             }
 
             value = GetValue("feature_audio_tags");
-            if (!string.IsNullOrEmpty(value) && value.ToUpper() == "TRUE") {
-                Debug.Log($"Overrode {persona.ToString()}'s Audio Tags Feature Setting.");
-                overriddenConfig.enabledFeatures |= Feature.AudioTags;
+            if (!string.IsNullOrEmpty(value)) {
+                if (value.ToUpper() == "TRUE") {
+                    Debug.Log($"Overrode {persona.ToString()}'s Audio Tags Feature Setting To TRUE.");
+                    overriddenConfig.enabledFeatures |= Feature.AudioTags;
+                } else if (value.ToUpper() == "FALSE") {
+                    Debug.Log($"Overrode {persona.ToString()}'s Audio Tags Feature Setting To FALSE.");
+                    overriddenConfig.enabledFeatures &= ~Feature.AudioTags;
+                }
             }
 
             return overriddenConfig;
