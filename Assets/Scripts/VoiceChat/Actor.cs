@@ -50,12 +50,13 @@ namespace EchoTrio {
         }
 
         private class ElevenLabsSettings {
-            public ElevenLabs.Models.Model model = new("eleven_v3");
+            public ElevenLabs.Models.Model expressionModel = new("eleven_v3");
+            public ElevenLabs.Models.Model fastModel = ElevenLabs.Models.Model.FlashV2_5;
             public string languageCode = "en"; // ISO 639 Language Code
             public string voiceId = string.Empty;
 
             public ElevenLabsSettings(ActorConfig config) {
-                model = config.AreAllFeaturesEnabled(ActorConfig.Feature.AudioTags) ? new("eleven_v3") : ElevenLabs.Models.Model.FlashV2_5;
+                if (!config.AreAllFeaturesEnabled(ActorConfig.Feature.AudioTags)) { expressionModel = fastModel; }
                 voiceId = config.GetElevenLabsVoiceID();
             }
         }
@@ -190,7 +191,9 @@ namespace EchoTrio {
             try {
                 ElevenLabs.Voices.Voice voice = new ElevenLabs.Voices.Voice(elevenLabsSettings.voiceId, this.Persona);
                 TextToSpeechRequest request = new TextToSpeechRequest(
-                    voice, text, model: elevenLabsSettings.model, languageCode: elevenLabsSettings.languageCode,
+                    voice, text,
+                    model: ContainsAudioTags(text) ? elevenLabsSettings.expressionModel : elevenLabsSettings.fastModel,
+                    languageCode: elevenLabsSettings.languageCode,
                     outputFormat: OutputFormat.PCM_24000); // Output format must be PCM, because that's what the AudioClip convertor in VoiceClip expects.
                 ElevenLabs.VoiceClip voiceClip = await elevenLabsApi.TextToSpeechEndpoint.TextToSpeechAsync(request, cancellationToken);
                 return voiceClip.AudioClip;
@@ -198,6 +201,10 @@ namespace EchoTrio {
                 Debug.Log(e);
             }
             return null;
+        }
+
+        private bool ContainsAudioTags(string text) {
+            return System.Text.RegularExpressions.Regex.IsMatch(text, @"[\[\]]");
         }
 
         // Tools

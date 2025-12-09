@@ -410,7 +410,6 @@ namespace EchoTrio {
                 required = new[] { "topic" }
             };
             string parameters = JsonConvert.SerializeObject(args, Formatting.Indented);
-            Debug.Log(parameters);
             return new OpenAI.Function("trigger_discussion", "Triggers a discussion based on a topic. No output is given. If there are no input choices given, do not invoke this function.", JToken.Parse(parameters));
         }
 
