@@ -7,12 +7,13 @@ var searchData=
   ['chatbox_2ecs_4',['Chatbox.cs',['../dd/d8b/Chatbox_8cs.html',1,'']]],
   ['clouds_5',['clouds',['../dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#aebcfd5ce5699d3c52c3b91aecda01b7b',1,'EchoTrio::Gameplay::GameManager']]],
   ['config_6',['config',['../d7/d1d/classEchoTrio_1_1Director.html#af50fb405d9b6fb1a925154ac47a3c152',1,'EchoTrio::Director']]],
-  ['contextinfos_7',['contextInfos',['../d8/df0/classEchoTrio_1_1ActorConfig.html#af58da5c4bc0a1b7eb688bfac4730f043',1,'EchoTrio::ActorConfig']]],
-  ['continuechat_8',['continueChat',['../dd/d64/classEchoTrio_1_1VoiceChat.html#ae34dcff25a25a75f74e401db5449592d',1,'EchoTrio::VoiceChat']]],
-  ['conversation_9',['conversation',['../d9/d56/classEchoTrio_1_1Actor.html#abd133bfbea44d9d891b1599bee3c3a38',1,'EchoTrio::Actor']]],
-  ['conversationlogger_10',['ConversationLogger',['../dc/d70/classEchoTrio_1_1Log_1_1ConversationLogger.html',1,'EchoTrio::Log']]],
-  ['conversationlogger_2ecs_11',['ConversationLogger.cs',['../d0/d83/ConversationLogger_8cs.html',1,'']]],
-  ['conversationtext_12',['conversationText',['../dc/d70/classEchoTrio_1_1Log_1_1ConversationLogger.html#a15763ade0fb86ec827916c7249b11d15',1,'EchoTrio.Log.ConversationLogger.conversationText()'],['../d9/d96/classEchoTrio_1_1Log_1_1FeedbackLogger.html#ab3e6c48da1967dc7468ccdf429d33363',1,'EchoTrio.Log.FeedbackLogger.conversationText()']]],
-  ['currentstate_13',['currentState',['../db/d4d/classFSM_1_1FiniteStateMachine.html#a74d2edd6ce8242a6253147445e7d6ac4',1,'FSM::FiniteStateMachine']]],
-  ['cyclesprite_14',['CycleSprite',['../d9/d55/classEchoTrio_1_1UI_1_1SpriteSwitcher.html#afeefbb8b2695fe66fc3d292fb0936713',1,'EchoTrio::UI::SpriteSwitcher']]]
+  ['containsaudiotags_7',['ContainsAudioTags',['../d9/d56/classEchoTrio_1_1Actor.html#a2d2bd7b7032691c9c4ae29d3cdfd67a2',1,'EchoTrio::Actor']]],
+  ['contextinfos_8',['contextInfos',['../d8/df0/classEchoTrio_1_1ActorConfig.html#af58da5c4bc0a1b7eb688bfac4730f043',1,'EchoTrio::ActorConfig']]],
+  ['continuechat_9',['continueChat',['../dd/d64/classEchoTrio_1_1VoiceChat.html#ae34dcff25a25a75f74e401db5449592d',1,'EchoTrio::VoiceChat']]],
+  ['conversation_10',['conversation',['../d9/d56/classEchoTrio_1_1Actor.html#abd133bfbea44d9d891b1599bee3c3a38',1,'EchoTrio::Actor']]],
+  ['conversationlogger_11',['ConversationLogger',['../dc/d70/classEchoTrio_1_1Log_1_1ConversationLogger.html',1,'EchoTrio::Log']]],
+  ['conversationlogger_2ecs_12',['ConversationLogger.cs',['../d0/d83/ConversationLogger_8cs.html',1,'']]],
+  ['conversationtext_13',['conversationText',['../dc/d70/classEchoTrio_1_1Log_1_1ConversationLogger.html#a15763ade0fb86ec827916c7249b11d15',1,'EchoTrio.Log.ConversationLogger.conversationText()'],['../d9/d96/classEchoTrio_1_1Log_1_1FeedbackLogger.html#ab3e6c48da1967dc7468ccdf429d33363',1,'EchoTrio.Log.FeedbackLogger.conversationText()']]],
+  ['currentstate_14',['currentState',['../db/d4d/classFSM_1_1FiniteStateMachine.html#a74d2edd6ce8242a6253147445e7d6ac4',1,'FSM::FiniteStateMachine']]],
+  ['cyclesprite_15',['CycleSprite',['../d9/d55/classEchoTrio_1_1UI_1_1SpriteSwitcher.html#afeefbb8b2695fe66fc3d292fb0936713',1,'EchoTrio::UI::SpriteSwitcher']]]
 ];

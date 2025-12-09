@@ -1,7 +1,7 @@
 <map id="EchoTrio.Actor" name="EchoTrio.Actor">
-<area shape="rect" id="node1" title="The actors are the OpenAI Response model which chats with the user." alt="" coords="134,315,321,553"/>
-<area shape="rect" id="node2" href="$d6/da8/classEchoTrio_1_1Actor_1_1OpenAISettings.html" title=" " alt="" coords="5,145,223,252"/>
+<area shape="rect" id="node1" title="The actors are the OpenAI Response model which chats with the user." alt="" coords="134,329,321,583"/>
+<area shape="rect" id="node2" href="$d6/da8/classEchoTrio_1_1Actor_1_1OpenAISettings.html" title=" " alt="" coords="5,160,223,267"/>
 <area shape="rect" id="node3" title=" " alt="" coords="79,5,149,83"/>
-<area shape="rect" id="node4" href="$da/da6/classEchoTrio_1_1Actor_1_1ElevenLabsSettings.html" title=" " alt="" coords="247,145,437,252"/>
+<area shape="rect" id="node4" href="$da/da6/classEchoTrio_1_1Actor_1_1ElevenLabsSettings.html" title=" " alt="" coords="247,160,437,267"/>
 <area shape="rect" id="node5" title=" " alt="" coords="294,5,390,83"/>
 </map>

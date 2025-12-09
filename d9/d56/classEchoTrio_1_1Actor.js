@@ -7,6 +7,7 @@ var classEchoTrio_1_1Actor =
     [ "AddSystemMesssage", "d9/d56/classEchoTrio_1_1Actor.html#a3fd2664be7e12035496387ce6dbd036c", null ],
     [ "AddUserMessage", "d9/d56/classEchoTrio_1_1Actor.html#a928d0a63a52511461d5277bc1b24cd92", null ],
     [ "BuildSetEmotionTool", "d9/d56/classEchoTrio_1_1Actor.html#a119ba335db08e6c0af50593afd3f9d5f", null ],
+    [ "ContainsAudioTags", "d9/d56/classEchoTrio_1_1Actor.html#a2d2bd7b7032691c9c4ae29d3cdfd67a2", null ],
     [ "GetAudioClipAsync", "d9/d56/classEchoTrio_1_1Actor.html#a626ab3b1ce2622b76f0fbad0b35bd9c9", null ],
     [ "GetResponse", "d9/d56/classEchoTrio_1_1Actor.html#ac3bf0c0a2ddb9de617ecca6a950c4eec", null ],
     [ "InsertResponse", "d9/d56/classEchoTrio_1_1Actor.html#a7074537cc1934d169d8e2c9d6c1bccd0", null ],

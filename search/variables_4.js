@@ -8,5 +8,6 @@ var searchData=
   ['enabledebug_5',['enableDebug',['../d7/d61/classGameEvent_1_1GameEventSystem.html#ad2f7d87514963989f216aa6a12491265',1,'GameEvent.GameEventSystem.enableDebug()'],['../dd/d64/classEchoTrio_1_1VoiceChat.html#a3bcf73c0644f18fb53575b792c17c03e',1,'EchoTrio.VoiceChat.enableDebug()']]],
   ['enabledfeatures_6',['enabledFeatures',['../d8/df0/classEchoTrio_1_1ActorConfig.html#ac8df5edc48efcd5e07453e2f61694b4c',1,'EchoTrio::ActorConfig']]],
   ['events_7',['events',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a63399460aff2f5ff2557ea296b216b50',1,'GameEvent::GameEventSystem']]],
-  ['exampleresponses_8',['exampleResponses',['../d8/df0/classEchoTrio_1_1ActorConfig.html#a2a354cc6891096272d780d3106199661',1,'EchoTrio::ActorConfig']]]
+  ['exampleresponses_8',['exampleResponses',['../d8/df0/classEchoTrio_1_1ActorConfig.html#a2a354cc6891096272d780d3106199661',1,'EchoTrio::ActorConfig']]],
+  ['expressionmodel_9',['expressionModel',['../da/da6/classEchoTrio_1_1Actor_1_1ElevenLabsSettings.html#a16e551cf60647bc0747193e4fd2eff9d',1,'EchoTrio::Actor::ElevenLabsSettings']]]
 ];
