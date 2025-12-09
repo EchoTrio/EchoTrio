@@ -18,7 +18,7 @@ namespace EchoTrio {
         public class Response {
             public string message = null;
             public Emotion emotion = Emotion.Neutral;
-            public AudioClip audioClip = null;
+            public AudioStream audioStream = null;
             public List<string> reasonings = new List<string>();
         }
 
@@ -112,13 +112,13 @@ namespace EchoTrio {
         /// <param name="emotion">The emotion of the message.</param>
         /// <param name="cancellationToken">Cancellation token used to cancel any async actions when the program shuts down.</param>
         /// <returns>The actor's response.</returns>
-        public async Task<Actor.Response> InsertResponse(string message, Emotion emotion, CancellationToken cancellationToken) {
+        public Actor.Response InsertResponse(string message, Emotion emotion, CancellationToken cancellationToken) {
             // Bit of a hack because assistant messages must now be of type output_text. Had to make my own custom class because the package's creator rejected my pull request.
             conversation.Add(new Message(OpenAI.Role.Assistant, new OutputTextContent(message)));
             return new Actor.Response() {
                 message = message,
                 emotion = emotion,
-                audioClip = await GetAudioClipAsync(message, cancellationToken)
+                audioStream = GetAudioStream(message, cancellationToken)
             };
         }
 
@@ -145,7 +145,7 @@ namespace EchoTrio {
                         case OpenAI.Responses.Message message:
                             conversation.Add(message);
                             actorResponse.message = message.ToString();
-                            actorResponse.audioClip = await GetAudioClipAsync(message.ToString(), cancellationToken);
+                            actorResponse.audioStream = GetAudioStream(message.ToString(), cancellationToken);
                             break;
                         case OpenAI.Responses.ReasoningItem reasoningItem:
                             conversation.Add(reasoningItem);
@@ -187,7 +187,7 @@ namespace EchoTrio {
         }
 
         // Internal Functions
-        private async Task<AudioClip> GetAudioClipAsync(string text, CancellationToken cancellationToken) {
+        private AudioStream GetAudioStream(string text, CancellationToken cancellationToken) {
             try {
                 ElevenLabs.Voices.Voice voice = new ElevenLabs.Voices.Voice(elevenLabsSettings.voiceId, this.Persona);
                 TextToSpeechRequest request = new TextToSpeechRequest(
@@ -195,12 +195,11 @@ namespace EchoTrio {
                     model: ContainsAudioTags(text) ? elevenLabsSettings.expressionModel : elevenLabsSettings.fastModel,
                     languageCode: elevenLabsSettings.languageCode,
                     outputFormat: OutputFormat.PCM_24000); // Output format must be PCM, because that's what the AudioClip convertor in VoiceClip expects.
-                ElevenLabs.VoiceClip voiceClip = await elevenLabsApi.TextToSpeechEndpoint.TextToSpeechAsync(request, cancellationToken);
-                return voiceClip.AudioClip;
+                return new AudioStream(elevenLabsApi, request, cancellationToken);
             } catch (Exception e) {
                 Debug.Log(e);
             }
-            return null;
+            return new AudioStream();
         }
 
         private bool ContainsAudioTags(string text) {
