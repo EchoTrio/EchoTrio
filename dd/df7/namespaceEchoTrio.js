@@ -6,6 +6,7 @@ var namespaceEchoTrio =
     [ "Actor", "d9/d56/classEchoTrio_1_1Actor.html", "d9/d56/classEchoTrio_1_1Actor" ],
     [ "ActorConfig", "d8/df0/classEchoTrio_1_1ActorConfig.html", "d8/df0/classEchoTrio_1_1ActorConfig" ],
     [ "ActorConfigEditor", "d6/dac/classEchoTrio_1_1ActorConfigEditor.html", "d6/dac/classEchoTrio_1_1ActorConfigEditor" ],
+    [ "AudioStream", "d8/d8d/classEchoTrio_1_1AudioStream.html", "d8/d8d/classEchoTrio_1_1AudioStream" ],
     [ "Authentication", "d4/d50/classEchoTrio_1_1Authentication.html", "d4/d50/classEchoTrio_1_1Authentication" ],
     [ "Director", "d7/d1d/classEchoTrio_1_1Director.html", "d7/d1d/classEchoTrio_1_1Director" ],
     [ "DirectorConfig", "de/d02/classEchoTrio_1_1DirectorConfig.html", "de/d02/classEchoTrio_1_1DirectorConfig" ],

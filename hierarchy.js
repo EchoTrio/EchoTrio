@@ -4,6 +4,7 @@ var hierarchy =
     [ "EchoTrio.VoiceChat.ActorOutput", "d7/de1/classEchoTrio_1_1VoiceChat_1_1ActorOutput.html", null ],
     [ "EchoTrio.VoiceChat.ActorReferences", "d0/d21/classEchoTrio_1_1VoiceChat_1_1ActorReferences.html", null ],
     [ "EchoTrio.Gameplay.GameManager.AnimationReferences", "df/d43/classEchoTrio_1_1Gameplay_1_1GameManager_1_1AnimationReferences.html", null ],
+    [ "EchoTrio.AudioStream", "d8/d8d/classEchoTrio_1_1AudioStream.html", null ],
     [ "EchoTrio.Authentication", "d4/d50/classEchoTrio_1_1Authentication.html", null ],
     [ "OpenAI.BaseResponse", null, [
       [ "EchoTrio.OutputTextContent", "dc/d34/classEchoTrio_1_1OutputTextContent.html", null ]

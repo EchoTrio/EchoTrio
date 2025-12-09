@@ -138,8 +138,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3fd2664be7e12035496387ce6dbd036c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a928d0a63a52511461d5277bc1b24cd92"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d56/classEchoTrio_1_1Actor.html#a928d0a63a52511461d5277bc1b24cd92">AddUserMessage</a> (string message)</td></tr>
 <tr class="separator:a928d0a63a52511461d5277bc1b24cd92"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7074537cc1934d169d8e2c9d6c1bccd0"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="../../dd/d9d/classEchoTrio_1_1Actor_1_1Response.html">Actor.Response</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d56/classEchoTrio_1_1Actor.html#a7074537cc1934d169d8e2c9d6c1bccd0">InsertResponse</a> (string message, <a class="el" href="../../dd/df7/namespaceEchoTrio.html#a418bd30181685f930a5a663fb9a0ee77">Emotion</a> emotion, CancellationToken cancellationToken)</td></tr>
-<tr class="separator:a7074537cc1934d169d8e2c9d6c1bccd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14c2b7bc845c91745656aa70e411bb9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../dd/d9d/classEchoTrio_1_1Actor_1_1Response.html">Actor.Response</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d56/classEchoTrio_1_1Actor.html#a14c2b7bc845c91745656aa70e411bb9c">InsertResponse</a> (string message, <a class="el" href="../../dd/df7/namespaceEchoTrio.html#a418bd30181685f930a5a663fb9a0ee77">Emotion</a> emotion, CancellationToken cancellationToken)</td></tr>
+<tr class="separator:a14c2b7bc845c91745656aa70e411bb9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3bf0c0a2ddb9de617ecca6a950c4eec"><td class="memItemLeft" align="right" valign="top">async Task&lt; <a class="el" href="../../dd/d9d/classEchoTrio_1_1Actor_1_1Response.html">Actor.Response</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d56/classEchoTrio_1_1Actor.html#ac3bf0c0a2ddb9de617ecca6a950c4eec">GetResponse</a> (CancellationToken cancellationToken)</td></tr>
 <tr class="separator:ac3bf0c0a2ddb9de617ecca6a950c4eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -152,8 +152,8 @@ Properties</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a626ab3b1ce2622b76f0fbad0b35bd9c9"><td class="memItemLeft" align="right" valign="top">async Task&lt; AudioClip &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d56/classEchoTrio_1_1Actor.html#a626ab3b1ce2622b76f0fbad0b35bd9c9">GetAudioClipAsync</a> (string text, CancellationToken cancellationToken)</td></tr>
-<tr class="separator:a626ab3b1ce2622b76f0fbad0b35bd9c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c1de34984aae987263551dd3f0d6fa6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="../../d8/d8d/classEchoTrio_1_1AudioStream.html">AudioStream</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d56/classEchoTrio_1_1Actor.html#a6c1de34984aae987263551dd3f0d6fa6">GetAudioStream</a> (string text, CancellationToken cancellationToken)</td></tr>
+<tr class="separator:a6c1de34984aae987263551dd3f0d6fa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d2bd7b7032691c9c4ae29d3cdfd67a2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d56/classEchoTrio_1_1Actor.html#a2d2bd7b7032691c9c4ae29d3cdfd67a2">ContainsAudioTags</a> (string text)</td></tr>
 <tr class="separator:a2d2bd7b7032691c9c4ae29d3cdfd67a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a119ba335db08e6c0af50593afd3f9d5f"><td class="memItemLeft" align="right" valign="top">OpenAI.Function&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d56/classEchoTrio_1_1Actor.html#a119ba335db08e6c0af50593afd3f9d5f">BuildSetEmotionTool</a> ()</td></tr>
@@ -301,7 +301,7 @@ Private Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Create a function following OpenAI's JSON Schema for the actor to select its emotion for the current response. OpenAI API on function calling: <a href="https://platform.openai.com/docs/guides/function-calling">https://platform.openai.com/docs/guides/function-calling</a> </p><dl class="section return"><dt>Returns</dt><dd>The function's JSON Object.</dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../da/daa/Actor_8cs_source.html#l00214">214</a> of file <a class="el" href="../../da/daa/Actor_8cs_source.html">Actor.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/daa/Actor_8cs_source.html#l00213">213</a> of file <a class="el" href="../../da/daa/Actor_8cs_source.html">Actor.cs</a>.</p>
 
 </div>
 </div>
@@ -329,12 +329,12 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/daa/Actor_8cs_source.html#l00206">206</a> of file <a class="el" href="../../da/daa/Actor_8cs_source.html">Actor.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/daa/Actor_8cs_source.html#l00205">205</a> of file <a class="el" href="../../da/daa/Actor_8cs_source.html">Actor.cs</a>.</p>
 
 </div>
 </div>
-<a id="a626ab3b1ce2622b76f0fbad0b35bd9c9" name="a626ab3b1ce2622b76f0fbad0b35bd9c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a626ab3b1ce2622b76f0fbad0b35bd9c9">&#9670;&#160;</a></span>GetAudioClipAsync()</h2>
+<a id="a6c1de34984aae987263551dd3f0d6fa6" name="a6c1de34984aae987263551dd3f0d6fa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c1de34984aae987263551dd3f0d6fa6">&#9670;&#160;</a></span>GetAudioStream()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -343,7 +343,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">async Task&lt; AudioClip &gt; EchoTrio.Actor.GetAudioClipAsync </td>
+          <td class="memname"><a class="el" href="../../d8/d8d/classEchoTrio_1_1AudioStream.html">AudioStream</a> EchoTrio.Actor.GetAudioStream </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>text</em>, </td>
@@ -406,8 +406,8 @@ Private Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a7074537cc1934d169d8e2c9d6c1bccd0" name="a7074537cc1934d169d8e2c9d6c1bccd0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7074537cc1934d169d8e2c9d6c1bccd0">&#9670;&#160;</a></span>InsertResponse()</h2>
+<a id="a14c2b7bc845c91745656aa70e411bb9c" name="a14c2b7bc845c91745656aa70e411bb9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14c2b7bc845c91745656aa70e411bb9c">&#9670;&#160;</a></span>InsertResponse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -416,7 +416,7 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">async Task&lt; <a class="el" href="../../dd/d9d/classEchoTrio_1_1Actor_1_1Response.html">Actor.Response</a> &gt; EchoTrio.Actor.InsertResponse </td>
+          <td class="memname"><a class="el" href="../../dd/d9d/classEchoTrio_1_1Actor_1_1Response.html">Actor.Response</a> EchoTrio.Actor.InsertResponse </td>
           <td>(</td>
           <td class="paramtype">string&#160;</td>
           <td class="paramname"><em>message</em>, </td>
@@ -483,7 +483,7 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../da/daa/Actor_8cs_source.html#l00236">236</a> of file <a class="el" href="../../da/daa/Actor_8cs_source.html">Actor.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../da/daa/Actor_8cs_source.html#l00235">235</a> of file <a class="el" href="../../da/daa/Actor_8cs_source.html">Actor.cs</a>.</p>
 
 </div>
 </div>

@@ -9,5 +9,6 @@ var searchData=
   ['triggerevent_3c_20t_20_3e_6',['TriggerEvent&lt; T &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a5479ead285464c5626e83449e4a73f31',1,'GameEvent::GameEventSystem']]],
   ['triggerevent_3c_20t1_2c_20t2_20_3e_7',['TriggerEvent&lt; T1, T2 &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#ae54409ca1c4bb94920918977cc28bb90',1,'GameEvent::GameEventSystem']]],
   ['triggerevent_3c_20t1_2c_20t2_2c_20t3_20_3e_8',['TriggerEvent&lt; T1, T2, T3 &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#ad1b7be4ac7af15c3060320a0b17ab556',1,'GameEvent::GameEventSystem']]],
-  ['triggerevent_3c_20t1_2c_20t2_2c_20t3_2c_20t4_20_3e_9',['TriggerEvent&lt; T1, T2, T3, T4 &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a205ce03b450af634babc33a68de5128a',1,'GameEvent::GameEventSystem']]]
+  ['triggerevent_3c_20t1_2c_20t2_2c_20t3_2c_20t4_20_3e_9',['TriggerEvent&lt; T1, T2, T3, T4 &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a205ce03b450af634babc33a68de5128a',1,'GameEvent::GameEventSystem']]],
+  ['trygetaudioclip_10',['TryGetAudioClip',['../d8/d8d/classEchoTrio_1_1AudioStream.html#a674abea62c2cf981de380f94b7e0bf3a',1,'EchoTrio::AudioStream']]]
 ];

@@ -32,10 +32,12 @@ var searchData=
   ['status_29',['Status',['../d7/d1d/classEchoTrio_1_1Director.html#af77a40de522ce06b697080fbb2fc9642',1,'EchoTrio::Director']]],
   ['statusmutex_30',['StatusMutex',['../d7/d6c/classEchoTrio_1_1Director_1_1StatusMutex.html',1,'EchoTrio::Director']]],
   ['statusmutex_31',['statusMutex',['../d7/d1d/classEchoTrio_1_1Director.html#a12d97760556d6a7d6c3b72d677901462',1,'EchoTrio::Director']]],
-  ['submitusertextinput_32',['SubmitUserTextInput',['../d1/d52/classEchoTrio_1_1UI_1_1UserTextInput.html#a5d23d6e2d2dda92fc1f5743d84e2d438',1,'EchoTrio.UI.UserTextInput.SubmitUserTextInput()'],['../d7/d1d/classEchoTrio_1_1Director.html#ad6aadf60f2db44a2d9867dcf55b4bde2',1,'EchoTrio.Director.SubmitUserTextInput()'],['../dd/d64/classEchoTrio_1_1VoiceChat.html#a563c57111c9bd6272f3e62e22ed01735',1,'EchoTrio.VoiceChat.SubmitUserTextInput()']]],
-  ['subscribetoevent_33',['SubscribeToEvent',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a5a950e160a919fefda05b2c6020d2038',1,'GameEvent::GameEventSystem']]],
-  ['subscribetoevent_3c_20t_20_3e_34',['SubscribeToEvent&lt; T &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a5f5ff60b8de5a689abc53470ad9cc5ce',1,'GameEvent::GameEventSystem']]],
-  ['subscribetoevent_3c_20t1_2c_20t2_20_3e_35',['SubscribeToEvent&lt; T1, T2 &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a7ad64ea078607bef3e2adfa2fca2a680',1,'GameEvent::GameEventSystem']]],
-  ['subscribetoevent_3c_20t1_2c_20t2_2c_20t3_20_3e_36',['SubscribeToEvent&lt; T1, T2, T3 &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a7f5ffdc044f5fcac4a44c6aa8a577ebd',1,'GameEvent::GameEventSystem']]],
-  ['subscribetoevent_3c_20t1_2c_20t2_2c_20t3_2c_20t4_20_3e_37',['SubscribeToEvent&lt; T1, T2, T3, T4 &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a95764cf2d22b506b7d454749a472424f',1,'GameEvent::GameEventSystem']]]
+  ['streamended_32',['streamEnded',['../d8/d8d/classEchoTrio_1_1AudioStream.html#a212122186e8f77c47623a61a80680ffc',1,'EchoTrio::AudioStream']]],
+  ['streamthread_33',['StreamThread',['../d8/d8d/classEchoTrio_1_1AudioStream.html#a6393e56099bc40e7d832fc7eb155e956',1,'EchoTrio::AudioStream']]],
+  ['submitusertextinput_34',['SubmitUserTextInput',['../d1/d52/classEchoTrio_1_1UI_1_1UserTextInput.html#a5d23d6e2d2dda92fc1f5743d84e2d438',1,'EchoTrio.UI.UserTextInput.SubmitUserTextInput()'],['../d7/d1d/classEchoTrio_1_1Director.html#ad6aadf60f2db44a2d9867dcf55b4bde2',1,'EchoTrio.Director.SubmitUserTextInput()'],['../dd/d64/classEchoTrio_1_1VoiceChat.html#a563c57111c9bd6272f3e62e22ed01735',1,'EchoTrio.VoiceChat.SubmitUserTextInput()']]],
+  ['subscribetoevent_35',['SubscribeToEvent',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a5a950e160a919fefda05b2c6020d2038',1,'GameEvent::GameEventSystem']]],
+  ['subscribetoevent_3c_20t_20_3e_36',['SubscribeToEvent&lt; T &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a5f5ff60b8de5a689abc53470ad9cc5ce',1,'GameEvent::GameEventSystem']]],
+  ['subscribetoevent_3c_20t1_2c_20t2_20_3e_37',['SubscribeToEvent&lt; T1, T2 &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a7ad64ea078607bef3e2adfa2fca2a680',1,'GameEvent::GameEventSystem']]],
+  ['subscribetoevent_3c_20t1_2c_20t2_2c_20t3_20_3e_38',['SubscribeToEvent&lt; T1, T2, T3 &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a7f5ffdc044f5fcac4a44c6aa8a577ebd',1,'GameEvent::GameEventSystem']]],
+  ['subscribetoevent_3c_20t1_2c_20t2_2c_20t3_2c_20t4_20_3e_39',['SubscribeToEvent&lt; T1, T2, T3, T4 &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a95764cf2d22b506b7d454749a472424f',1,'GameEvent::GameEventSystem']]]
 ];

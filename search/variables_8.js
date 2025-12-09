@@ -12,5 +12,6 @@ var searchData=
   ['invalid_5fstate_9',['INVALID_STATE',['../db/d4d/classFSM_1_1FiniteStateMachine.html#a065c0c296945737178fcffb6792feada',1,'FSM::FiniteStateMachine']]],
   ['isaudioplaying_10',['isAudioPlaying',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a3bdf3e189baacefee793c93cd9918875',1,'EchoTrio::VoiceChat']]],
   ['isfading_11',['isFading',['../da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#a24fc8382a89202a1a28c87acf3594ae7',1,'EchoTrio::UI::FadeEffect']]],
-  ['isqueueingaudio_12',['isQueueingAudio',['../dd/d64/classEchoTrio_1_1VoiceChat.html#abfcf39c9c45788337497177191b5a32a',1,'EchoTrio::VoiceChat']]]
+  ['isfirst_12',['isFirst',['../d7/de1/classEchoTrio_1_1VoiceChat_1_1ActorOutput.html#a7ed4b86550f88560a92f5ec9f8824ac7',1,'EchoTrio::VoiceChat::ActorOutput']]],
+  ['isqueueingaudio_13',['isQueueingAudio',['../dd/d64/classEchoTrio_1_1VoiceChat.html#abfcf39c9c45788337497177191b5a32a',1,'EchoTrio::VoiceChat']]]
 ];

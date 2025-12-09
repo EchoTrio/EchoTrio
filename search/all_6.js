@@ -15,7 +15,7 @@ var searchData=
   ['generateddiscussion_12',['GeneratedDiscussion',['../d2/d65/classEchoTrio_1_1GeneratedDiscussion.html',1,'EchoTrio']]],
   ['generateddiscussion_2ecs_13',['GeneratedDiscussion.cs',['../da/dc3/GeneratedDiscussion_8cs.html',1,'']]],
   ['generaterandomspeakerorder_14',['GenerateRandomSpeakerOrder',['../d2/d65/classEchoTrio_1_1GeneratedDiscussion.html#a2da29c77b91828a6e170c80ae0c55807',1,'EchoTrio::GeneratedDiscussion']]],
-  ['getaudioclipasync_15',['GetAudioClipAsync',['../d9/d56/classEchoTrio_1_1Actor.html#a626ab3b1ce2622b76f0fbad0b35bd9c9',1,'EchoTrio::Actor']]],
+  ['getaudiostream_15',['GetAudioStream',['../d9/d56/classEchoTrio_1_1Actor.html#a6c1de34984aae987263551dd3f0d6fa6',1,'EchoTrio::Actor']]],
   ['getcurrentstate_16',['GetCurrentState',['../db/d4d/classFSM_1_1FiniteStateMachine.html#a7d5220f1bcf0a5fd213a709417faf255',1,'FSM::FiniteStateMachine']]],
   ['getdialogues_17',['GetDialogues',['../da/d80/classEchoTrio_1_1ScriptedDiscussion.html#a81aa150b7bc3475e3d3affbaaed6a4a3',1,'EchoTrio::ScriptedDiscussion']]],
   ['getdiscussionprompt_18',['GetDiscussionPrompt',['../d2/d65/classEchoTrio_1_1GeneratedDiscussion.html#aaa32683d1f19c1300018cf23661b2034',1,'EchoTrio::GeneratedDiscussion']]],

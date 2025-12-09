@@ -1,8 +1,8 @@
 var searchData=
 [
   ['defaultvalue_0',['DefaultValue',['../dc/dc6/classEchoTrio_1_1PersonaExtensions.html#a7bcb022a8490e0ac79ab16df842451b1',1,'EchoTrio::PersonaExtensions']]],
-  ['delta_1',['delta',['../dc/d34/classEchoTrio_1_1OutputTextContent.html#adf1767e2c53f142d27cf5e1e90fc4259',1,'EchoTrio::OutputTextContent']]],
-  ['delta_2',['Delta',['../dc/d34/classEchoTrio_1_1OutputTextContent.html#a1546782459cec9a1922d89d07b05cc74',1,'EchoTrio::OutputTextContent']]],
+  ['delta_1',['Delta',['../dc/d34/classEchoTrio_1_1OutputTextContent.html#a1546782459cec9a1922d89d07b05cc74',1,'EchoTrio::OutputTextContent']]],
+  ['delta_2',['delta',['../dc/d34/classEchoTrio_1_1OutputTextContent.html#adf1767e2c53f142d27cf5e1e90fc4259',1,'EchoTrio::OutputTextContent']]],
   ['dialogue_3',['Dialogue',['../dc/dc0/classEchoTrio_1_1ScriptedDiscussion_1_1Dialogue.html',1,'EchoTrio::ScriptedDiscussion']]],
   ['dialogues_4',['dialogues',['../da/d80/classEchoTrio_1_1ScriptedDiscussion.html#a0cad702889eb22c1c38b39673c933ae8',1,'EchoTrio::ScriptedDiscussion']]],
   ['director_5',['director',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a37e65b79c9a054416fcd06e47bb238ff',1,'EchoTrio::VoiceChat']]],

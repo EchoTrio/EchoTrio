@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['elevenlabsapi_0',['elevenLabsApi',['../d9/d56/classEchoTrio_1_1Actor.html#a89eb93e05832e809ab043fa1aceaba42',1,'EchoTrio::Actor']]],
+  ['elevenlabsapi_0',['elevenLabsApi',['../d9/d56/classEchoTrio_1_1Actor.html#a89eb93e05832e809ab043fa1aceaba42',1,'EchoTrio.Actor.elevenLabsApi()'],['../d8/d8d/classEchoTrio_1_1AudioStream.html#aa7ab1e8c8ca146f4a656dc5a263d3a4f',1,'EchoTrio.AudioStream.elevenLabsApi()']]],
   ['elevenlabssettings_1',['elevenLabsSettings',['../d9/d56/classEchoTrio_1_1Actor.html#a74376c0edae78ea82952a0110e83c1d3',1,'EchoTrio::Actor']]],
   ['elevenlabsvoiceid_2',['elevenLabsVoiceId',['../d8/df0/classEchoTrio_1_1ActorConfig.html#aca04f9faa41904b0aec6ef2891bea00e',1,'EchoTrio::ActorConfig']]],
   ['emotion_3',['emotion',['../dd/d9d/classEchoTrio_1_1Actor_1_1Response.html#ab9b7bd553dd3a34011a15b259c9105f9',1,'EchoTrio.Actor.Response.emotion()'],['../dc/dc0/classEchoTrio_1_1ScriptedDiscussion_1_1Dialogue.html#a4939a8d512de9d304c7b1542dff95e4a',1,'EchoTrio.ScriptedDiscussion.Dialogue.emotion()'],['../d7/de1/classEchoTrio_1_1VoiceChat_1_1ActorOutput.html#ae43edc804920fd795e9e2479e606332c',1,'EchoTrio.VoiceChat.ActorOutput.emotion()']]],

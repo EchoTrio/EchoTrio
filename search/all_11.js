@@ -12,7 +12,7 @@ var searchData=
   ['togglemicmute_9',['ToggleMicMute',['../dd/d64/classEchoTrio_1_1VoiceChat.html#abb07cec2bdaa5658e2ed400b068a2174',1,'EchoTrio::VoiceChat']]],
   ['tools_10',['tools',['../d7/d1d/classEchoTrio_1_1Director.html#aa91770ed6ecce0524c396d37e805a7eb',1,'EchoTrio.Director.tools()'],['../d6/da8/classEchoTrio_1_1Actor_1_1OpenAISettings.html#a969d368eed31a2643eb673a1424ef1c9',1,'EchoTrio.Actor.OpenAISettings.tools()']]],
   ['topic_11',['Topic',['../d5/df6/classEchoTrio_1_1Discussion.html#a1ab7a2bdc106017a6d0a74b26a097b0ea25812bf456959aa5f28dc570f341a3ba',1,'EchoTrio::Discussion']]],
-  ['tostring_12',['ToString',['../d0/d02/classEchoTrio_1_1EmotionExtensions.html#a4080ecba23fe7743f724f08f1de5dc3d',1,'EchoTrio.EmotionExtensions.ToString()'],['../dc/d34/classEchoTrio_1_1OutputTextContent.html#a11b76f355e8251357ec5a92b271fec85',1,'EchoTrio.OutputTextContent.ToString()'],['../dc/dc6/classEchoTrio_1_1PersonaExtensions.html#ae12396b606f3798b89afeeeb05a0e11f',1,'EchoTrio.PersonaExtensions.ToString()']]],
+  ['tostring_12',['ToString',['../d0/d02/classEchoTrio_1_1EmotionExtensions.html#a4080ecba23fe7743f724f08f1de5dc3d',1,'EchoTrio.EmotionExtensions.ToString()'],['../dc/dc6/classEchoTrio_1_1PersonaExtensions.html#ae12396b606f3798b89afeeeb05a0e11f',1,'EchoTrio.PersonaExtensions.ToString()'],['../dc/d34/classEchoTrio_1_1OutputTextContent.html#a11b76f355e8251357ec5a92b271fec85',1,'EchoTrio.OutputTextContent.ToString()']]],
   ['triggerevent_13',['TriggerEvent',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a3da4a67e41dfdba0a6c0030283576403',1,'GameEvent::GameEventSystem']]],
   ['triggerevent_3c_20t_20_3e_14',['TriggerEvent&lt; T &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a5479ead285464c5626e83449e4a73f31',1,'GameEvent::GameEventSystem']]],
   ['triggerevent_3c_20t1_2c_20t2_20_3e_15',['TriggerEvent&lt; T1, T2 &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#ae54409ca1c4bb94920918977cc28bb90',1,'GameEvent::GameEventSystem']]],
@@ -23,5 +23,6 @@ var searchData=
   ['triggermode_20',['TriggerMode',['../d5/df6/classEchoTrio_1_1Discussion.html#a1ab7a2bdc106017a6d0a74b26a097b0e',1,'EchoTrio::Discussion']]],
   ['triggerround_21',['triggerRound',['../d5/df6/classEchoTrio_1_1Discussion.html#abdfc796fb73c14292a91737e9a7b9585',1,'EchoTrio::Discussion']]],
   ['triggertopic_22',['triggerTopic',['../d5/df6/classEchoTrio_1_1Discussion.html#a7f6173113fa817a673ce00e66379b065',1,'EchoTrio::Discussion']]],
-  ['type_23',['Type',['../dc/d34/classEchoTrio_1_1OutputTextContent.html#a135b4f4b1bd8274f88fa1876a5efd891',1,'EchoTrio::OutputTextContent']]]
+  ['trygetaudioclip_23',['TryGetAudioClip',['../d8/d8d/classEchoTrio_1_1AudioStream.html#a674abea62c2cf981de380f94b7e0bf3a',1,'EchoTrio::AudioStream']]],
+  ['type_24',['Type',['../dc/d34/classEchoTrio_1_1OutputTextContent.html#a135b4f4b1bd8274f88fa1876a5efd891',1,'EchoTrio::OutputTextContent']]]
 ];

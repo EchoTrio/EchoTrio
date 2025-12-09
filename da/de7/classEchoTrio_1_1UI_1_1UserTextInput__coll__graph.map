@@ -1,7 +1,7 @@
 <map id="EchoTrio.UI.UserTextInput" name="EchoTrio.UI.UserTextInput">
-<area shape="rect" id="node1" title=" " alt="" coords="232,2109,420,2231"/>
+<area shape="rect" id="node1" title=" " alt="" coords="232,2124,420,2245"/>
 <area shape="rect" id="node2" title=" " alt="" coords="325,876,449,953"/>
-<area shape="rect" id="node3" href="$dd/d64/classEchoTrio_1_1VoiceChat.html" title=" " alt="" coords="363,1192,569,2047"/>
+<area shape="rect" id="node3" href="$dd/d64/classEchoTrio_1_1VoiceChat.html" title=" " alt="" coords="363,1192,569,2061"/>
 <area shape="rect" id="node4" title=" " alt="" coords="5,876,68,953"/>
 <area shape="rect" id="node5" href="$de/d02/classEchoTrio_1_1DirectorConfig.html" title=" " alt="" coords="329,307,502,384"/>
 <area shape="rect" id="node11" href="$d7/d1d/classEchoTrio_1_1Director.html" title=" " alt="" coords="473,715,691,1115"/>
