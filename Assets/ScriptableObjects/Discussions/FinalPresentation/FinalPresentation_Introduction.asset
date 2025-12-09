@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f68e8b72e83fbe845a28297cb26f76fb, type: 3}
-  m_Name: FinalPresentationEnding
+  m_Name: FinalPresentation_Introduction
   m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.ScriptedDiscussion
   triggerMode: 2
   triggerTopic: 
-  triggerRound: 3
+  triggerRound: 1
   triggerIdleTime: 60
   dialogues:
   - speaker: 0
-    message: Thank you for volunteering. We would love to stay, but we have to get
-      back to our godly duties.
+    message: I am Athena, goddess of wisdom. Welcome mortal, to EchoTrio's final
+      presentation!
     emotion: 0
   - speaker: 1
-    message: And remember to give EchoTrio an A!
+    message: And I am Poseidon, god of the seas. We need one volunteer among the
+      audience. State your name and ask a question. Remember, you only get one question.
     emotion: 0

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f68e8b72e83fbe845a28297cb26f76fb, type: 3}
-  m_Name: Support Athena
+  m_Name: Playtest_SupportAthena
   m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.ScriptedDiscussion
   triggerMode: 1
   triggerTopic: The user support or trust Athena

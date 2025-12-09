@@ -10,18 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f68e8b72e83fbe845a28297cb26f76fb, type: 3}
-  m_Name: Transition
+  m_Name: FinalPresentation_Ending
   m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.ScriptedDiscussion
   triggerMode: 2
   triggerTopic: 
-  triggerRound: 5
+  triggerRound: 3
   triggerIdleTime: 60
   dialogues:
   - speaker: 0
-    message: "[softly] Since you\u2019re here, traveler\u2026 [warm tone] tell us,
-      whose vision do you trust more?"
-    emotion: 4
+    message: Thank you for volunteering. We would love to stay, but we have to get
+      back to our godly duties.
+    emotion: 0
   - speaker: 1
-    message: "[speak faster] [chuckles confidently] The mortal doesn\u2019t need
-      time to think. [grins] They\u2019ll follow me\u2014the sea calls to every heart!"
-    emotion: 4
+    message: And remember to give EchoTrio an A!
+    emotion: 0

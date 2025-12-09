@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f68e8b72e83fbe845a28297cb26f76fb, type: 3}
-  m_Name: FinalPresentationIntroduction
+  m_Name: Playtest_AskForSupport
   m_EditorClassIdentifier: Assembly-CSharp::EchoTrio.ScriptedDiscussion
   triggerMode: 2
   triggerTopic: 
-  triggerRound: 1
+  triggerRound: 5
   triggerIdleTime: 60
   dialogues:
   - speaker: 0
-    message: I am Athena, goddess of wisdom. Welcome mortal, to EchoTrio's final
-      presentation!
-    emotion: 0
+    message: "[softly] Since you\u2019re here, traveler\u2026 [warm tone] tell us,
+      whose vision do you trust more?"
+    emotion: 4
   - speaker: 1
-    message: And I am Poseidon, god of the seas. We need one volunteer among the
-      audience. State your name and ask a question. Remember, you only get one question.
-    emotion: 0
+    message: "[speak faster] [chuckles confidently] The mortal doesn\u2019t need
+      time to think. [grins] They\u2019ll follow me\u2014the sea calls to every heart!"
+    emotion: 4
