@@ -9,6 +9,10 @@ namespace EchoTrio {
     public class Authentication {
         private const string FileName = "Authentication.ini";
 
+        public static bool AuthenticationFileExists() {
+            return System.IO.File.Exists($"{Application.streamingAssetsPath}/Configs/{FileName}");
+        }
+
         public static OpenAIAuthentication GetOpenAIAuthentication() {
             IConfiguration config = new ConfigurationBuilder().AddIniFile($"{Application.streamingAssetsPath}/Configs/{FileName}").Build();
             IConfigurationSection section = config.GetSection("OpenAI");
