@@ -2,7 +2,7 @@ var searchData=
 [
   ['gameeventsystem_0',['GameEventSystem',['../d7/d61/classGameEvent_1_1GameEventSystem.html#afa1b483f806bdec50644a05dece46649',1,'GameEvent::GameEventSystem']]],
   ['generaterandomspeakerorder_1',['GenerateRandomSpeakerOrder',['../d2/d65/classEchoTrio_1_1GeneratedDiscussion.html#a2da29c77b91828a6e170c80ae0c55807',1,'EchoTrio::GeneratedDiscussion']]],
-  ['getaudiostream_2',['GetAudioStream',['../d9/d56/classEchoTrio_1_1Actor.html#a6c1de34984aae987263551dd3f0d6fa6',1,'EchoTrio::Actor']]],
+  ['getaudioclipasync_2',['GetAudioClipAsync',['../d9/d56/classEchoTrio_1_1Actor.html#a626ab3b1ce2622b76f0fbad0b35bd9c9',1,'EchoTrio::Actor']]],
   ['getcurrentstate_3',['GetCurrentState',['../db/d4d/classFSM_1_1FiniteStateMachine.html#a7d5220f1bcf0a5fd213a709417faf255',1,'FSM::FiniteStateMachine']]],
   ['getdialogues_4',['GetDialogues',['../da/d80/classEchoTrio_1_1ScriptedDiscussion.html#a81aa150b7bc3475e3d3affbaaed6a4a3',1,'EchoTrio::ScriptedDiscussion']]],
   ['getdiscussionprompt_5',['GetDiscussionPrompt',['../d2/d65/classEchoTrio_1_1GeneratedDiscussion.html#aaa32683d1f19c1300018cf23661b2034',1,'EchoTrio::GeneratedDiscussion']]],

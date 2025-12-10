@@ -1,3 +1,12 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$d7/d61/classGameEvent_1_1GameEventSystem.html" title=" " alt="" coords="5,5,232,31"/>
+<area shape="rect" id="node1" title=" " alt="" coords="5,234,129,259"/>
+<area shape="rect" id="node2" href="$de/d41/classEchoTrio_1_1Gameplay_1_1AuthenticationChecker.html" title="MonoBehaviour to check if the authentication file exists before starting the experience." alt="" coords="178,5,422,45"/>
+<area shape="rect" id="node3" href="$dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html" title="GameManager controls the gameplay animation and audio." alt="" coords="177,70,423,95"/>
+<area shape="rect" id="node4" href="$dc/d70/classEchoTrio_1_1Log_1_1ConversationLogger.html" title=" " alt="" coords="203,120,397,160"/>
+<area shape="rect" id="node5" href="$d9/d96/classEchoTrio_1_1Log_1_1FeedbackLogger.html" title=" " alt="" coords="193,185,407,210"/>
+<area shape="rect" id="node6" href="$d4/d49/classEchoTrio_1_1UI_1_1Chatbox.html" title=" " alt="" coords="224,234,376,259"/>
+<area shape="rect" id="node7" href="$da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html" title=" " alt="" coords="217,283,383,309"/>
+<area shape="rect" id="node8" href="$d9/d55/classEchoTrio_1_1UI_1_1SpriteSwitcher.html" title=" " alt="" coords="204,333,396,358"/>
+<area shape="rect" id="node9" href="$d1/d52/classEchoTrio_1_1UI_1_1UserTextInput.html" title=" " alt="" coords="206,382,394,407"/>
+<area shape="rect" id="node10" href="$dd/d64/classEchoTrio_1_1VoiceChat.html" title=" " alt="" coords="227,431,373,457"/>
 </map>

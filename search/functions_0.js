@@ -1,7 +1,7 @@
 var searchData=
 [
   ['actor_0',['Actor',['../d9/d56/classEchoTrio_1_1Actor.html#aacf0d74f4a8d24f17a81fabb92cc0d0c',1,'EchoTrio::Actor']]],
-  ['actoroutput_1',['ActorOutput',['../d7/de1/classEchoTrio_1_1VoiceChat_1_1ActorOutput.html#a510e4c750b945befd1db8e90821a35be',1,'EchoTrio::VoiceChat::ActorOutput']]],
+  ['actoroutput_1',['ActorOutput',['../d7/de1/classEchoTrio_1_1VoiceChat_1_1ActorOutput.html#a7491d0ce14b85bae673a0b0e89bafeec',1,'EchoTrio::VoiceChat::ActorOutput']]],
   ['addevent_2',['AddEvent',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a6d79ff76750b5d8f56f8fcda83c5c746',1,'GameEvent::GameEventSystem']]],
   ['addevent_3c_20t_20_3e_3',['AddEvent&lt; T &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#a957b06e47494855f8301c403a0f1534c',1,'GameEvent::GameEventSystem']]],
   ['addevent_3c_20t1_2c_20t2_20_3e_4',['AddEvent&lt; T1, T2 &gt;',['../d7/d61/classGameEvent_1_1GameEventSystem.html#afa596583fdebe990bd882cf2ab5da7cb',1,'GameEvent::GameEventSystem']]],
@@ -11,7 +11,7 @@ var searchData=
   ['addsystemmesssage_8',['AddSystemMesssage',['../d9/d56/classEchoTrio_1_1Actor.html#a3fd2664be7e12035496387ce6dbd036c',1,'EchoTrio::Actor']]],
   ['addusermessage_9',['AddUserMessage',['../d9/d56/classEchoTrio_1_1Actor.html#a928d0a63a52511461d5277bc1b24cd92',1,'EchoTrio::Actor']]],
   ['areallfeaturesenabled_10',['AreAllFeaturesEnabled',['../d8/df0/classEchoTrio_1_1ActorConfig.html#a53ad9a058a8bedc84f126e66c047bf21',1,'EchoTrio::ActorConfig']]],
-  ['audiostream_11',['AudioStream',['../d8/d8d/classEchoTrio_1_1AudioStream.html#a0008f555a85bea05254f678ec2177c73',1,'EchoTrio.AudioStream.AudioStream(ElevenLabsClient eleventLabsApi, TextToSpeechRequest request, CancellationToken cancellationToken)'],['../d8/d8d/classEchoTrio_1_1AudioStream.html#ada910e3d876dda56fb17fd2e144a907b',1,'EchoTrio.AudioStream.AudioStream()']]],
-  ['audiothread_12',['AudioThread',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a1a245e1066bcdb0688a19f05d4fce780',1,'EchoTrio::VoiceChat']]],
-  ['awake_13',['Awake',['../dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#aaf0d3da6a98561e4f33942ad49778fe6',1,'EchoTrio.Gameplay.GameManager.Awake()'],['../da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#a82dfc5403855a3c91e1f12a05d89b5fc',1,'EchoTrio.UI.FadeEffect.Awake()'],['../d1/d52/classEchoTrio_1_1UI_1_1UserTextInput.html#a13597eb0b657ab4f4efe1994ab756785',1,'EchoTrio.UI.UserTextInput.Awake()'],['../dd/d64/classEchoTrio_1_1VoiceChat.html#ab7f7a9ea2b0b6d4d01a6f2c873f5bb06',1,'EchoTrio.VoiceChat.Awake()']]]
+  ['audiothread_11',['AudioThread',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a1a245e1066bcdb0688a19f05d4fce780',1,'EchoTrio::VoiceChat']]],
+  ['authenticationfileexists_12',['AuthenticationFileExists',['../d4/d50/classEchoTrio_1_1Authentication.html#a36beda5edeb0043fe21beb6f781113ac',1,'EchoTrio::Authentication']]],
+  ['awake_13',['Awake',['../de/d41/classEchoTrio_1_1Gameplay_1_1AuthenticationChecker.html#a5591086899759fc49339242e3e49e38a',1,'EchoTrio.Gameplay.AuthenticationChecker.Awake()'],['../dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#aaf0d3da6a98561e4f33942ad49778fe6',1,'EchoTrio.Gameplay.GameManager.Awake()'],['../da/d75/classEchoTrio_1_1UI_1_1FadeEffect.html#a82dfc5403855a3c91e1f12a05d89b5fc',1,'EchoTrio.UI.FadeEffect.Awake()'],['../d1/d52/classEchoTrio_1_1UI_1_1UserTextInput.html#a13597eb0b657ab4f4efe1994ab756785',1,'EchoTrio.UI.UserTextInput.Awake()'],['../dd/d64/classEchoTrio_1_1VoiceChat.html#ab7f7a9ea2b0b6d4d01a6f2c873f5bb06',1,'EchoTrio.VoiceChat.Awake()']]]
 ];

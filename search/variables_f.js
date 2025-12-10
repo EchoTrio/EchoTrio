@@ -13,6 +13,5 @@ var searchData=
   ['stateexits_10',['stateExits',['../db/d4d/classFSM_1_1FiniteStateMachine.html#a69d30b4c596199ae97faa69753223cf4',1,'FSM::FiniteStateMachine']]],
   ['statelateupdates_11',['stateLateUpdates',['../db/d4d/classFSM_1_1FiniteStateMachine.html#a4bf38b39787a0f8329d32efd10da5e67',1,'FSM::FiniteStateMachine']]],
   ['stateupdates_12',['stateUpdates',['../db/d4d/classFSM_1_1FiniteStateMachine.html#a5d49eb4f7b0485b218fbb77d5c8f58d3',1,'FSM::FiniteStateMachine']]],
-  ['statusmutex_13',['statusMutex',['../d7/d1d/classEchoTrio_1_1Director.html#a12d97760556d6a7d6c3b72d677901462',1,'EchoTrio::Director']]],
-  ['streamended_14',['streamEnded',['../d8/d8d/classEchoTrio_1_1AudioStream.html#a212122186e8f77c47623a61a80680ffc',1,'EchoTrio::AudioStream']]]
+  ['statusmutex_13',['statusMutex',['../d7/d1d/classEchoTrio_1_1Director.html#a12d97760556d6a7d6c3b72d677901462',1,'EchoTrio::Director']]]
 ];

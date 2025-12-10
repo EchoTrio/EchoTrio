@@ -1,0 +1,4 @@
+<map id="EchoTrio.Gameplay.AuthenticationChecker" name="EchoTrio.Gameplay.AuthenticationChecker">
+<area shape="rect" id="node1" title="MonoBehaviour to check if the authentication file exists before starting the experience." alt="" coords="5,131,249,311"/>
+<area shape="rect" id="node2" title=" " alt="" coords="65,5,189,83"/>
+</map>

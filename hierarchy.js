@@ -4,7 +4,6 @@ var hierarchy =
     [ "EchoTrio.VoiceChat.ActorOutput", "d7/de1/classEchoTrio_1_1VoiceChat_1_1ActorOutput.html", null ],
     [ "EchoTrio.VoiceChat.ActorReferences", "d0/d21/classEchoTrio_1_1VoiceChat_1_1ActorReferences.html", null ],
     [ "EchoTrio.Gameplay.GameManager.AnimationReferences", "df/d43/classEchoTrio_1_1Gameplay_1_1GameManager_1_1AnimationReferences.html", null ],
-    [ "EchoTrio.AudioStream", "d8/d8d/classEchoTrio_1_1AudioStream.html", null ],
     [ "EchoTrio.Authentication", "d4/d50/classEchoTrio_1_1Authentication.html", null ],
     [ "OpenAI.BaseResponse", null, [
       [ "EchoTrio.OutputTextContent", "dc/d34/classEchoTrio_1_1OutputTextContent.html", null ]
@@ -23,6 +22,7 @@ var hierarchy =
       [ "EchoTrio.OutputTextContent", "dc/d34/classEchoTrio_1_1OutputTextContent.html", null ]
     ] ],
     [ "MonoBehaviour", null, [
+      [ "EchoTrio.Gameplay.AuthenticationChecker", "de/d41/classEchoTrio_1_1Gameplay_1_1AuthenticationChecker.html", null ],
       [ "EchoTrio.Gameplay.GameManager", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html", null ],
       [ "EchoTrio.Log.ConversationLogger", "dc/d70/classEchoTrio_1_1Log_1_1ConversationLogger.html", null ],
       [ "EchoTrio.Log.FeedbackLogger", "d9/d96/classEchoTrio_1_1Log_1_1FeedbackLogger.html", null ],

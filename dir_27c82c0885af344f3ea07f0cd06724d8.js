@@ -2,7 +2,6 @@ var dir_27c82c0885af344f3ea07f0cd06724d8 =
 [
     [ "Actor.cs", "da/daa/Actor_8cs.html", "da/daa/Actor_8cs" ],
     [ "ActorConfig.cs", "df/d27/ActorConfig_8cs.html", "df/d27/ActorConfig_8cs" ],
-    [ "AudioStream.cs", "df/ddc/AudioStream_8cs.html", "df/ddc/AudioStream_8cs" ],
     [ "Authentication.cs", "d7/d6c/Authentication_8cs.html", "d7/d6c/Authentication_8cs" ],
     [ "Director.cs", "d8/d7e/Director_8cs.html", "d8/d7e/Director_8cs" ],
     [ "DirectorConfig.cs", "df/dff/DirectorConfig_8cs.html", "df/dff/DirectorConfig_8cs" ],

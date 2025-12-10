@@ -1,7 +1,7 @@
 var searchData=
 [
   ['echotrio_0',['EchoTrio',['../dd/df7/namespaceEchoTrio.html',1,'']]],
-  ['elevenlabsapi_1',['elevenLabsApi',['../d9/d56/classEchoTrio_1_1Actor.html#a89eb93e05832e809ab043fa1aceaba42',1,'EchoTrio.Actor.elevenLabsApi()'],['../d8/d8d/classEchoTrio_1_1AudioStream.html#aa7ab1e8c8ca146f4a656dc5a263d3a4f',1,'EchoTrio.AudioStream.elevenLabsApi()']]],
+  ['elevenlabsapi_1',['elevenLabsApi',['../d9/d56/classEchoTrio_1_1Actor.html#a89eb93e05832e809ab043fa1aceaba42',1,'EchoTrio::Actor']]],
   ['elevenlabssettings_2',['ElevenLabsSettings',['../da/da6/classEchoTrio_1_1Actor_1_1ElevenLabsSettings.html',1,'EchoTrio.Actor.ElevenLabsSettings'],['../da/da6/classEchoTrio_1_1Actor_1_1ElevenLabsSettings.html#a63f5839a1f9f572b8687401481e0f06f',1,'EchoTrio.Actor.ElevenLabsSettings.ElevenLabsSettings()']]],
   ['elevenlabssettings_3',['elevenLabsSettings',['../d9/d56/classEchoTrio_1_1Actor.html#a74376c0edae78ea82952a0110e83c1d3',1,'EchoTrio::Actor']]],
   ['elevenlabsvoiceid_4',['elevenLabsVoiceId',['../d8/df0/classEchoTrio_1_1ActorConfig.html#aca04f9faa41904b0aec6ef2891bea00e',1,'EchoTrio::ActorConfig']]],
