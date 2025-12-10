@@ -1,5 +1,3 @@
-// By Terri Lim, CMU ETC Class of 2026. Last updated by me in December 2025. Feel free to judge any code up till then.
-
 namespace FSM {
     /// Finite state machine class to handle state transitions and updates.
     public class FiniteStateMachine {

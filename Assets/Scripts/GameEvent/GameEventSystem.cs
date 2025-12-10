@@ -1,5 +1,3 @@
-// By Terri Lim, (CMU ETC Class of 2026)
-
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;

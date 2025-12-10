@@ -1,4 +1,3 @@
-// By Terri Lim, CMU ETC Class of 2026. Last updated by me in December 2025. Feel free to judge any code up till then.
 using ElevenLabs;
 using ElevenLabs.TextToSpeech;
 using Newtonsoft.Json;
@@ -217,14 +216,14 @@ namespace EchoTrio {
                 Emotion emotion = (Emotion)i;
                 emotions.Add(emotion.ToString());
             }
-
+            
             var args = new {
                 type = "object",
                 properties = new {
                     emotion = new {
                         type = "string",
                         description = "The emotion of your reply.",
-                        @enum = emotions.ToArray() // Adding an enum means that the AI can only pick from this set of values. (Well, the AI is stupid and still sometimes hallucinates invalid values.)
+                        @enum = emotions.ToArray() // Adding an enum means that the AI can only pick from this set of values. (Well, the AI still sometimes hallucinates invalid values.)
                     }
                 },
                 required = new[] { "emotion" }

@@ -1,4 +1,3 @@
-// By Terri Lim, CMU ETC Class of 2026. Last updated by me in December 2025. Feel free to judge any code up till then.
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using OpenAI;
@@ -164,7 +163,7 @@ namespace EchoTrio {
                 Model.GPT4oRealtime,
                 modalities: Modality.Text, // Text only since Director is not speaking to user directly.
                 instructions: this.config ? this.config.instructions : null,
-                inputAudioTranscriptionSettings: new OpenAI.Realtime.InputAudioTranscriptionSettings(Model.Transcribe_GPT_4o, language: "en"), // The settings we use to transcribe what the human says. Without this, the human's speech will not get transcibed. Apparently the language setting is fucking useless.
+                inputAudioTranscriptionSettings: new OpenAI.Realtime.InputAudioTranscriptionSettings(Model.Transcribe_GPT_4o, language: "en"), // The settings we use to transcribe what the human says. Without this, the human's speech will not get transcibed. Apparently the language setting doesn't work.
                 turnDetectionSettings: new OpenAI.Realtime.ServerVAD(silenceDuration: 2000, createResponse: false), // We want Server VAD so that the AI automatically detects when speech starts or ends. But we don't want it to automatically trigger a response, because we have to make sure that a text input isn't already sent.
                 tools: this.tools,
                 toolChoice: "required"); // Set to auto or required to allow the AI to use tools.
@@ -379,7 +378,7 @@ namespace EchoTrio {
                         description = "The order which the AI models will respond to the user.",
                         items = new {
                             type = "string",
-                            @enum = speakers.ToArray() // Adding an enum means that the AI can only pick from this set of values. (Well, the AI is stupid and still sometimes hallucinates invalid values.)
+                            @enum = speakers.ToArray() // Adding an enum means that the AI can only pick from this set of values. (Well, the AI still sometimes hallucinates invalid values.)
                         },
                         minItems = 1,
                         maxItems = speakers.Count,
@@ -404,7 +403,7 @@ namespace EchoTrio {
                     topic = new {
                         type = "string",
                         description = "The topic of the discussion to trigger.",
-                        @enum = topics.ToArray() // Adding an enum means that the AI can only pick from this set of values. (Well, the AI is stupid and still sometimes hallucinates invalid values.)
+                        @enum = topics.ToArray() // Adding an enum means that the AI can only pick from this set of values. (Well, the AI still sometimes hallucinates invalid values.)
                     }
                 },
                 required = new[] { "topic" }
