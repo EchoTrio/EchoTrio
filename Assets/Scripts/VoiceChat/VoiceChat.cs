@@ -2,10 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using GameEvent;
 using Microsoft.Extensions.Configuration;
 using UnityEngine;
-using static EchoTrio.ActorConfig;
 
 namespace EchoTrio {
     /// Voice chat system that acts as an intermediary between the human user and the AI models.
@@ -50,6 +50,7 @@ namespace EchoTrio {
 
         /// Output of actors to be queued and played by the audio thread.
         private class ActorOutput {
+            public bool isFirst;
             public string persona;
             public string message;
             public Emotion emotion = Emotion.Neutral;
@@ -57,7 +58,8 @@ namespace EchoTrio {
             public AudioClip audioClip;
             public AudioSource audioSource;
 
-            public ActorOutput(string persona, string message, Emotion emotion, List<string> reasonings, AudioClip audioClip, AudioSource audioSource) {
+            public ActorOutput(bool isFirst, string persona, string message, Emotion emotion, List<string> reasonings, AudioClip audioClip, AudioSource audioSource) {
+                this.isFirst = isFirst; 
                 this.persona = persona;
                 this.message = message;
                 this.emotion = emotion;
@@ -136,6 +138,8 @@ namespace EchoTrio {
         public int GetRoundCounter() { return roundCounter; }
 
         public int GetFinishRound() { return finishRound; }
+
+        public bool IsAudioPlaying() { return isAudioPlaying; }
 
         // Internal Functions
         private void Awake() {
@@ -218,7 +222,7 @@ namespace EchoTrio {
                     actorReferences[i].listeningIcon.SetSprite(director.IsStatus(Director.Status.Listening) ? 1 : 0);
                 }
             }
-            
+
             // Cleanup finished audio clips.
             lock (audioClipGarbageCollector) {
                 foreach (var kv in audioClipGarbageCollector) {
@@ -237,7 +241,7 @@ namespace EchoTrio {
         /// Queue up an actor's output to be played by the audio thread.
         /// </summary>
         /// <param name="actorOutput">The actor output to queue.</param>
-        private void QueueActorOutput(ActorOutput actorOutput) {
+        private async Task QueueActorOutput(string persona, string message, Emotion emotion, List<string> reasonings, AudioStream audioStream, AudioSource audioSource) {
             // Flag that audio has started playing.
             // Even though it doesn't actually play until the audio thread plays it, this flag has to be set here and not in the audio thread to ensure that the main thread doesn't start listening to user input again.
             // Because in theory it can be a few frames before the audio thread gets to it and we don't want to accidentally trigger listening for user input in the mean time.
@@ -246,15 +250,23 @@ namespace EchoTrio {
             // Ensure that the audio clip is added to the garbage collector before being queued.
             // This is so that it is impossible for the audio thread to mark a clip as finished and putting it into the garbage collector before we do it here, causing a double insert.
             // Because the audio thread and the main thread runs concurrently.
-            if (actorOutput.audioClip != null) {
-                lock (audioClipGarbageCollector) {
-                    audioClipGarbageCollector.Add(actorOutput.audioClip, false);
+            bool isFirst = true;
+            while (!audioStream.IsDone()) {
+                AudioClip audioClip = audioStream.TryGetAudioClip();
+                if (audioClip == null) {
+                    await Task.Yield();
+                    continue;
                 }
-            }
 
-            // Actually queue the actor output to be played.
-            lock (actorOutputQueue) {
-                actorOutputQueue.Enqueue(actorOutput);
+                lock (audioClipGarbageCollector) {
+                    audioClipGarbageCollector.Add(audioClip, false);
+                }
+
+                // Actually queue the actor output to be played.
+                lock (actorOutputQueue) {
+                    actorOutputQueue.Enqueue(new ActorOutput(isFirst, persona, message, emotion, reasonings, audioClip, audioSource));
+                }
+                isFirst = false;
             }
         }
 
@@ -267,7 +279,7 @@ namespace EchoTrio {
             Debug.Log("Starting audio thread...");
 
             // Run this loop until the MonoBehaviour is destroyed.
-            AudioSource playingAudioSource = null; 
+            AudioSource playingAudioSource = null;
             while (!destroyCancellationToken.IsCancellationRequested) {
                 // If there is already an audio clip playing, wait for it to be done.
                 if (playingAudioSource != null && playingAudioSource.isPlaying) {
@@ -299,11 +311,14 @@ namespace EchoTrio {
                         playingAudioSource.Play();
                     }
 
-                    Debug.Log($"{actorOutput.persona} is {actorOutput.emotion.ToString()}");
-                    chatbox.AddMessage(actorOutput.persona, actorOutput.message);
-                    if (showReasoning) {
-                        for (int i = 0; i < actorOutput.reasonings.Count; ++i) {
-                            chatbox.AddMessage(actorOutput.persona + $"'s Reasoning {i + 1}", actorOutput.reasonings[i]);
+                    // Display the text if this is the first chunk of a stream.
+                    if (actorOutput.isFirst) {
+                        Debug.Log($"{actorOutput.persona} is {actorOutput.emotion.ToString()}");
+                        chatbox.AddMessage(actorOutput.persona, actorOutput.message);
+                        if (showReasoning) {
+                            for (int i = 0; i < actorOutput.reasonings.Count; ++i) {
+                                chatbox.AddMessage(actorOutput.persona + $"'s Reasoning {i + 1}", actorOutput.reasonings[i]);
+                            }
                         }
                     }
                 }
@@ -460,7 +475,8 @@ namespace EchoTrio {
                 }
 
                 Actor.Response actorResponse = await actor.GetResponse(destroyCancellationToken);
-                QueueActorOutput(new ActorOutput(actor.Persona, actorResponse.message, actorResponse.emotion, actorResponse.reasonings, actorResponse.audioClip, audioSource));
+                // Can this be further optimised so that we don't have to await it?
+                await QueueActorOutput(actor.Persona, actorResponse.message, actorResponse.emotion, actorResponse.reasonings, actorResponse.audioStream, audioSource);
                 PropogateActorMessage(actor, actorResponse.message);
             }
 
@@ -476,7 +492,7 @@ namespace EchoTrio {
         // Discussion State
         private async void RunScriptedDiscussion(ScriptedDiscussion discussion) {
             BeginQueuingAudio();
-            
+
             foreach (ScriptedDiscussion.Dialogue dialogue in discussion.GetDialogues()) {
                 var (actor, audioSource) = actors.GetValueOrDefault(dialogue.speaker.ToString(), (null, null));
                 if (actor == null || audioSource == null) {
@@ -484,8 +500,9 @@ namespace EchoTrio {
                     continue;
                 }
 
-                Actor.Response actorResponse = await actor.InsertResponse(dialogue.message, dialogue.emotion, destroyCancellationToken);
-                QueueActorOutput(new ActorOutput(actor.Persona, actorResponse.message, actorResponse.emotion, actorResponse.reasonings, actorResponse.audioClip, audioSource));
+                Actor.Response actorResponse = actor.InsertResponse(dialogue.message, dialogue.emotion, destroyCancellationToken);
+                // Can this be further optimised so that we don't have to await it?
+                await QueueActorOutput(actor.Persona, actorResponse.message, actorResponse.emotion, actorResponse.reasonings, actorResponse.audioStream, audioSource);
                 PropogateActorMessage(actor, actorResponse.message);
             }
 
@@ -506,7 +523,8 @@ namespace EchoTrio {
 
                 actor.AddSystemMesssage(discussion.GetDiscussionPrompt());
                 Actor.Response actorResponse = await actor.GetResponse(destroyCancellationToken);
-                QueueActorOutput(new ActorOutput(actor.Persona, actorResponse.message, actorResponse.emotion, actorResponse.reasonings, actorResponse.audioClip, audioSource));
+                // Can this be further optimised so that we don't have to await it?
+                await QueueActorOutput(actor.Persona, actorResponse.message, actorResponse.emotion, actorResponse.reasonings, actorResponse.audioStream, audioSource);
                 PropogateActorMessage(actor, actorResponse.message);
             }
 
