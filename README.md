@@ -6,7 +6,7 @@
 
 ## Running the Game
 ### Opening the Unity Project
-1. Ensure you have [Unity 6.2](https://docs.google.com/document/d/18ge-kDuYu1pYe3VaC0oYd6mhCOw7E2qkABDeP8M4Ptw/edit?usp=sharing) or higher installed.
+1. Ensure you have [Unity 6.3](https://unity.com/download) or higher installed.
 2. Clone this repository to your local machine.
 3. Open the project with Unity, and open the `Playtest` scene.
 4. Ensure you have 3 Game windows opened in Unity and set them to Display 1, Display 2, Display 3 respectively.
