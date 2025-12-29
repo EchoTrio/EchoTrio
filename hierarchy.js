@@ -5,9 +5,6 @@ var hierarchy =
     [ "EchoTrio.VoiceChat.ActorReferences", "d0/d21/classEchoTrio_1_1VoiceChat_1_1ActorReferences.html", null ],
     [ "EchoTrio.Gameplay.GameManager.AnimationReferences", "df/d43/classEchoTrio_1_1Gameplay_1_1GameManager_1_1AnimationReferences.html", null ],
     [ "EchoTrio.Authentication", "d4/d50/classEchoTrio_1_1Authentication.html", null ],
-    [ "OpenAI.BaseResponse", null, [
-      [ "EchoTrio.OutputTextContent", "dc/d34/classEchoTrio_1_1OutputTextContent.html", null ]
-    ] ],
     [ "EchoTrio.ScriptedDiscussion.Dialogue", "dc/dc0/classEchoTrio_1_1ScriptedDiscussion_1_1Dialogue.html", null ],
     [ "EchoTrio.Director", "d7/d1d/classEchoTrio_1_1Director.html", null ],
     [ "Editor", null, [
@@ -18,9 +15,6 @@ var hierarchy =
     [ "FSM.FiniteStateMachine", "db/d4d/classFSM_1_1FiniteStateMachine.html", null ],
     [ "GameEvent.GameEventSystem", "d7/d61/classGameEvent_1_1GameEventSystem.html", null ],
     [ "EchoTrio.ActorConfig.InstructionSnippet", "d1/db5/classEchoTrio_1_1ActorConfig_1_1InstructionSnippet.html", null ],
-    [ "OpenAI.Responses.IResponseContent", null, [
-      [ "EchoTrio.OutputTextContent", "dc/d34/classEchoTrio_1_1OutputTextContent.html", null ]
-    ] ],
     [ "MonoBehaviour", null, [
       [ "EchoTrio.Gameplay.AuthenticationChecker", "de/d41/classEchoTrio_1_1Gameplay_1_1AuthenticationChecker.html", null ],
       [ "EchoTrio.Gameplay.GameManager", "dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html", null ],

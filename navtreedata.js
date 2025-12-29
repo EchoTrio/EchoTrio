@@ -58,7 +58,7 @@ var NAVTREEINDEX =
 "annotated.html",
 "d7/d61/classGameEvent_1_1GameEventSystem.html#a5a950e160a919fefda05b2c6020d2038",
 "da/daa/Actor_8cs_source.html",
-"dd/d9d/classEchoTrio_1_1Actor_1_1Response.html#ab9b7bd553dd3a34011a15b259c9105f9"
+"dd/de0/classEchoTrio_1_1Gameplay_1_1GameManager.html#a519035c4d45f418fc348e5495b6c5108"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

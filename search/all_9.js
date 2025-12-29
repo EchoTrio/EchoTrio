@@ -6,6 +6,5 @@ var searchData=
   ['listen_3',['Listen',['../dd/d64/classEchoTrio_1_1VoiceChat.html#a752575eab8952268953aa1da22816e59ace6802b46091c31e2ec2363883fe8369',1,'EchoTrio::VoiceChat']]],
   ['listenfornextuserinput_4',['ListenForNextUserInput',['../d7/d1d/classEchoTrio_1_1Director.html#ae5fd144b7d5524ee5d8f73764601f390',1,'EchoTrio::Director']]],
   ['listening_5',['Listening',['../d7/d1d/classEchoTrio_1_1Director.html#af77a40de522ce06b697080fbb2fc9642a962ef616821625a13a028ac14ac0fef8',1,'EchoTrio::Director']]],
-  ['listeningicon_6',['listeningIcon',['../d0/d21/classEchoTrio_1_1VoiceChat_1_1ActorReferences.html#aebf4573e13355e9bb90a872846ae7184',1,'EchoTrio::VoiceChat::ActorReferences']]],
-  ['logprobs_7',['LogProbs',['../dc/d34/classEchoTrio_1_1OutputTextContent.html#a9cab55e8a0b64aa74f032afcb1013268',1,'EchoTrio::OutputTextContent']]]
+  ['listeningicon_6',['listeningIcon',['../d0/d21/classEchoTrio_1_1VoiceChat_1_1ActorReferences.html#aebf4573e13355e9bb90a872846ae7184',1,'EchoTrio::VoiceChat::ActorReferences']]]
 ];

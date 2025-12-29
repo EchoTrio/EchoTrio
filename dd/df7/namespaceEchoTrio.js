@@ -12,7 +12,6 @@ var namespaceEchoTrio =
     [ "Discussion", "d5/df6/classEchoTrio_1_1Discussion.html", "d5/df6/classEchoTrio_1_1Discussion" ],
     [ "EmotionExtensions", "d0/d02/classEchoTrio_1_1EmotionExtensions.html", "d0/d02/classEchoTrio_1_1EmotionExtensions" ],
     [ "GeneratedDiscussion", "d2/d65/classEchoTrio_1_1GeneratedDiscussion.html", "d2/d65/classEchoTrio_1_1GeneratedDiscussion" ],
-    [ "OutputTextContent", "dc/d34/classEchoTrio_1_1OutputTextContent.html", "dc/d34/classEchoTrio_1_1OutputTextContent" ],
     [ "PersonaExtensions", "dc/dc6/classEchoTrio_1_1PersonaExtensions.html", "dc/dc6/classEchoTrio_1_1PersonaExtensions" ],
     [ "ScriptedDiscussion", "da/d80/classEchoTrio_1_1ScriptedDiscussion.html", "da/d80/classEchoTrio_1_1ScriptedDiscussion" ],
     [ "VoiceChat", "dd/d64/classEchoTrio_1_1VoiceChat.html", "dd/d64/classEchoTrio_1_1VoiceChat" ],
