@@ -113,7 +113,7 @@ namespace EchoTrio {
         /// <returns>The actor's response.</returns>
         public async Task<Actor.Response> InsertResponse(string message, Emotion emotion, CancellationToken cancellationToken) {
             // Bit of a hack because assistant messages must now be of type output_text. Had to make my own custom class because the package's creator rejected my pull request.
-            conversation.Add(new Message(OpenAI.Role.Assistant, new OutputTextContent(message)));
+            conversation.Add(new Message(OpenAI.Role.Assistant, message));
             return new Actor.Response() {
                 message = message,
                 emotion = emotion,
