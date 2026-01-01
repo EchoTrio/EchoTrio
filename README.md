@@ -48,10 +48,10 @@ The following dependencies have already been configured in Unity's Package Manag
 - Unofficial ElevenLabs Package for Unity: https://github.com/RageAgainstThePixel/com.rest.elevenlabs
 
 The following dependencies have been directly placed in the `Packages` folder:
-- Spelunx ORBBEC SDK to detect if a user has walked up to the booth: https://upm.etc.cmu.edu/-/web/detail/com.spelunx.cavern.orbbec.sdk (Link only accessible via CMU's WLAN.)
+- Spelunx ORBBEC SDK to detect if a user has walked up to the booth: https://unity.etc.cmu.edu/-/web/detail/com.spelunx.cavern.orbbec.sdk (Link only accessible via CMU's WLAN.)
 
 The following dependencies are automatically downloaded as a dependency. (Must be connected to CMU's WLAN!):
-- Spelunx ORBBEC Library for the binary dependencies needed for the ORBBEC Femto Bolt: https://upm.etc.cmu.edu/-/web/detail/com.spelunx.cavern.orbbec.libs (Link only accessible via CMU's WLAN.)
+- Spelunx ORBBEC Library for the binary dependencies needed for the ORBBEC Femto Bolt: https://unity.etc.cmu.edu/-/web/detail/com.spelunx.cavern.orbbec.libs (Link only accessible via CMU's WLAN.)
 
 ### IMPORTANT NOTES WHEN BUILDING YOUR .EXE!
 When you build your executable, you have to copy the following ORBBEC binaries into your build folder too! They will be found in your root folder if you have the Spelunx ORBBEC Library downloaded.

@@ -63,8 +63,8 @@
       ]
     },
     {
-      "name": "CMU ETC",
-      "url": "https://upm.etc.cmu.edu",
+      "name": "CMU ETC Spelunx",
+      "url": "https://unity.etc.cmu.edu/",
       "scopes": [
         "com.spelunx"
       ]
